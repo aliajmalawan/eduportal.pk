@@ -1,0 +1,257 @@
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# Block direct HTTP access to dotfiles (.env, .env.example, .gitignore, etc.)
+# — .env holds the Google Places API key and must never be servable as a
+# plain file over the web.
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Keep non-production copies of this site out of search results.
+#
+# Emits X-Robots-Tag: noindex, nofollow on EVERY hostname except the real
+# production ones listed below — so a staging/demo/test copy of this codebase
+# is never indexed, while eduportal.pk and www.eduportal.pk are untouched.
+#
+# This is an allowlist on purpose: a new staging host is protected the moment
+# it exists, without anyone remembering to add a rule. Verify after deploying
+# that production does NOT send the header:
+#   curl -sI https://eduportal.pk/ | grep -i x-robots-tag     # expect no output
+#
+# NOTE: a noindex header only works if the crawler is allowed to FETCH the
+# page. Do not also Disallow these hosts in robots.txt — a disallowed URL is
+# never fetched, so the header is never seen, and the URL can still be
+# indexed without a snippet. Allow crawling; let this header do the work.
+# SetEnvIfNoCase, and an optional :port, because Host headers are
+# case-insensitive and may carry a port — "EDUPORTAL.PK" or
+# "eduportal.pk:443" are production and must NOT be de-indexed.
+<IfModule mod_setenvif.c>
+  SetEnvIf Host "." EP_NONPROD=1
+  SetEnvIfNoCase Host "^eduportal\.pk(:[0-9]+)?$"     !EP_NONPROD
+  SetEnvIfNoCase Host "^www\.eduportal\.pk(:[0-9]+)?$" !EP_NONPROD
+</IfModule>
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow" env=EP_NONPROD
+</IfModule>
+
+# Clean careers URLs (Task 7). The public pages, the navbar/footer links, the
+# canonical tags, the JobPosting structured data, and the sitemap all use
+# /careers and /careers/{slug}; the underlying scripts stay careers.php and
+# career.php?slug=…, matching the query-string routing the rest of the site
+# already uses (blog-post.php?slug=…, case-study.php?slug=…).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # /careers  ->  careers.php   (query string preserved, e.g. ?department=Sales)
+  RewriteRule ^careers/?$ careers.php [L,QSA]
+
+  # /careers/{slug}  ->  career.php?slug={slug}
+  RewriteRule ^careers/([A-Za-z0-9_-]+)/?$ career.php?slug=$1 [L,QSA]
+
+  # /sitemap.xml  ->  the generated sitemap
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+  # /llms.txt -> the generated AI/LLM site summary. Generated rather than a
+  # static file so the client count and contact details stay Admin-Panel
+  # driven (see llms.php).
+  RewriteRule ^llms\.txt$ llms.php [L]
+
+  # /features -> the feature index. The rules further down serve every
+  # /features/{slug} child page, but the bare /features index had no rule and
+  # returned 404 even though features.php exists.
+  RewriteRule ^features/?$ features.php [L,QSA]
+
+  # /case-studies and /case-studies/{slug}. Same query-string routing the
+  # careers pages use; the .php URLs 301 to the clean ones.
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/case-studies\.php[\s?] [NC]
+  RewriteRule ^ %1/case-studies? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/case-study\.php\?slug=([A-Za-z0-9_-]+)[\s&] [NC]
+  RewriteRule ^ %1/case-studies/%2? [R=301,L]
+  RewriteRule ^case-studies/?$ case-studies.php [L,QSA]
+  RewriteRule ^case-studies/([A-Za-z0-9_-]+)/?$ case-study.php?slug=$1 [L,QSA]
+
+  # /docs and /docs/{slug}
+  RewriteRule ^docs/?$ docs.php [L,QSA]
+  RewriteRule ^docs/([A-Za-z0-9_-]+)/?$ docs.php?slug=$1 [L,QSA]
+
+  # /compare and /compare/{slug}
+  RewriteRule ^compare/?$ compare.php [L,QSA]
+  RewriteRule ^compare/([A-Za-z0-9_-]+)/?$ compare.php?slug=$1 [L,QSA]
+
+  # /pricing  ->  pricing.php   (old .php URL 301s to the clean one)
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/pricing\.php[\s?] [NC]
+  RewriteRule ^ %1/pricing? [R=301,L]
+  RewriteRule ^pricing/?$ pricing.php [L,QSA]
+
+  # --- Feature module pages (Task 8) ---
+  # Old .php URLs 301 to /features/{slug}. The THE_REQUEST condition
+  # matches only what the browser actually asked for, so the internal
+  # rewrite below cannot re-trigger the redirect and loop.
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/attendance-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/attendance? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/fee-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/fee-management? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/examination-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/examinations? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/sms-messaging\.php[\s?] [NC]
+  RewriteRule ^ %1/features/sms-alerts? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/whatsapp-communication\.php[\s?] [NC]
+  RewriteRule ^ %1/features/whatsapp? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/parent-mobile-app\.php[\s?] [NC]
+  RewriteRule ^ %1/features/parent-app? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/teacher-mobile-app\.php[\s?] [NC]
+  RewriteRule ^ %1/features/teacher-app? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/accounting-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/accounting? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/canteen-pos\.php[\s?] [NC]
+  RewriteRule ^ %1/features/canteen-pos? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/certificates-id-cards\.php[\s?] [NC]
+  RewriteRule ^ %1/features/certificates? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/customer-support\.php[\s?] [NC]
+  RewriteRule ^ %1/features/customer-support? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/customization-options\.php[\s?] [NC]
+  RewriteRule ^ %1/features/customization? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/exam-datasheets\.php[\s?] [NC]
+  RewriteRule ^ %1/features/exam-datasheets? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/expenses-profit-loss\.php[\s?] [NC]
+  RewriteRule ^ %1/features/expenses? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/hostel-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/hostel? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/id-cards-generation\.php[\s?] [NC]
+  RewriteRule ^ %1/features/id-cards? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/inventory-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/inventory? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/lesson-plans-syllabus\.php[\s?] [NC]
+  RewriteRule ^ %1/features/lesson-plans? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/library-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/library? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/lms-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/lms? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/multi-campus-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/multi-campus? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/online-admissions\.php[\s?] [NC]
+  RewriteRule ^ %1/features/admissions? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/payroll-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/payroll? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/student-information-system\.php[\s?] [NC]
+  RewriteRule ^ %1/features/student-information? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/timetable-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/timetable? [R=301,L]
+  RewriteCond %{THE_REQUEST} \s([^\s]*)/transport-management\.php[\s?] [NC]
+  RewriteRule ^ %1/features/transport? [R=301,L]
+
+  # Serve /features/{slug} from its script.
+  RewriteRule ^features/attendance/?$ attendance-management.php [L,QSA]
+  RewriteRule ^features/fee-management/?$ fee-management.php [L,QSA]
+  RewriteRule ^features/examinations/?$ examination-management.php [L,QSA]
+  RewriteRule ^features/sms-alerts/?$ sms-messaging.php [L,QSA]
+  RewriteRule ^features/whatsapp/?$ whatsapp-communication.php [L,QSA]
+  RewriteRule ^features/parent-app/?$ parent-mobile-app.php [L,QSA]
+  RewriteRule ^features/teacher-app/?$ teacher-mobile-app.php [L,QSA]
+  RewriteRule ^features/accounting/?$ accounting-management.php [L,QSA]
+  RewriteRule ^features/canteen-pos/?$ canteen-pos.php [L,QSA]
+  RewriteRule ^features/certificates/?$ certificates-id-cards.php [L,QSA]
+  RewriteRule ^features/customer-support/?$ customer-support.php [L,QSA]
+  RewriteRule ^features/customization/?$ customization-options.php [L,QSA]
+  RewriteRule ^features/exam-datasheets/?$ exam-datasheets.php [L,QSA]
+  RewriteRule ^features/expenses/?$ expenses-profit-loss.php [L,QSA]
+  RewriteRule ^features/hostel/?$ hostel-management.php [L,QSA]
+  RewriteRule ^features/id-cards/?$ id-cards-generation.php [L,QSA]
+  RewriteRule ^features/inventory/?$ inventory-management.php [L,QSA]
+  RewriteRule ^features/lesson-plans/?$ lesson-plans-syllabus.php [L,QSA]
+  RewriteRule ^features/library/?$ library-management.php [L,QSA]
+  RewriteRule ^features/lms/?$ lms-management.php [L,QSA]
+  RewriteRule ^features/multi-campus/?$ multi-campus-management.php [L,QSA]
+  RewriteRule ^features/admissions/?$ online-admissions.php [L,QSA]
+  RewriteRule ^features/payroll/?$ payroll-management.php [L,QSA]
+  RewriteRule ^features/student-information/?$ student-information-system.php [L,QSA]
+  RewriteRule ^features/timetable/?$ timetable-management.php [L,QSA]
+  RewriteRule ^features/transport/?$ transport-management.php [L,QSA]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Performance: compression, browser caching, WebP delivery (Task 9.5)
+# ---------------------------------------------------------------------------
+
+# Gzip text responses. AddOutputFilterByType is provided by mod_filter (not
+# mod_deflate), so it must be guarded on mod_filter or Apache 500s the whole
+# site with "Invalid command 'AddOutputFilterByType'". Images/video/fonts are
+# already compressed and are deliberately not re-zipped.
+<IfModule mod_filter.c>
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json application/ld+json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml image/svg+xml
+  </IfModule>
+</IfModule>
+
+# Browser caching. Static assets carry a datestamp in their filename, so they
+# can be cached hard; generated HTML must not be, or CMS edits would not
+# appear until a visitor's cache expired.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/gif              "access plus 1 year"
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 year"
+  ExpiresByType image/x-icon           "access plus 1 year"
+  ExpiresByType video/mp4              "access plus 1 year"
+  ExpiresByType font/woff2             "access plus 1 year"
+  ExpiresByType text/css               "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html              "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|mp4|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Serve foo.jpg.webp in place of foo.jpg when the browser advertises WebP and
+# the converted file exists. Originals stay on disk, so anything that cannot
+# read WebP still gets the JPEG/PNG — no template changes, no broken images.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$ [NC]
+  RewriteCond %{REQUEST_FILENAME}\.webp -f
+  RewriteRule ^(.+)$ $1.webp [T=image/webp,L]
+</IfModule>
+<IfModule mod_headers.c>
+  # Caches must key on Accept, or a proxy could hand a WebP to a client that
+  # cannot display it.
+  <FilesMatch "\.(jpe?g|png)$">
+    Header append Vary Accept
+  </FilesMatch>
+</IfModule>
+
+# Serve foo.min.css / foo.min.js in place of foo.css / foo.js when the
+# minified sibling exists. Keeps every <link>/<script> tag pointing at the
+# readable source file — delete a .min file and the original is served again.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} \.(css|js)$
+  RewriteCond %{REQUEST_FILENAME} !\.min\.(css|js)$
+  RewriteCond %{REQUEST_FILENAME} ^(.+)\.(css|js)$
+  RewriteCond %1.min.%2 -f
+  RewriteRule ^(.+)\.(css|js)$ $1.min.$2 [L]
+</IfModule>

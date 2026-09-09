@@ -1,0 +1,14 @@
+# Nothing in this directory is meant to be browser-accessible — it holds
+# CLI-only cron/dev scripts and raw .sql migration files (which would leak
+# database schema/setting-key structure if served directly). The cron
+# script itself also has its own PHP_SAPI==='cli' guard (STEP 13); this is
+# a second, independent layer at the web-server level so a script that
+# forgets that guard, or any non-.php file here (.sql, etc.), is still
+# never reachable over HTTP.
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>

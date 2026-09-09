@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+
+# CMS-writable runtime upload directories (admin-uploaded media).
+# These change independently of code and include large binaries
+# (video-testimonials alone is 250MB+) that don't belong in git history.
+# The files themselves are untouched on disk — this only stops git from
+# tracking them.
+/uploads/
+/assets/blog-thumbnail/
+/assets/team-photos/
+/assets/thumbnail/
+/assets/video-testimonials/
+/assets/case-study-thumbnail/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+
+# Claude Code session-local state — not project code
+.claude/
+
+# PHP runtime error logs
+error_log
+*/error_log
+*/*/error_log

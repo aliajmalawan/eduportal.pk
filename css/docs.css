@@ -1,0 +1,33 @@
+/* Documentation — /docs (Task 8) */
+.docs-group{margin-bottom:2.5rem}
+.docs-group h2{font-size:1.125rem;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-muted);margin:0 0 .85rem}
+.docs-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+@media (min-width:760px){.docs-list{grid-template-columns:repeat(2,1fr)}}
+.docs-list a{display:block;padding:1rem 1.15rem;background:#fff;border:1px solid var(--color-border);border-radius:10px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.docs-list a:hover{border-color:var(--color-primary);transform:translateY(-2px)}
+.docs-list-title{display:block;font-weight:600;font-size:.9688rem}
+.docs-list-summary{display:block;margin-top:.2rem;font-size:.8438rem;color:var(--color-text-muted);line-height:1.5}
+
+.docs-layout{display:grid;gap:2rem;align-items:start}
+@media (min-width:960px){.docs-layout{grid-template-columns:minmax(0,1fr) 300px}}
+.docs-article h2{font-size:1.375rem;margin:2rem 0 .85rem}
+.docs-article h2:first-child{margin-top:0}
+.docs-intro{font-size:1.0625rem;line-height:1.7;color:var(--color-text-muted)}
+
+/* Numbered steps, with the number rendered as a badge rather than a marker. */
+.docs-steps{list-style:none;counter-reset:docstep;margin:0;padding:0;display:flex;flex-direction:column;gap:1.5rem}
+.docs-steps>li{counter-increment:docstep;position:relative;padding-left:3rem}
+.docs-steps>li::before{content:counter(docstep);position:absolute;left:0;top:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:var(--color-primary);color:#fff;font-weight:700;font-size:.875rem;border-radius:50%}
+.docs-steps>li h3{margin:.25rem 0 .45rem;font-size:1.0625rem}
+.docs-step-body{line-height:1.7}
+.docs-step-body p{margin:0 0 .6rem}
+.docs-step-body ul{margin:0 0 .6rem;padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+
+.docs-tips{margin-top:2rem;padding:1.25rem 1.4rem;background:var(--color-bg-alt);border-left:4px solid var(--color-primary);border-radius:10px}
+.docs-tips h2{margin-top:0;font-size:1.125rem}
+.docs-tips ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.45rem;line-height:1.6}
+
+.docs-aside{display:flex;flex-direction:column;gap:1rem;position:sticky;top:1.5rem}
+.docs-aside-card{padding:1.25rem;background:#fff;border:1px solid var(--color-border);border-radius:12px}
+.docs-aside-card h2{margin:0 0 .5rem;font-size:1rem}
+.docs-aside-card p{margin:0 0 .85rem;font-size:.875rem;line-height:1.6;color:var(--color-text-muted)}

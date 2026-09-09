@@ -1,0 +1,229 @@
+(function () {
+  'use strict';
+
+  const formatNum = (n) => Number(n).toLocaleString('en-PK');
+
+  /* Countdown — ends Sunday 11:59 PM */
+  function getNextSundayEnd() {
+    const now = new Date();
+    const end = new Date(now);
+    const day = now.getDay();
+    const daysUntilSunday = day === 0 ? 0 : 7 - day;
+    end.setDate(now.getDate() + daysUntilSunday);
+    end.setHours(23, 59, 59, 999);
+    if (end <= now) end.setDate(end.getDate() + 7);
+    return end;
+  }
+
+  const countdownEl = document.getElementById('lpCountdown');
+  const countdownBottom = document.getElementById('lpCountdownBottom');
+  const deadline = getNextSundayEnd();
+
+  function pad(n) {
+    return String(n).padStart(2, '0');
+  }
+
+  function renderCountdownHtml(diff) {
+    if (diff <= 0) {
+      return '<span class="lp-countdown-unit"><span>00</span><small>Ended</small></span>';
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    return (
+      '<span class="lp-countdown-unit"><span>' + pad(d) + '</span><small>Days</small></span>' +
+      '<span class="lp-countdown-unit"><span>' + pad(h) + '</span><small>Hrs</small></span>' +
+      '<span class="lp-countdown-unit"><span>' + pad(m) + '</span><small>Min</small></span>' +
+      '<span class="lp-countdown-unit"><span>' + pad(s) + '</span><small>Sec</small></span>'
+    );
+  }
+
+  function tickCountdown() {
+    const html = renderCountdownHtml(deadline - Date.now());
+    if (countdownEl) countdownEl.innerHTML = html;
+    if (countdownBottom) countdownBottom.innerHTML = html;
+  }
+
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* Monthly / Yearly pricing toggle */
+  const billingOptions = document.querySelectorAll('.lp-billing-option');
+  const billingHint = document.getElementById('lpBillingHint');
+  const priceValues = document.querySelectorAll('.lp-price-value');
+  const yearlyTotals = document.querySelectorAll('.lp-price-yearly-total');
+  const yearlyBillMap = { 3600: 43200, 6300: 75600, 10800: 129600 };
+
+  function setBilling(mode) {
+    const isYearly = mode === 'yearly';
+    billingOptions.forEach((btn) => {
+      const active = btn.dataset.billing === mode;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    priceValues.forEach((el) => {
+      const val = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      el.textContent = formatNum(Number(val));
+    });
+    yearlyTotals.forEach((el) => {
+      el.hidden = !isYearly;
+    });
+    if (billingHint) {
+      billingHint.textContent = isYearly
+        ? 'Yearly billing: 10% less per month — pay once per year (equivalent monthly price shown).'
+        : 'Prices shown per month. Pay monthly with no long-term commitment.';
+    }
+  }
+
+  billingOptions.forEach((btn) => {
+    btn.addEventListener('click', () => setBilling(btn.dataset.billing));
+  });
+  setBilling('yearly');
+
+  /* Scroll lock for modals */
+  let savedScrollY = 0;
+  const getStartedModal = document.getElementById('getStartedModal');
+  const videoModal = document.getElementById('videoModal');
+
+  function lockScroll() {
+    savedScrollY = window.scrollY;
+    document.body.classList.add('modal-open');
+    document.body.style.top = '-' + savedScrollY + 'px';
+  }
+
+  function unlockScroll() {
+    if (getStartedModal?.classList.contains('open') || videoModal?.classList.contains('open')) return;
+    document.body.classList.remove('modal-open');
+    document.body.style.top = '';
+    window.scrollTo(0, savedScrollY);
+  }
+
+  /* Get Started modal */
+  const form = document.getElementById('getStartedForm');
+  const countrySelect = document.getElementById('countryCode');
+  const whatsappInput = document.getElementById('whatsapp');
+  const whatsappFull = document.getElementById('whatsappFull');
+
+  const phonePlaceholders = {
+    PK: '300 1234567',
+    US: '555 123 4567',
+    GB: '7700 900123',
+    AE: '50 123 4567',
+    SA: '50 123 4567',
+    IN: '98765 43210',
+  };
+
+  function changeCountryCode() {
+    const iso = countrySelect?.value || 'PK';
+    const dial = window.getSelectedDialCode?.(countrySelect) || '92';
+    if (whatsappInput) {
+      whatsappInput.placeholder = phonePlaceholders[iso] || 'Phone number';
+    }
+    if (whatsappFull && whatsappInput) {
+      const num = whatsappInput.value.replace(/\D/g, '');
+      whatsappFull.value = num ? '+' + dial + num : '';
+    }
+  }
+
+  function initCountrySelect() {
+    if (!countrySelect || !window.populateCountryCodeSelect) return;
+    const applyDefault = (iso) => {
+      window.populateCountryCodeSelect(countrySelect, iso);
+      changeCountryCode();
+    };
+    applyDefault(window.detectDefaultCountryIso?.() || 'PK');
+    countrySelect.addEventListener('change', changeCountryCode);
+    whatsappInput?.addEventListener('input', changeCountryCode);
+  }
+
+  function openModal(e) {
+    e?.preventDefault();
+    getStartedModal?.classList.add('open');
+    getStartedModal?.setAttribute('aria-hidden', 'false');
+    lockScroll();
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    requestAnimationFrame(() => document.getElementById('instituteName')?.focus());
+  }
+
+  function closeModal() {
+    getStartedModal?.classList.remove('open');
+    getStartedModal?.setAttribute('aria-hidden', 'true');
+    unlockScroll();
+  }
+
+  document.querySelectorAll('.js-open-modal').forEach((btn) => {
+    btn.addEventListener('click', openModal);
+  });
+  document.getElementById('modalCancel')?.addEventListener('click', closeModal);
+  getStartedModal?.addEventListener('click', (e) => {
+    if (e.target === getStartedModal) closeModal();
+  });
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    changeCountryCode();
+    if (!window.handleLeadFormSubmit) return;
+    window.handleLeadFormSubmit(form, {
+      onSuccess: closeModal,
+      onReset: initCountrySelect,
+    });
+  });
+
+  /* YouTube demo modal */
+  const youtubeFrame = document.getElementById('youtubeFrame');
+  const YT_EMBED = 'https://www.youtube.com/embed/ar637Gcm3K0?start=166&autoplay=1&rel=0';
+
+  function openVideo(e) {
+    e?.preventDefault();
+    if (youtubeFrame) youtubeFrame.src = YT_EMBED;
+    videoModal?.classList.add('open');
+    videoModal?.setAttribute('aria-hidden', 'false');
+    lockScroll();
+  }
+
+  function closeVideo() {
+    videoModal?.classList.remove('open');
+    videoModal?.setAttribute('aria-hidden', 'true');
+    if (youtubeFrame) youtubeFrame.src = '';
+    unlockScroll();
+  }
+
+  document.querySelectorAll('.js-open-video').forEach((el) => {
+    el.addEventListener('click', openVideo);
+  });
+  document.getElementById('videoClose')?.addEventListener('click', closeVideo);
+  videoModal?.addEventListener('click', (e) => {
+    if (e.target === videoModal) closeVideo();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (videoModal?.classList.contains('open')) closeVideo();
+    else if (getStartedModal?.classList.contains('open')) closeModal();
+  });
+
+  /* Smooth scroll for in-page anchor links only */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    a.addEventListener('click', (e) => {
+      const el = document.querySelector(href);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  function init() {
+    initCountrySelect();
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    if (window.initEduportalVideoThumbs) window.initEduportalVideoThumbs();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

@@ -1,0 +1,17 @@
+# Nothing in this directory is meant to be requested over HTTP — these are
+# server-side includes pulled in via require/include at the filesystem
+# level, which this rule does not affect.
+#
+# Fetching them directly currently returns an empty body (they only define
+# functions and constants), so this is defence in depth rather than a fix
+# for an active leak: if PHP were ever misconfigured or disabled for this
+# path, the raw source of google-reviews.php (Google API endpoints, OAuth
+# flow) and callMe.php (database credentials) would otherwise be served as
+# plain text. Mirrors scripts/.htaccess.
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>

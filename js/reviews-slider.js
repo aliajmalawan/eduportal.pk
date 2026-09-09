@@ -1,0 +1,154 @@
+/**
+ * Homepage Google Reviews slider. Every review card already exists as
+ * real, server-rendered HTML before this file ever runs — this script
+ * only moves/animates that existing markup (CSS transform + a couple of
+ * dot/arrow buttons it creates); it never fetches, injects, or removes
+ * any review content. If this file fails to load, the reviews still
+ * render as a normal wrapped row (see .reviews-slider-track in
+ * css/reviews.css), so nothing depends on JS to be visible or readable.
+ */
+(function () {
+  'use strict';
+
+  function slidesPerView(width) {
+    if (width >= 1100) return 3;
+    if (width >= 768) return 2;
+    return 1;
+  }
+
+  function setupSlider(root) {
+    var viewport = root.querySelector('.reviews-slider-viewport');
+    var track = root.querySelector('.reviews-slider-track');
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.reviews-slider-slide'));
+    var prevBtn = root.querySelector('.reviews-slider-prev');
+    var nextBtn = root.querySelector('.reviews-slider-next');
+    var dotsWrap = root.querySelector('.reviews-slider-dots');
+    if (!viewport || !track || slides.length === 0 || !prevBtn || !nextBtn || !dotsWrap) return;
+
+    var perView = slidesPerView(window.innerWidth);
+    var index = 0;
+    var autoplayTimer = null;
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function pageCount() {
+      return Math.max(1, Math.ceil(slides.length / perView));
+    }
+    function maxIndex() {
+      return Math.max(0, slides.length - perView);
+    }
+
+    function render() {
+      // The track is a flex row with a gap between slides, so the gap has to
+      // come out of the slide width and go back into the step. Sizing slides
+      // at a flat 100/perView% instead makes them overflow the viewport, and
+      // stepping by clientWidth/perView under-shoots by one gap per slide —
+      // which compounds, so on mobile the third card onwards sits visibly
+      // off-centre.
+      var gap = parseFloat(getComputedStyle(track).gap) || 0;
+      var slideWidth = (viewport.clientWidth - gap * (perView - 1)) / perView;
+      root.style.setProperty('--slide-width', slideWidth + 'px');
+      track.style.transform = 'translateX(' + (index * (slideWidth + gap) * -1) + 'px)';
+
+      prevBtn.disabled = index <= 0;
+      nextBtn.disabled = index >= maxIndex();
+
+      var dots = dotsWrap.querySelectorAll('.reviews-slider-dot');
+      var currentPage = Math.round(index / perView);
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-current', i === currentPage);
+        dot.setAttribute('aria-selected', i === currentPage ? 'true' : 'false');
+      });
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      var pages = pageCount();
+      if (pages <= 1) return;
+      for (var i = 0; i < pages; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'reviews-slider-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Go to review slide ' + (i + 1));
+        (function (page) {
+          dot.addEventListener('click', function () {
+            goTo(page * perView);
+            resetAutoplay();
+          });
+        })(i);
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function goTo(newIndex) {
+      index = Math.max(0, Math.min(newIndex, maxIndex()));
+      render();
+    }
+
+    function next() {
+      if (index >= maxIndex()) {
+        goTo(0);
+      } else {
+        goTo(index + perView);
+      }
+    }
+    function prev() {
+      goTo(index - perView);
+    }
+
+    function startAutoplay() {
+      if (reducedMotion || slides.length <= perView) return;
+      stopAutoplay();
+      autoplayTimer = window.setInterval(next, 6000);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        window.clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    prevBtn.addEventListener('click', function () { prev(); resetAutoplay(); });
+    nextBtn.addEventListener('click', function () { next(); resetAutoplay(); });
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', startAutoplay);
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
+      if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
+    });
+
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(function () {
+        var newPerView = slidesPerView(window.innerWidth);
+        if (newPerView !== perView) {
+          perView = newPerView;
+          index = 0;
+          buildDots();
+        }
+        render();
+      }, 150);
+    });
+
+    if (slides.length > perView) {
+      root.classList.add('is-active');
+      buildDots();
+      render();
+      startAutoplay();
+    }
+    // If everything already fits in one view, leave .is-active off — the
+    // static wrapped-row CSS already shows every review, no nav needed.
+  }
+
+  window.initEduportalReviewsSlider = function (rootDoc) {
+    rootDoc = rootDoc || document;
+    rootDoc.querySelectorAll('[data-reviews-slider]').forEach(setupSlider);
+  };
+})();

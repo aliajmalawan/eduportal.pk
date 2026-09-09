@@ -1,0 +1,23 @@
+# EduPortal — https://eduportal.pk
+
+# AI / LLM crawlers: explicitly allowed to read the public site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Everyone else: public site is open, private areas are not.
+User-agent: *
+Disallow: /cms/
+Disallow: /uploads/careers/
+Disallow: /includes/
+Disallow: /scripts/
+
+Sitemap: https://eduportal.pk/sitemap.xml

@@ -1,0 +1,217 @@
+/* EduPortal Get Started → CRM lead submission */
+(function () {
+  'use strict';
+
+  var CRM_BASE = 'https://apps.eduportal.pk/AdminCP/Production/insert_client_request.php';
+  var LANDING_CRM_BASE = 'https://apps.eduportal.pk/AdminCP/Production/landing_page_requests.php';
+
+  function getCountryName(selectEl) {
+    if (window.getSelectedCountryName) return window.getSelectedCountryName(selectEl);
+    var iso = selectEl && selectEl.value;
+    var list = window.EDUPORTAL_COUNTRIES || [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].iso === iso) return list[i].name;
+    }
+    return 'Pakistan';
+  }
+
+  function buildLeadUrl(payload) {
+    var params = new URLSearchParams({
+      cal: 'Add_Leads',
+      name: payload.name || '',
+      school: payload.school || '',
+      strength: payload.strength || '',
+      email: payload.email || '',
+      country: payload.country || '',
+      city: payload.city || '',
+      contact: payload.contact || '',
+      role: payload.role || '',
+    });
+    return CRM_BASE + '?' + params.toString();
+  }
+
+  /** Pricing / landing page leads — matches landing_page_requests.php */
+  function buildLandingLeadUrl(payload) {
+    var params = new URLSearchParams({
+      cal: 'New_Landing_Page',
+      school_name: payload.school || '',
+      school_strength: payload.strength || '',
+      contact_number: payload.contact || '',
+      job_role: payload.role || '',
+      package: payload.package || '',
+      email: payload.email || '',
+    });
+    return LANDING_CRM_BASE + '?' + params.toString();
+  }
+
+  /** Single GET request — avoids duplicate leads from fetch + iframe fallback */
+  function sendLeadToCrm(payload, useLandingEndpoint) {
+    var url = useLandingEndpoint ? buildLandingLeadUrl(payload) : buildLeadUrl(payload);
+    return fetch(url, {
+      method: 'GET',
+      mode: 'no-cors',
+      cache: 'no-store',
+      credentials: 'omit',
+    }).then(function () {
+      return true;
+    });
+  }
+
+  function ensureToastRoot() {
+    var el = document.getElementById('epToastRoot');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'epToastRoot';
+      el.className = 'ep-toast-root';
+      el.setAttribute('aria-live', 'polite');
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+
+  function showToast(options) {
+    var type = options.type || 'success';
+    var title = options.title || (type === 'success' ? 'Request received!' : 'Could not submit');
+    var message = options.message || '';
+    var duration = options.duration != null ? options.duration : 5500;
+
+    var root = ensureToastRoot();
+    var toast = document.createElement('div');
+    toast.className = 'ep-toast ep-toast--' + type;
+    toast.setAttribute('role', 'status');
+
+    var iconChar = type === 'success' ? '\u2713' : '!';
+    toast.innerHTML =
+      '<span class="ep-toast-icon" aria-hidden="true">' + iconChar + '</span>' +
+      '<div class="ep-toast-body">' +
+      '<p class="ep-toast-title"></p>' +
+      '<p class="ep-toast-message"></p>' +
+      '</div>' +
+      '<button type="button" class="ep-toast-close" aria-label="Dismiss">&times;</button>';
+
+    toast.querySelector('.ep-toast-title').textContent = title;
+    toast.querySelector('.ep-toast-message').textContent = message;
+
+    var hideTimer;
+    function dismiss() {
+      clearTimeout(hideTimer);
+      toast.classList.remove('is-visible');
+      setTimeout(function () {
+        toast.remove();
+      }, 450);
+    }
+
+    toast.querySelector('.ep-toast-close').addEventListener('click', dismiss);
+    root.appendChild(toast);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        toast.classList.add('is-visible');
+      });
+    });
+    hideTimer = setTimeout(dismiss, duration);
+    return dismiss;
+  }
+
+  window.collectLeadFromForm = function (form) {
+    var countrySelect = form.querySelector('#countryCode') || document.getElementById('countryCode');
+    var whatsappInput = form.querySelector('#whatsapp');
+    var dial = window.getSelectedDialCode ? window.getSelectedDialCode(countrySelect) : '92';
+    var num = whatsappInput ? whatsappInput.value.replace(/\D/g, '') : '';
+    var fullHidden = form.querySelector('#whatsappFull');
+    var contact = num ? '+' + dial + num : (fullHidden && fullHidden.value) || '';
+
+    var packageEl = form.querySelector('#selectedPackage');
+    return {
+      name: (form.querySelector('#fullName') && form.querySelector('#fullName').value.trim()) || '',
+      school: (form.querySelector('#instituteName') && form.querySelector('#instituteName').value.trim()) || '',
+      strength: (form.querySelector('#studentCount') && form.querySelector('#studentCount').value.trim()) || '',
+      email: '',
+      country: getCountryName(countrySelect),
+      city: '',
+      contact: contact,
+      role: (form.querySelector('#designation') && form.querySelector('#designation').value.trim()) || '',
+      package: packageEl ? packageEl.value.trim() : '',
+    };
+  };
+
+  window.validateLeadForm = function (form) {
+    var payload = window.collectLeadFromForm(form);
+    var errors = [];
+    if (!payload.school) errors.push('institute name');
+    if (!payload.name) errors.push('contact person name');
+    if (!payload.role) errors.push('designation');
+    if (!payload.contact || payload.contact.length < 8) errors.push('WhatsApp number');
+    return { ok: errors.length === 0, payload: payload, errors: errors };
+  };
+
+  window.handleLeadFormSubmit = function (form, callbacks) {
+    callbacks = callbacks || {};
+
+    if (form.dataset.epSubmitting === '1') {
+      return Promise.resolve(false);
+    }
+
+    var result = window.validateLeadForm(form);
+    if (!result.ok) {
+      showToast({
+        type: 'error',
+        title: 'Please complete the form',
+        message: 'Missing or invalid: ' + result.errors.join(', ') + '.',
+      });
+      return Promise.resolve(false);
+    }
+
+    var submitBtn = form.querySelector('.btn-modal-submit');
+    var originalText = submitBtn ? submitBtn.textContent : '';
+    form.dataset.epSubmitting = '1';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+
+    var useLanding = form.dataset.crmEndpoint === 'landing';
+
+    return sendLeadToCrm(result.payload, useLanding)
+      .then(function () {
+        if (typeof callbacks.onSuccess === 'function') callbacks.onSuccess();
+        var successMessage = useLanding
+          ? 'Your inquiry has been saved. Our team will reach you very soon on WhatsApp or call.'
+          : 'Your demo request was saved successfully. Our team will contact you shortly on WhatsApp.';
+        if (callbacks.successMessage) successMessage = callbacks.successMessage;
+        showToast({
+          type: 'success',
+          title: 'Thank you!',
+          message: successMessage,
+          duration: 6500,
+        });
+        // GA4 conversion: a lead was actually saved. Fired here rather than on
+        // submit, so failed submissions are never counted as conversions.
+        if (typeof window.epTrackConversion === 'function') {
+          window.epTrackConversion('generate_lead', {
+            form: callbacks.leadType || 'demo_request',
+            page_location: window.location.pathname,
+          });
+        }
+        form.reset();
+        if (typeof callbacks.onReset === 'function') callbacks.onReset();
+        return true;
+      })
+      .catch(function () {
+        showToast({
+          type: 'error',
+          title: 'Submission failed',
+          message: 'We could not reach our system. Please try again or WhatsApp us at +92 304 1110286.',
+        });
+        return false;
+      })
+      .finally(function () {
+        delete form.dataset.epSubmitting;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+  };
+
+  window.showEpToast = showToast;
+})();
