@@ -71,9 +71,7 @@
     }
 
     /* ========== Section utilities ========== */
-    .section { padding: 4rem 0; }
-    @media (min-width: 768px) { .section { padding: 5.5rem 0; } }
-    @media (min-width: 1024px) { .section { padding: 6.5rem 0; } }
+/* superseded by the hierarchy system in shared.css (single source) */
 
     .section-label {
       display: inline-block;
@@ -84,21 +82,10 @@
       letter-spacing: 0.06em;
       margin-bottom: 0.75rem;
     }
-    .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--color-text);
-    }
-    .section-subtitle {
-      margin-top: 0.75rem;
-      font-size: 1.0625rem;
-      color: var(--color-text-muted);
-      max-width: 560px;
-    }
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
-    .section-header .section-subtitle { margin-left: auto; margin-right: auto; }
+/* superseded by the hierarchy system in shared.css (single source) */
+/* superseded by the hierarchy system in shared.css (single source) */
+/* superseded by the hierarchy system in shared.css (single source) */
+/* superseded by the hierarchy system in shared.css (single source) */
 
     /* ========== Navbar ========== */
     .navbar {
@@ -196,88 +183,148 @@
     .mobile-menu .btn { margin-top: 1rem; width: 100%; }
 
     /* ========== Hero ========== */
+
+    /* ==========================================================
+       SIGNATURE HERO (Step 5)
+
+       Composition: asymmetric split — message left, product right —
+       instead of a centred stack with the product below the fold.
+       The product is the motivated light source, so the stage is lit
+       from behind it (warm, upper right) with a cool spill opposite.
+       Ground stays light: the fixed navbar is transparent until it
+       scrolls, so a dark hero would leave the nav links unreadable
+       until the visitor scrolls past it.
+       ========================================================== */
     .hero {
       position: relative;
       padding: 6.5rem 0 0;
       overflow: hidden;
-      background: #fff;
+      background:
+        radial-gradient(70% 55% at 78% 22%, rgba(242,140,40,.13) 0%, transparent 62%),
+        radial-gradient(60% 50% at 8% 82%, rgba(45,74,99,.10) 0%, transparent 65%),
+        #fff;
     }
+    /* Grain, so the two soft gradients above do not band on wide screens. */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .hero > .container { position: relative; z-index: 1; }
     @media (min-width: 768px) { .hero { padding: 7.5rem 0 0; } }
+
     .hero-stage {
       position: relative;
-      max-width: 820px;
+      max-width: none;
       margin: 0 auto 2.5rem;
-      padding: 2rem 0 3rem;
+      padding: 2rem 0 1rem;
       text-align: center;
+      display: grid;
+      gap: 2.5rem;
     }
-    @media (min-width: 768px) {
-      .hero-stage { padding: 2.5rem 4.5rem 3.5rem; }
+    /* Split at the desktop breakpoint. Left column is given the larger share:
+       the message has to win the first read, not the screenshot. */
+    @media (min-width: 992px) {
+      .hero-stage {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 3.5rem;
+        text-align: left;
+        padding: 2.5rem 0 2rem;
+      }
     }
     .hero-copy { position: relative; z-index: 2; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.45rem 1.1rem;
-      background: #fff;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--color-text);
-      border-radius: 999px;
-      margin-bottom: 1.25rem;
-      border: 1px solid transparent;
-      background-clip: padding-box;
-      box-shadow: 0 0 0 1px var(--color-border);
-      position: relative;
-      animation: fadeUp 0.6s ease;
-    }
-    .hero-badge::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 999px;
-      padding: 1px;
-      background: linear-gradient(90deg, #a78bfa, #f28c28, #38bdf8, #f472b6);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
-    }
+
     .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.125rem);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin: 0 auto 1rem;
-      animation: fadeUp 0.6s ease 0.1s both;
+      font-size: clamp(2.1rem, 5.2vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -.04em;
+      margin: 0 0 1rem;
+      text-wrap: balance;
+    }
+    /* The category is the subject of the sentence; the scope is the promise.
+       Accenting the second half lets the eye take both in one pass. */
+    .hero h1 em {
+      font-style: normal;
+      color: var(--flame-ink);
     }
     .hero-sub {
-      font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+      font-size: clamp(1rem, 2vw, 1.125rem);
       color: var(--color-text-muted);
-      max-width: 620px;
-      margin: 0 auto 1.25rem;
+      max-width: 54ch;
+      margin: 0 auto 1.5rem;
       line-height: 1.65;
-      animation: fadeUp 0.6s ease 0.2s both;
     }
+    @media (min-width: 992px) { .hero-sub { margin-left: 0; margin-right: 0; } }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (min-width: 992px) { .hero-ctas { justify-content: flex-start; } }
+    .hero-ctas .btn i { width: 18px; height: 18px; }
+    .hero-cta-note {
+      flex-basis: 100%;
+      margin: .15rem 0 0;
+      font-size: .8125rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Module rail. This replaced six saturated floating icons that were
+       aria-hidden decoration: same visual interest, but it answers "what does
+       it actually do" in five words a principal recognises. */
+    .hero-modules {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem;
+      margin: 1.5rem 0 0;
+      padding: 0;
+    }
+    @media (min-width: 992px) { .hero-modules { justify-content: flex-start; } }
+    .hero-modules li {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .4rem .8rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-modules i { width: 15px; height: 15px; color: var(--color-primary); }
+
+    .hero-social { margin: 1.5rem 0 0; }
+
+    /* Social proof pill. Restored with the new composition: it sits inline
+       under the module rail, so it left-aligns with everything else on
+       desktop instead of centring on its own. */
     .hero-social {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: .75rem;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 0.5rem 1rem 0.5rem 0.5rem;
-      background: #fff;
+      padding: .5rem 1rem .5rem .5rem;
+      background: rgba(255,255,255,.85);
       border: 1px solid var(--color-border);
       border-radius: 999px;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease 0.25s both;
+      box-shadow: var(--plane-1);
+      backdrop-filter: blur(6px);
     }
-    .hero-avatars {
-      display: flex;
-      padding-left: 0.35rem;
-    }
+    .hero-avatars { display: flex; padding-left: .35rem; }
     .hero-avatars span {
       width: 32px;
       height: 32px;
@@ -291,20 +338,16 @@
     .hero-avatars span:nth-child(3) { background: linear-gradient(135deg, #bfdbfe, #3b82f6); }
     .hero-avatars span:nth-child(4) { background: linear-gradient(135deg, #fecdd3, #f43f5e); }
     .hero-avatars span:nth-child(5) { background: linear-gradient(135deg, #bbf7d0, #22c55e); }
-    .hero-social-text { font-size: 0.8125rem; font-weight: 600; color: var(--color-text); }
+    .hero-social-text { font-size: .8125rem; font-weight: 600; color: var(--color-text); }
     .hero-rating {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8125rem;
+      gap: .35rem;
+      font-size: .8125rem;
       font-weight: 700;
       color: var(--color-primary);
     }
-    .hero-stars {
-      display: inline-flex;
-      align-items: center;
-      gap: 1px;
-    }
+    .hero-stars { display: inline-flex; align-items: center; gap: 1px; }
     .hero-stars i {
       width: 14px;
       height: 14px;
@@ -313,84 +356,85 @@
     }
     /* Stars beyond the real rating: outlined, not filled, so a 4.6 never
        reads as a 5.0. */
-    .hero-stars i.is-empty {
-      fill: none;
-      opacity: 0.5;
-    }
+    .hero-stars i.is-empty { fill: none; opacity: .5; }
     .hero-rating-link,
-    .hero-rating-count {
-      font-weight: 600;
-      color: var(--color-text-muted);
-    }
+    .hero-rating-count { font-weight: 600; color: var(--color-text-muted); }
     .hero-rating-link:hover { color: var(--color-primary); text-decoration: underline; }
-    .hero-badge i {
-      width: 14px;
-      height: 14px;
-      color: var(--color-primary);
-    }
-    .hero-ctas .btn i {
-      width: 18px;
-      height: 18px;
-    }
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-      animation: fadeUp 0.6s ease 0.3s both;
-    }
-    /* Floating icons around hero copy (not on dashboard) */
-    .hero-float {
-      position: absolute;
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12);
-      z-index: 1;
-      animation: float 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .hero-float i { width: 24px; height: 24px; }
-    .hero-float--1 { top: 0; left: 0; background: #2563eb; animation-delay: 0s; }
-    .hero-float--2 { top: 38%; left: -4%; background: #eab308; animation-delay: 0.8s; }
-    .hero-float--3 { bottom: 8%; left: 2%; background: #fb923c; animation-delay: 1.2s; }
-    .hero-float--4 { top: 4%; right: 0; background: #a78bfa; animation-delay: 0.4s; }
-    .hero-float--5 { top: 42%; right: -2%; background: #2dd4bf; animation-delay: 1.6s; }
-    .hero-float--6 { bottom: 6%; right: 4%; background: #3b82f6; animation-delay: 2s; }
-    @media (max-width: 767px) {
-      .hero-float { width: 42px; height: 42px; border-radius: 11px; }
-      .hero-float i { width: 20px; height: 20px; }
-      .hero-float--1 { top: -8px; left: 4px; }
-      .hero-float--2 { top: 32%; left: 0; }
-      .hero-float--3 { bottom: 4%; left: 8px; }
-      .hero-float--4 { top: -4px; right: 4px; }
-      .hero-float--5 { top: 38%; right: 0; }
-      .hero-float--6 { bottom: 2%; right: 8px; }
-    }
-    @media (max-width: 480px) {
-      .hero-float { display: none; }
-      .hero-stage { padding-left: 0; padding-right: 0; }
-    }
+    .hero-badge i { width: 14px; height: 14px; color: var(--color-primary); }
+    @media (min-width: 992px) { .hero-social { margin-bottom: 0; } }
+
+    /* Product column. Allowed to run slightly wider than its track so the
+       screen reads as a real object continuing past the layout, rather than a
+       thumbnail politely boxed inside it. */
     .hero-dashboard {
+      position: relative;
       max-width: 820px;
       margin: 0 auto;
-      padding: 0 1.25rem 3rem;
-      animation: fadeUp 0.8s ease 0.45s both;
+      padding: 0 0 3rem;
     }
+    @media (min-width: 992px) {
+      .hero-dashboard {
+        max-width: none;
+        width: calc(100% + 4rem);
+        padding-bottom: 0;
+      }
+    }
+    @media (min-width: 1280px) { .hero-dashboard { width: calc(100% + 7rem); } }
+
+    /* Staged entrance: badge, headline, support, action, then the product —
+       the order the visitor reads in. House curve and --t-reveal; the global
+       prefers-reduced-motion guard in shared.css collapses all of it. */
+    .js .hero-badge,
+    .js .hero h1,
+    .js .hero-sub,
+    .js .hero-ctas,
+    .js .hero-modules,
+    .js .hero-social,
+    .js .hero-dashboard {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: heroLift var(--t-scene) var(--ease) forwards;
+    }
+    .js .hero-badge     { animation-delay: 40ms; }
+    .js .hero h1        { animation-delay: 100ms; }
+    .js .hero-sub       { animation-delay: 160ms; }
+    .js .hero-ctas      { animation-delay: 220ms; }
+    .js .hero-modules   { animation-delay: 280ms; }
+    .js .hero-social    { animation-delay: 320ms; }
+    /* The product carries the LCP, so it lifts with the copy rather than
+       waiting behind a long stagger. */
+    .js .hero-dashboard { animation-delay: 140ms; }
+
+    @keyframes heroLift {
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .js .hero-badge, .js .hero h1, .js .hero-sub, .js .hero-ctas,
+      .js .hero-modules, .js .hero-social, .js .hero-dashboard {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+    /* The product screen is the motivated light source of the whole page:
+       plane 4, and the only element on the site permitted to glow. The warm
+       falloff is --glow, never white, and it is short (~90px) so it reads as
+       light coming off a screen rather than a decorative halo. */
     .dashboard-mockup {
       display: block;
       position: relative;
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--plane-4);
       border: 1px solid var(--color-border);
       overflow: hidden;
       background: #fff;
       line-height: 0;
       cursor: pointer;
+      transition: box-shadow var(--t-ui) var(--ease), transform var(--t-ui) var(--ease);
+    }
+    .dashboard-mockup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 30px 80px rgba(8, 11, 15, .32), 0 0 80px -12px var(--glow);
     }
     .dashboard-mockup:hover .dashboard-play-btn {
       transform: translate(-50%, -50%) scale(1.06);
@@ -708,7 +752,7 @@
     .feature-link:hover { gap: 0.5rem; }
 
     /* ========== Analytics ========== */
-    .analytics { background: var(--color-bg-alt); }
+    /* ground now set by .section--alt in the markup */
     .analytics-grid {
       display: grid;
       gap: 1.25rem;
@@ -1331,7 +1375,7 @@
     }
 
     /* ========== Testimonials ========== */
-    .testimonials { background: var(--color-bg-alt); }
+    /* ground now set by .section--alt in the markup */
     /* Testimonial video cards — see css/video-cards.css */
 
     /* ========== App CTA banner ========== */
@@ -1339,7 +1383,9 @@
       padding: 2rem 0 4rem;
     }
     .app-cta-inner {
-      background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(120% 90% at 78% 18%, rgba(242,140,40,.14) 0%, transparent 55%), radial-gradient(90% 70% at 12% 88%, rgba(45,74,99,.32) 0%, transparent 60%), var(--gradient-dark-band);
       border-radius: var(--radius-xl);
       padding: 2rem 1.5rem;
       display: grid;
@@ -1477,12 +1523,19 @@
     .footer-bottom-links a:hover { color: var(--color-primary); }
 
     /* ========== Reveal animation ========== */
+    /* Focus pull. A 10px rise with a 2px defocus reads as a camera finding
+       its subject; the old 24px slide read as a panel arriving. House curve
+       and --t-reveal, replacing the ad-hoc 0.6s ease. */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(10px) scale(.985);
+      filter: blur(2px);
+      transition:
+        opacity var(--t-reveal) var(--ease),
+        transform var(--t-reveal) var(--ease),
+        filter var(--t-reveal) var(--ease);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: none; filter: none; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1492,3 +1545,10 @@
       }
       .reveal { opacity: 1; transform: none; }
     }
+
+.app-cta-inner > * { position: relative; z-index: 1; }
+.app-cta-inner::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; opacity: .055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}

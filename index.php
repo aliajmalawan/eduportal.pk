@@ -150,17 +150,37 @@ $homeJsonLd = [
   <meta property="og:type" content="website">
   <meta property="og:title" content="EduPortal — AI-Powered School Management ERP">
   <meta property="og:description" content="Run your entire school smarter with EduPortal — attendance, fees, exams, parent apps &amp; real-time analytics in one platform.">
-  <meta property="og:image" content="assets/dashboard.png">
+  <?php // og:image must be an ABSOLUTE url — a relative path is dropped by
+        // Facebook and WhatsApp, so the homepage previewed with no image at
+        // all. ep_url() resolves against the site root in both environments.
+        $homeOgImage = ep_url('assets/og-share.jpg'); ?>
+  <meta property="og:site_name" content="EduPortal">
+  <meta property="og:locale" content="en_PK">
+  <meta property="og:url" content="<?= ep_h(ep_canonical_url()) ?>">
+  <meta property="og:image" content="<?= ep_h($homeOgImage) ?>">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EduPortal school management software dashboard">
+  <meta name="twitter:image" content="<?= ep_h($homeOgImage) ?>">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EduPortal — School Management Software">
   <meta name="twitter:description" content="AI-powered school ERP trusted by <?= ep_h(ep_site_metric('total_clients')) ?> schools. Automate fees, attendance, results &amp; parent communication.">
   <link rel="icon" href="assets/logo_icon.jpg" type="image/jpeg">
   <link rel="apple-touch-icon" href="assets/logo_icon.jpg">
+  <?php // Marks the document as JS-capable BEFORE first paint, so the
+        // .ep-pull reveal only ever parks content at opacity:0 when there is
+        // JavaScript able to un-park it. With JS off the class is absent and
+        // every revealed element renders at rest -- the site stays readable
+        // for AI crawlers and no-JS visitors. ?>
+  <script>document.documentElement.className += ' js';</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <?php // Pinned deliberately. At @latest an upstream release could change or
+        // break every icon on the site with no deploy here. Bump this version
+        // intentionally, after checking the icons still render. ?>
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/shared.css')) ?>">
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/index.css')) ?>">
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/video-cards.css')) ?>">
@@ -209,16 +229,28 @@ require __DIR__ . '/includes/header.php';
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-stage">
-        <div class="hero-float hero-float--1" aria-hidden="true"><i data-lucide="file-text"></i></div>
-        <div class="hero-float hero-float--2" aria-hidden="true"><i data-lucide="pencil"></i></div>
-        <div class="hero-float hero-float--3" aria-hidden="true"><i data-lucide="graduation-cap"></i></div>
-        <div class="hero-float hero-float--4" aria-hidden="true"><i data-lucide="calendar"></i></div>
-        <div class="hero-float hero-float--5" aria-hidden="true"><i data-lucide="book-open"></i></div>
-        <div class="hero-float hero-float--6" aria-hidden="true"><i data-lucide="school"></i></div>
         <div class="hero-copy">
-          <span class="hero-badge"><i data-lucide="sparkles" aria-hidden="true"></i> Top AI-Powered School Management System</span>
-          <h1>Run Your Entire School Smarter, Faster &amp; Better.</h1>
-          <p class="hero-sub">Experience powerful automation for fee management, results, attendance, communication, scheduling. Trusted by <?= ep_h(ep_site_metric('total_clients')) ?> Schools Across Pakistan &amp; Beyond.</p>
+          <span class="hero-badge"><i data-lucide="sparkles" aria-hidden="true"></i> AI-powered &middot; Built for Pakistani institutions</span>
+          <?php // The headline states the category first. The previous one
+                // ("Run Your Entire School Smarter") was a benefit claim that
+                // never said what EduPortal is -- the category sat only in the
+                // badge above it, which is too small to carry that job. ?>
+          <h1>School management software that runs your <em>entire institution</em></h1>
+          <p class="hero-sub">EduPortal gives schools, colleges and academies one system for
+            fees, attendance, exams, transport and parent communication &mdash; replacing
+            registers, spreadsheets and guesswork. Trusted by <?= ep_h(ep_site_metric('total_clients')) ?>
+            institutions across Pakistan.</p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-primary btn-lg js-open-modal">Book a Demo <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <a href="pricing.php" class="btn btn-outline btn-lg">See Pricing <i data-lucide="tag" aria-hidden="true"></i></a>
+            <p class="hero-cta-note">Free walkthrough &middot; No card required</p>
+          <ul class="hero-modules" aria-label="Included modules">
+            <li><i data-lucide="banknote" aria-hidden="true"></i>Fees</li>
+            <li><i data-lucide="check-square" aria-hidden="true"></i>Attendance</li>
+            <li><i data-lucide="graduation-cap" aria-hidden="true"></i>Exams</li>
+            <li><i data-lucide="bus" aria-hidden="true"></i>Transport</li>
+            <li><i data-lucide="smartphone" aria-hidden="true"></i>Parent app</li>
+          </ul>
           <div class="hero-social">
             <div class="hero-avatars" aria-hidden="true">
               <span></span><span></span><span></span><span></span><span></span>
@@ -268,9 +300,6 @@ require __DIR__ . '/includes/header.php';
             </span>
             <?php endif; ?>
           </div>
-          <div class="hero-ctas">
-            <button type="button" class="btn btn-primary btn-lg js-open-modal">Get Started <i data-lucide="arrow-right" aria-hidden="true"></i></button>
-            <a href="pricing.php" class="btn btn-outline btn-lg">Pricing <i data-lucide="tag" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -426,9 +455,9 @@ require __DIR__ . '/includes/header.php';
   </section>
 
   <!-- Analytics -->
-  <section class="section analytics" id="analytics">
+  <section class="section section--alt analytics" id="analytics">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header section-header--split reveal">
         <span class="section-label">Analytics</span>
         <h2 class="section-title">Real-time Analytics for Better Decisions</h2>
         <p class="section-subtitle">Monitor attendance, revenue, and performance at a glance with live dashboards built for school leaders.</p>
@@ -587,9 +616,9 @@ require __DIR__ . '/includes/header.php';
   </section>
 
   <!-- Why Choose Us -->
-  <section class="section" id="why">
+  <section class="section section--alt" id="why">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header section-header--left reveal">
         <span class="section-label">Why EduPortal</span>
         <h2 class="section-title">Why Schools Choose EduPortal</h2>
         <p class="section-subtitle">Built for scale, security, and simplicity — from single campuses to multi-branch districts.</p>
@@ -657,7 +686,7 @@ require __DIR__ . '/includes/header.php';
     </div>
   </section>
   <!-- Testimonials -->
-  <section class="section testimonials" id="testimonials">
+  <section class="section section--alt testimonials" id="testimonials">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Testimonials</span>
@@ -716,7 +745,7 @@ require __DIR__ . '/includes/header.php';
   <!-- Google Reviews -->
   <section class="section home-google-reviews" id="google-reviews">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header section-header--split reveal">
         <span class="section-label">Google Reviews</span>
         <h2 class="section-title">What Schools Say on Google</h2>
         <?php if ($homeGoogleReviewsSummary['average_rating'] !== '' && $homeGoogleReviewsSummary['total_count'] !== ''): ?>
@@ -789,9 +818,9 @@ require __DIR__ . '/includes/header.php';
   <?php endif; ?>
 
   <!-- FAQs preview -->
-  <section class="section home-faq" id="faqs">
+  <section class="section section--alt home-faq" id="faqs">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header section-header--left reveal">
         <span class="section-label">FAQs</span>
         <h2 class="section-title">Questions School Owners Ask</h2>
         <p class="section-subtitle">Quick answers about EduPortal school ERP in Pakistan — fees, apps, attendance, WhatsApp &amp; cloud hosting.</p>

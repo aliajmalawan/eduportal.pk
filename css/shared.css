@@ -19,7 +19,12 @@
   --shadow-md: 0 8px 30px rgba(0,0,0,.08);
   --shadow-lg: 0 20px 60px rgba(0,0,0,.12);
   --container: 1200px;
-  --transition: 0.3s ease;
+  /* Now resolves to the house curve at UI speed (220ms). Every existing
+     var(--transition) in the codebase picks this up, which puts the whole
+     site on one easing without touching each component. Custom properties
+     resolve at computed-value time, so referencing --t-ui/--ease declared
+     further down this same block is fine. */
+  --transition: var(--t-ui) var(--ease);
 
   /* Spacing scale (4px base) — plumbing for the pages still to come;
      nothing below yet consumes this, existing spacing is untouched. */
@@ -50,6 +55,83 @@
 
   /* House-style primitive proven on careers.css/team.css's dark CTA bands. */
   --gradient-dark-band: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+
+  /* ==========================================================
+     PRACTICAL LIGHT — cinematic direction tokens (Step 3)
+     Additive. Nothing above this comment changed; the brand
+     orange, dark band and Inter are carried forward as-is.
+     ========================================================== */
+
+  /* Ground scale — the unlit set. --color-dark and --color-dark-card
+     above are the same values as ink-800/ink-600; the scale fills in
+     the stops between them so depth can be expressed at all. */
+  --ink-900: #080b0f;
+  --ink-850: #0b1015;
+  --ink-800: #0f1419;
+  --ink-700: #151d28;
+  --ink-600: #1a2332;
+  --ink-500: #24303f;
+  --ink-400: #33414f;
+
+  /* Practical — the light the product throws. --color-primary is flame. */
+  --flame: #f28c28;
+  --flame-dim: #d97a1f;
+  --flame-soft: #ffb46b;
+  /* The accent when it has to be TEXT. #f28c28 on white measures 2.45:1,
+     which fails WCAG AA even at large sizes (needs 3.0), so the brand
+     orange cannot carry headline or body copy on a light ground. This
+     shade is the same hue family at 4.61:1 -- it passes AA at any size.
+     Use --flame for fills and marks; use this whenever it is a letterform. */
+  --flame-ink: #b35f0d;
+  --glow: rgba(242, 140, 40, .30);
+
+  /* Counter-light — screen spill. Atmosphere only, never a UI accent:
+     the moment this appears on a control the site has two accents and
+     neither reads as "act". */
+  --screen: #6f9fc4;
+  --screen-deep: #2d4a63;
+
+  /* Type on dark ground */
+  --on-dark: #f7f9fb;
+  --on-dark-2: #b8c3cf;
+  --on-dark-3: #7d8894;
+  --edge: rgba(255, 255, 255, .09);
+  --edge-2: rgba(255, 255, 255, .05);
+
+  /* Semantic — deliberately NOT the brand orange, or a warning becomes
+     indistinguishable from a call to action. */
+  --ok: #2e8b57;
+  --warn: #c9821f;
+  --bad: #c1443c;
+
+  /* Motion. One curve — already the only cubic-bezier in this codebase,
+     from the nav underline — and four durations replacing the six
+     ad-hoc values that were in use. */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --t-tap: 120ms;
+  --t-ui: 220ms;
+  --t-reveal: 420ms;
+  --t-scene: 640ms;
+
+  /* Depth planes. Elevation is a statement about importance, so an
+     element may only ever move one plane on interaction. */
+  --plane-1: 0 1px 2px rgba(15, 23, 42, .06);
+  --plane-2: 0 4px 14px rgba(15, 23, 42, .08);
+  --plane-3: 0 14px 40px rgba(15, 23, 42, .12);
+  --plane-4: 0 24px 70px rgba(8, 11, 15, .28), 0 0 60px -14px var(--glow);
+  --plane-1-dark: 0 1px 2px rgba(0, 0, 0, .5);
+  --plane-2-dark: 0 4px 14px rgba(0, 0, 0, .5);
+  --plane-3-dark: 0 14px 40px rgba(0, 0, 0, .6);
+  --plane-4-dark: 0 24px 70px rgba(0, 0, 0, .65), 0 0 60px -14px var(--glow);
+
+  /* Composition */
+  --band: clamp(3rem, 7vw, 5.5rem);
+  --read: 66ch;
+  --frame-radius: 14px;
+
+  /* Display face. Inter stays for everything read or operated; Archivo
+     carries headlines only, never below 1.4rem. */
+  --font-display: 'Archivo', 'Inter', system-ui, sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font);color:var(--color-text);background:var(--color-bg);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -88,7 +170,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .page-hero h1{font-size:var(--fs-3xl);font-weight:800;letter-spacing:-.03em;margin-bottom:.85rem;text-wrap:balance}
 .page-hero p{color:var(--color-text-muted);max-width:640px;margin:0 auto;font-size:1.0625rem;line-height:1.7}
 .section-label{display:inline-block;font-size:.8125rem;font-weight:600;color:var(--color-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
-.section{padding:4rem 0}
+/* .section padding is defined once in the hierarchy block below. */
 .footer{background:var(--color-bg-alt);padding:3.5rem 0 0;border-top:1px solid var(--color-border)}
 .footer-grid{display:grid;gap:2rem;padding-bottom:2.5rem}
 @media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
@@ -133,3 +215,268 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
    elsewhere in the codebase are the pattern this replaces going forward. */
 .hover-lift{transition:transform .3s ease,box-shadow .3s ease}
 .hover-lift:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+
+/* ==============================================================
+   PRACTICAL LIGHT — global behaviour (Step 3)
+   ============================================================== */
+
+/* Focus is always visible. This product is admin-adjacent; keyboard
+   users are not an edge case. :focus-visible only paints for keyboard
+   and assistive navigation, so mouse users see no change. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--flame-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced motion is a hard stop, not a softening.
+   The site carries ~1,338 scroll-reveal elements and previously had a
+   single prefers-reduced-motion guard, so almost every animation ran
+   regardless of the visitor's stated preference. This disables motion
+   outright AND forces anything parked at opacity:0 by a reveal class to
+   its resting state -- without that second rule, killing the transition
+   would leave the content permanently invisible. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal, .reveal-fd, .reveal-cs,
+  .reveal.visible, .reveal-fd.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Display face — Archivo carries headlines only.
+   Applied by role rather than to bare h1/h2: several stylesheets set h2 at
+   1rem-1.25rem for small card and footer headings, and Archivo tightens
+   apertures for impact, which becomes a legibility cost at those sizes.
+   The rule is "no display face below 1.4rem", so only the display roles
+   -- all of which clamp above that -- take it. */
+h1,
+.section-title,
+.hero-title,
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -.035em;
+}
+
+/* ==============================================================
+   Texture, depth and the product frame
+   ============================================================== */
+
+/* Grain. Not nostalgia: 8-bit gradients band visibly on dark grounds,
+   and a ~5% noise layer is the standard fix. Costs no request -- the
+   noise is an inline SVG filter, not an image file. */
+.ep-grain { position: relative; }
+.ep-grain > * { position: relative; z-index: 1; }
+.ep-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* The ruled register — the attendance register and timetable grid every
+   school office already runs on. Held at 3% so it reads as structure,
+   not as a pattern. Subject-specific texture, not borrowed from film. */
+.ep-ruled { position: relative; }
+.ep-ruled > * { position: relative; z-index: 1; }
+.ep-ruled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.055) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(to right,  rgba(255,255,255,.032) 0 1px, transparent 1px 88px);
+}
+
+/* Dark band — the house primitive, now with motivated light in it.
+   The warm source sits upper-right, the cool spill opposite it. */
+.ep-band {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 78% 18%, rgba(242,140,40,.14) 0%, transparent 55%),
+    radial-gradient(90% 70% at 12% 88%, rgba(45,74,99,.32) 0%, transparent 60%),
+    var(--gradient-dark-band);
+  color: var(--on-dark);
+}
+.ep-band h1, .ep-band h2, .ep-band h3, .ep-band .section-title { color: var(--on-dark); }
+.ep-band p, .ep-band .section-subtitle { color: var(--on-dark-2); }
+
+/* Product frame. The screen is plane 4 and the only element that glows,
+   because it is the motivated light source in every composition. */
+.ep-frame {
+  position: relative;
+  border-radius: var(--frame-radius);
+  padding: .5rem;
+  background: linear-gradient(150deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+  box-shadow: var(--plane-4-dark);
+}
+.ep-frame > img,
+.ep-frame > .ep-frame-in {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--frame-radius) - 4px);
+  overflow: hidden;
+}
+
+/* Focus pull — the reveal. Opacity, a 10px rise and a 2px defocus, which
+   reads as a camera finding its subject rather than a panel sliding in.
+   Parked state only applies where JS can remove it (see .is-lit): with
+   JS off the content must already be at rest. */
+.js .ep-pull { opacity: 0; transform: translateY(10px) scale(.985); filter: blur(2px); }
+.js .ep-pull.is-lit {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity var(--t-reveal) var(--ease),
+    transform var(--t-reveal) var(--ease),
+    filter var(--t-reveal) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .ep-pull { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* ==============================================================
+   VISUAL HIERARCHY (Step 4)
+
+   Measured before writing: the stylesheets carried seven different
+   section paddings, three competing clamps for the same section-title
+   role, ten-plus arbitrary max-widths, and 51 text-align:center rules
+   against 13 left. The ten-step --fs-* scale declared in this file was
+   consumed exactly once. This activates the scale, gives sections one
+   rhythm, and adds composition variants so pages stop looking uniform.
+   ============================================================== */
+
+/* ---- 1. Vertical rhythm ----------------------------------------
+   One band scale with two modifiers, replacing seven ad-hoc paddings.
+   Scales with the viewport so pacing survives on a phone. */
+.section { padding: var(--band) 0; }
+.section--tight { padding: calc(var(--band) * .6) 0; }
+.section--loose { padding: calc(var(--band) * 1.35) 0; }
+
+/* ---- 2. Section transitions ------------------------------------
+   Consecutive sections need to read as separate scenes. Alternating
+   ground does that without a divider line, and the dark variant is
+   reserved for the page's single ask (beat 5 of the arc). */
+.section--alt { background: var(--color-bg-alt); }
+/* Two alt grounds in a row read as one long block and the transition is
+   lost. Sections here can be conditionally absent -- the Google reviews
+   band renders only once reviews have synced -- so the rhythm has to
+   survive whatever actually renders, rather than being hand-tuned to one
+   arrangement. */
+.section--alt + .section--alt { background: var(--color-bg); }
+.section--dark {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 78% 18%, rgba(242,140,40,.14) 0%, transparent 55%),
+    radial-gradient(90% 70% at 12% 88%, rgba(45,74,99,.32) 0%, transparent 60%),
+    var(--gradient-dark-band);
+  color: var(--on-dark);
+}
+.section--dark .section-title,
+.section--dark h2, .section--dark h3 { color: var(--on-dark); }
+.section--dark .section-subtitle,
+.section--dark p { color: var(--on-dark-2); }
+
+/* ---- 3. Typography hierarchy -----------------------------------
+   The section headline resolves to one token instead of three clamps,
+   and steps up: the old ceiling of 2.125rem sat too close to the body
+   copy for the headline to lead. */
+.section-title {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -.03em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+.section-subtitle {
+  margin-top: .75rem;
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  max-width: var(--read);
+  color: var(--color-text-muted);
+}
+/* Measure control. A centred subtitle still centres; what changes is
+   that its line length is now governed by characters, not by whichever
+   pixel value the page author picked. */
+.section-header .section-subtitle { margin-left: auto; margin-right: auto; }
+
+/* ---- 4. Headline -> support -> visual -> CTA --------------------
+   The relationship is expressed as spacing: each step down the chain
+   sits closer to what it belongs to than to what follows it. */
+.section-header { text-align: center; margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem); }
+.section-label + .section-title,
+.section-label + h2 { margin-top: .25rem; }
+.section-title + .section-subtitle { margin-top: .75rem; }
+
+/* ---- 5. Composition variants -----------------------------------
+   Centred stays the default so existing pages are untouched. These are
+   opt-in, and exist so that not every section is the same picture. */
+.section-header--left { text-align: left; }
+.section-header--left .section-subtitle { margin-left: 0; margin-right: 0; }
+
+/* Title left, supporting copy right — for sections where the subtitle
+   is doing real explanatory work rather than acting as a caption. */
+.section-header--split { text-align: left; display: grid; gap: .5rem 3rem; }
+@media (min-width: 992px) {
+  .section-header--split {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: end;
+  }
+  .section-header--split .section-label,
+  .section-header--split .section-title { grid-column: 1; }
+  .section-header--split .section-subtitle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    align-self: end;
+  }
+}
+
+/* ---- 6. CTA hierarchy ------------------------------------------
+   btn-primary and btn-dark were both carrying primary weight across the
+   site (89 and 29 uses), so no section stated one clear ask. The row
+   below fixes the relationship: first child leads, the rest recede. */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+}
+.cta-row--center { justify-content: center; }
+.cta-row .btn + .btn { font-weight: 500; }
+.cta-note {
+  flex-basis: 100%;
+  font-size: .85rem;
+  color: var(--color-text-muted);
+  margin: .25rem 0 0;
+}
+.section--dark .cta-note { color: var(--on-dark-3); }
+/* A split header with no supporting copy has nothing for the right
+   column, so it falls back to a single track instead of reserving an
+   empty one. :has() is ignored where unsupported, which leaves the
+   two-column rule in place -- the same result as before this rule. */
+@media (min-width: 992px) {
+  .section-header--split:not(:has(.section-subtitle)),
+  .fd-section-header--split:not(:has(p)) { grid-template-columns: 1fr; }
+}

@@ -20,6 +20,19 @@
   </IfModule>
 </FilesMatch>
 
+# Block log files anywhere in the tree. PHP writes error_log next to the
+# script that faulted, and those traces carry absolute server paths, database
+# names and SQL fragments. api/error_log was reachable at HTTP 200.
+<FilesMatch "(^|\.)(error_log|access_log|.*\.log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
 # Keep non-production copies of this site out of search results.
 #
 # Emits X-Robots-Tag: noindex, nofollow on EVERY hostname except the real

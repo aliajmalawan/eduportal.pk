@@ -204,6 +204,99 @@ function cms_landing_page(): string
     return 'login.php';
 }
 
+/**
+ * Brute-force throttle for the admin login.
+ *
+ * Failures are recorded per IP and per email so that neither a single address
+ * hammering many accounts nor many addresses hammering one account goes
+ * unnoticed. A successful login clears the counters, so an admin who mistypes
+ * a couple of times is never locked out for long.
+ */
+const CMS_LOGIN_MAX_ATTEMPTS = 8;
+const CMS_LOGIN_WINDOW_MINUTES = 15;
+
+function cms_ensure_login_attempts_table(): void
+{
+    global $m;
+    $db = $m->mysqli();
+    $db->query("CREATE TABLE IF NOT EXISTS ep_admin_login_attempts (
+      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+      ip_address VARCHAR(45) NOT NULL DEFAULT '',
+      email VARCHAR(190) NOT NULL DEFAULT '',
+      attempted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (id),
+      KEY ip_time_idx (ip_address, attempted_at),
+      KEY email_time_idx (email, attempted_at)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+}
+
+function cms_login_client_ip(): string
+{
+    return substr((string) ($_SERVER['REMOTE_ADDR'] ?? ''), 0, 45);
+}
+
+/** Seconds the caller must wait before trying again, or 0 if they may try now. */
+function cms_login_lockout_seconds(string $email): int
+{
+    global $m;
+    $ip = cms_login_client_ip();
+    $email = substr(trim($email), 0, 190);
+
+    // A throttle that throws is a throttle that locks everyone out, so a
+    // failure here fails open rather than denying a legitimate login.
+    try {
+        // The remaining wait is computed by MySQL, not PHP. attempted_at is
+        // written on the database clock, and this project's PHP runs on
+        // Europe/Berlin while MySQL runs on SYSTEM -- a three-hour gap that
+        // made a 15-minute lockout report as 195 minutes when the two clocks
+        // were mixed in one calculation.
+        $row = $m->rawQueryOne(
+            "SELECT COUNT(*) AS n,
+                    TIMESTAMPDIFF(SECOND, NOW(), MAX(attempted_at) + INTERVAL ? MINUTE) AS wait_seconds
+               FROM ep_admin_login_attempts
+              WHERE attempted_at > (NOW() - INTERVAL ? MINUTE)
+                AND (ip_address = ? OR (email <> '' AND email = ?))",
+            [CMS_LOGIN_WINDOW_MINUTES, CMS_LOGIN_WINDOW_MINUTES, $ip, $email]
+        );
+    } catch (Throwable $e) {
+        error_log('[EduPortal] login throttle unavailable: ' . $e->getMessage());
+        return 0;
+    }
+
+    if (!$row || (int) $row['n'] < CMS_LOGIN_MAX_ATTEMPTS) {
+        return 0;
+    }
+    return max(1, (int) $row['wait_seconds']);
+}
+
+function cms_login_record_failure(string $email): void
+{
+    global $m;
+    try {
+        $m->insert('ep_admin_login_attempts', [
+            'ip_address' => cms_login_client_ip(),
+            'email' => substr(trim($email), 0, 190),
+        ]);
+    } catch (Throwable $e) {
+        error_log('[EduPortal] could not record login failure: ' . $e->getMessage());
+    }
+}
+
+function cms_login_clear_failures(string $email): void
+{
+    global $m;
+    try {
+        $m->rawQuery(
+            'DELETE FROM ep_admin_login_attempts WHERE ip_address = ? OR email = ?',
+            [cms_login_client_ip(), substr(trim($email), 0, 190)]
+        );
+        // Opportunistic cleanup so the table cannot grow without bound.
+        $m->rawQuery('DELETE FROM ep_admin_login_attempts WHERE attempted_at < (NOW() - INTERVAL 1 DAY)');
+    } catch (Throwable $e) {
+        error_log('[EduPortal] could not clear login failures: ' . $e->getMessage());
+    }
+}
+
 function cms_login(string $email, string $password): bool
 {
     global $m;
@@ -211,11 +304,19 @@ function cms_login(string $email, string $password): bool
     $m->where('is_active', 1);
     $user = $m->getOne('ep_admin_users');
     if (!$user) {
+        cms_login_record_failure($email);
         return false;
     }
     if (!password_verify($password, $user['password_hash'])) {
+        cms_login_record_failure($email);
         return false;
     }
+
+    // Rotate the session id before any authenticated data is written to it.
+    // Without this, a session id planted before login (via a link or a shared
+    // machine) stays valid afterwards and inherits the new privileges.
+    session_regenerate_id(true);
+    cms_login_clear_failures($email);
 
     $_SESSION['cms_user'] = [
         'id' => (int) $user['id'],
@@ -910,6 +1011,7 @@ function cms_migrate_case_studies_schema(): void
 
 cms_seed_super_admin_if_missing();
 cms_ensure_permissions_tables();
+cms_ensure_login_attempts_table();
 cms_ensure_visitor_tables();
 cms_ensure_media_storage();
 cms_ensure_blog_thumbnail_dir();

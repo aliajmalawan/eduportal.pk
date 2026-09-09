@@ -397,7 +397,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="section pricing-includes" id="whats-included" aria-labelledby="included-heading">
   <div class="container">
-    <div class="fd-section-header reveal-fd">
+    <div class="fd-section-header fd-section-header--left reveal-fd">
       <span class="section-label">No surprises</span>
       <h2 id="included-heading">What is included, and what costs extra</h2>
       <p>Most school ERP vendors in Pakistan will not publish this. Here is the whole picture before you talk to anyone.</p>
@@ -445,7 +445,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="fd-section" aria-labelledby="pricing-faq-heading">
   <div class="container">
-    <div class="fd-section-header reveal-fd">
+    <div class="fd-section-header fd-section-header--left reveal-fd">
       <span class="section-label">FAQ</span>
       <h2 id="pricing-faq-heading">Pricing — frequently asked questions</h2>
     </div>

@@ -203,7 +203,9 @@
 
 /* CTA */
 .about-cta {
-  background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 78% 18%, rgba(242,140,40,.14) 0%, transparent 55%), radial-gradient(90% 70% at 12% 88%, rgba(45,74,99,.32) 0%, transparent 60%), var(--gradient-dark-band);
   padding: 5rem 0;
   text-align: center;
 }
@@ -232,3 +234,10 @@
 .about-fact dd{margin:0;font-size:1rem;font-weight:600}
 .about-facts-address{max-width:720px;margin:1.25rem auto 0;font-size:.9375rem;line-height:1.65;text-align:center;color:var(--color-text-muted)}
 .about-facts-address strong{color:var(--color-text)}
+
+.about-cta > * { position: relative; z-index: 1; }
+.about-cta::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; opacity: .055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}

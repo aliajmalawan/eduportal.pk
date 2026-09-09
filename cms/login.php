@@ -13,11 +13,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $email = trim((string) ($_POST['email'] ?? ''));
         $password = (string) ($_POST['password'] ?? '');
-        if (cms_login($email, $password)) {
+
+        // Checked before the password is even compared, so a locked-out caller
+        // learns nothing about whether the address exists.
+        $wait = cms_login_lockout_seconds($email);
+        if ($wait > 0) {
+            $minutes = (int) ceil($wait / 60);
+            $error = 'Too many failed attempts. Try again in '
+                . $minutes . ' minute' . ($minutes === 1 ? '' : 's') . '.';
+        } elseif (cms_login($email, $password)) {
             header('Location: ' . cms_landing_page());
             exit;
+        } else {
+            $error = 'Invalid email or password.';
         }
-        $error = 'Invalid email or password.';
     }
 }
 ?>

@@ -190,7 +190,7 @@
 }
 
 /* Homepage FAQ preview */
-.home-faq { background: var(--color-bg-alt); }
+/* ground now set by .section--alt in the markup */
 .home-faq-list { max-width: 800px; margin: 0 auto 2rem; }
 .home-faq-item {
   background: #fff;

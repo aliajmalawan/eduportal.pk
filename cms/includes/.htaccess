@@ -1,0 +1,16 @@
+# Nothing in this directory is meant to be requested over HTTP — these are
+# server-side includes pulled in via require/include at the filesystem
+# level, which this rule does not affect.
+#
+# Fetching them directly returned HTTP 200 with an empty body: no output
+# leaked, but bootstrap.php starts a session and opens a database connection
+# for any anonymous caller, and layout.php/careers-admin.php would expose the
+# admin panel's structure as plain text if PHP were ever misconfigured for
+# this path. Mirrors includes/.htaccess and scripts/.htaccess.
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>

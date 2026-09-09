@@ -480,14 +480,20 @@
 }
 
 /* Reveal animation */
+/* Focus pull — same motion as .reveal in index.css. */
 .reveal-fd {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(10px) scale(.985);
+  filter: blur(2px);
+  transition:
+    opacity var(--t-reveal) var(--ease),
+    transform var(--t-reveal) var(--ease),
+    filter var(--t-reveal) var(--ease);
 }
 .reveal-fd.visible {
   opacity: 1;
-  transform: translateY(0);
+  filter: none;
+  transform: none;
 }
 
 /* Modal (Get Started) */
@@ -726,4 +732,15 @@ body.modal-open { overflow: hidden; position: fixed; width: 100%; }
 .fd-qr-banner a { color: var(--color-primary); font-weight: 600; }
 @media (max-width: 640px) {
   .fd-qr-banner { flex-direction: column; }
+}
+
+/* Composition variants for the feature-detail header, mirroring
+   .section-header--left/--split in shared.css so both header systems
+   offer the same compositions. */
+.fd-section-header--left { text-align: left; }
+.fd-section-header--left > p { margin-left: 0; margin-right: 0; }
+.fd-section-header--split { text-align: left; display: grid; gap: .5rem 3rem; }
+@media (min-width: 992px) {
+  .fd-section-header--split { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); align-items: end; }
+  .fd-section-header--split > p { grid-column: 2; grid-row: 1 / span 2; margin: 0; align-self: end; }
 }

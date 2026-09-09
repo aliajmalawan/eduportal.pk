@@ -152,7 +152,7 @@ require __DIR__ . '/includes/header.php';
   <!-- Values -->
   <section class="section about-values">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header section-header--left">
         <span class="section-label">Our Values</span>
         <h2 class="section-title">What Drives Us Every Day</h2>
       </div>
@@ -202,7 +202,7 @@ require __DIR__ . '/includes/header.php';
   <?php if ($companyFacts): ?>
   <section class="section about-facts" id="company-facts" aria-labelledby="company-facts-heading">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header section-header--split">
         <span class="section-label">Company information</span>
         <h2 id="company-facts-heading">EduPortal at a glance</h2>
         <p>The details buyers ask for, in one place.</p>
