@@ -39,7 +39,7 @@ require __DIR__ . '/includes/header.php';
 
       <?php if (!empty($blog['featured_image']) && ($blog['thumb_type'] ?? '') === 'image'): ?>
       <div class="blog-post-hero">
-        <img src="<?= ep_h(ep_asset($blog['featured_image'])) ?>" alt="<?= ep_h($blog['title']) ?>">
+        <img src="<?= ep_h(ep_asset($blog['featured_image'])) ?>" alt="<?= ep_h($blog['title']) ?>" fetchpriority="high" decoding="async">
       </div>
       <?php elseif (!empty($blog['thumb_gradient_class'])): ?>
       <div class="blog-post-hero <?= ep_h($blog['thumb_gradient_class']) ?>"></div>
@@ -77,7 +77,7 @@ require __DIR__ . '/includes/header.php';
           ?>
           <a href="<?= ep_h($relUrl) ?>" class="blog-related-card">
             <?php if (!empty($rel['featured_image']) && ($rel['thumb_type'] ?? '') === 'image'): ?>
-            <div class="blog-related-thumb"><img src="<?= ep_h(ep_asset($rel['featured_image'])) ?>" alt=""></div>
+            <div class="blog-related-thumb"><img src="<?= ep_h(ep_asset($rel['featured_image'])) ?>" alt="" loading="lazy" decoding="async"></div>
             <?php else: ?>
             <div class="blog-related-thumb <?= ep_h($rel['thumb_gradient_class'] ?? '') ?>">
               <i data-lucide="<?= ep_h($rel['thumb_icon'] ?? 'sparkles') ?>"></i>
