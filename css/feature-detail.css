@@ -480,21 +480,7 @@
 }
 
 /* Reveal animation */
-/* Focus pull — same motion as .reveal in index.css. */
-.reveal-fd {
-  opacity: 0;
-  transform: translateY(10px) scale(.985);
-  filter: blur(2px);
-  transition:
-    opacity var(--t-reveal) var(--ease),
-    transform var(--t-reveal) var(--ease),
-    filter var(--t-reveal) var(--ease);
-}
-.reveal-fd.visible {
-  opacity: 1;
-  filter: none;
-  transform: none;
-}
+/* .reveal-fd now defined in shared.css alongside .reveal. */
 
 /* Modal (Get Started) */
 .modal-overlay {

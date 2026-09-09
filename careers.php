@@ -39,6 +39,7 @@ $canonicalUrl = 'https://eduportal.pk/careers';
 $navActive = 'careers';
 $useDemoModal = true;
 $extraStylesheets = ['css/shared.css', 'css/careers.css'];
+$extraBodyScripts = [ep_versioned_asset('js/reveal.js')];
 $epTrackPage = 'careers';
 
 // ItemList of the open roles, so the listing page itself is understood as a
@@ -175,7 +176,7 @@ $noJobsText = ep_setting('careers_no_jobs_text', 'We do not have any open positi
 
     <section class="section careers-work">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-label">The work</span>
           <h2>What you would be working on</h2>
         </div>

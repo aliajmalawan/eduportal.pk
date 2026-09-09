@@ -8,6 +8,7 @@ $canonicalUrl    = ep_canonical_url();
 $navActive       = 'careers';
 $useDemoModal    = true;
 $extraStylesheets = ['css/shared.css', 'css/team.css'];
+$extraBodyScripts = [ep_versioned_asset('js/parallax.js'), ep_versioned_asset('js/reveal.js')];
 $epTrackPage     = 'team';
 
 require __DIR__ . '/includes/head.php';
@@ -34,7 +35,7 @@ $initials = static function (string $name): string {
   <main>
 
     <section class="page-hero team-hero">
-      <img class="team-hero-bg" src="<?= ep_h(ep_url('assets/careers-team.jpg')) ?>" alt="" loading="eager" decoding="async" aria-hidden="true">
+      <img class="team-hero-bg" src="<?= ep_h(ep_url('assets/careers-team.jpg')) ?>" alt="" loading="eager" decoding="async" aria-hidden="true" data-parallax="0.12">
       <span class="team-hero-overlay" aria-hidden="true"></span>
       <div class="container">
         <span class="section-label">Our People</span>
@@ -52,7 +53,7 @@ $initials = static function (string $name): string {
     <?php if ($teamMembers): ?>
     <section class="section team-grid-section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <span class="section-label">Meet the team</span>
           <h2 class="section-title">The people making it happen</h2>
         </div>
@@ -62,7 +63,7 @@ $initials = static function (string $name): string {
             $personRole = trim((string) $person['designation']);
             $personPhoto = trim((string) $person['photo_path']);
           ?>
-          <div class="team-card">
+          <div class="team-card reveal">
             <div class="team-card-photo">
               <?php if ($personPhoto !== ''): ?>
               <img src="<?= ep_h(ep_url($personPhoto)) ?>" alt="<?= ep_h($personName) ?>" loading="lazy" decoding="async">

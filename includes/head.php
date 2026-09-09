@@ -67,7 +67,7 @@ $extraHeadHtml = $extraHeadHtml ?? '';
         // desktop nav is display:none under that width and the mobile drawer
         // only slides in when JS adds .open, so with JS off there was no way
         // to navigate the site on a phone at all. ?>
-  <noscript><style>.faq-a,.home-faq-a,.fd-faq-a{max-height:none!important}.reveal,.reveal-fd{opacity:1!important;transform:none!important}@media(max-width:991px){.nav-toggle{display:none!important}.mobile-menu{position:static!important;transform:none!important;top:auto!important;inset:auto!important;border-top:1px solid var(--color-border)}}</style></noscript>
+  <noscript><style>.faq-a,.home-faq-a,.fd-faq-a{max-height:none!important}.reveal,.reveal-fd{opacity:1!important;transform:none!important}@media(max-width:991px){.nav-toggle{display:none!important}.mobile-menu{position:static!important;transform:none!important;visibility:visible!important;overflow:visible!important;top:auto!important;inset:auto!important;border-top:1px solid var(--color-border)}}</style></noscript>
   <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js" defer></script>
   <?php foreach ($extraHeadScripts as $src): ?>
   <script src="<?= ep_h(ep_asset_url($src)) ?>" defer></script>

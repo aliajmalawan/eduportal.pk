@@ -7,6 +7,7 @@ $canonicalUrl    = ep_canonical_url();
 $navActive       = 'about';
 $useDemoModal    = true;
 $extraStylesheets = ['css/shared.css', 'css/about.css'];
+$extraBodyScripts = [ep_versioned_asset('js/reveal.js')];
 $epTrackPage     = 'about';
 
 require __DIR__ . '/includes/head.php';
@@ -90,7 +91,7 @@ require __DIR__ . '/includes/header.php';
   <!-- Journey timeline -->
   <section class="section about-journey">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-label">Our Journey</span>
         <h2 class="section-title">7 Years of Growth</h2>
         <p class="section-subtitle">From a small startup idea to Pakistan's leading school ERP platform.</p>
@@ -152,7 +153,7 @@ require __DIR__ . '/includes/header.php';
   <!-- Values -->
   <section class="section about-values">
     <div class="container">
-      <div class="section-header section-header--left">
+      <div class="section-header section-header--left reveal">
         <span class="section-label">Our Values</span>
         <h2 class="section-title">What Drives Us Every Day</h2>
       </div>
@@ -202,7 +203,7 @@ require __DIR__ . '/includes/header.php';
   <?php if ($companyFacts): ?>
   <section class="section about-facts" id="company-facts" aria-labelledby="company-facts-heading">
     <div class="container">
-      <div class="section-header section-header--split">
+      <div class="section-header section-header--split reveal">
         <span class="section-label">Company information</span>
         <h2 id="company-facts-heading">EduPortal at a glance</h2>
         <p>The details buyers ask for, in one place.</p>

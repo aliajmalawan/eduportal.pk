@@ -9,7 +9,7 @@ $pageDescription = 'Watch EduPortal video reviews from school principals, owners
 $canonicalUrl = ep_canonical_url();
 $extraStylesheets = ['css/shared.css', 'css/video-cards.css'];
 $extraHeadScripts = [ep_versioned_asset('js/video-thumbs.js')];
-$extraBodyScripts = [ep_versioned_asset('js/videos-page.js')];
+$extraBodyScripts = [ep_versioned_asset('js/videos-page.js'), ep_versioned_asset('js/reveal.js')];
 $videoPlayback = [];
 foreach ($videos as $v) {
     $vid = (int) ($v['id'] ?? 0);
@@ -87,7 +87,7 @@ require __DIR__ . '/includes/header.php';
                   $cardHref = $fileUrl;
               }
             ?>
-            <a<?= $cardHref !== '' ? ' href="' . ep_h($cardHref) . '"' : ' role="button" tabindex="0"' ?> class="video-card"
+            <a<?= $cardHref !== '' ? ' href="' . ep_h($cardHref) . '"' : ' role="button" tabindex="0"' ?> class="video-card reveal"
              data-video-id="<?= $recordId ?>"
              data-role="<?= ep_h($role) ?>"
              data-video-type="<?= ep_h($vType) ?>"

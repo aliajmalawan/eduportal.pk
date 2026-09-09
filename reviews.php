@@ -17,6 +17,7 @@ $canonicalUrl    = ep_canonical_url();
 $navActive       = 'reviews';
 $useDemoModal    = true;
 $extraStylesheets = ['css/shared.css', 'css/reviews.css'];
+$extraBodyScripts = [ep_versioned_asset('js/reveal.js')];
 $epTrackPage     = 'reviews';
 
 /**
@@ -104,7 +105,7 @@ require __DIR__ . '/includes/header.php';
         <p class="reviews-attribution-note">Showing all reviews left by real customers on our Google Business Profile, newest first.</p>
         <div class="reviews-grid">
           <?php foreach ($reviews as $r): ?>
-          <article class="review-card">
+          <article class="review-card reveal">
             <div class="review-card-header">
               <?php $avatarInitial = ep_h(mb_strtoupper(mb_substr($r['author_name'], 0, 1))); ?>
               <?php if (!empty($r['author_photo'])): ?>

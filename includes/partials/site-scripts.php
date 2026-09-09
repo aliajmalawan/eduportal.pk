@@ -1,18 +1,12 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof lucide !== 'undefined') lucide.createIcons();
-  const navbar = document.getElementById('navbar');
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  window.addEventListener('scroll', () => navbar?.classList.toggle('scrolled', window.scrollY > 20));
-  navToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('open');
-    const icon = navToggle.querySelector('[data-lucide]');
-    if (icon) icon.setAttribute('data-lucide', mobileMenu?.classList.contains('open') ? 'x' : 'menu');
-    lucide?.createIcons();
-  });
-  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  // Navigation behaviour lives in js/nav.js (sticky state, aria, Escape,
+  // focus handling and the scroll lock).
 });
 </script>
+<?php // Shared navigation and scroll-reveal behaviour. ?>
+<script src="<?= ep_h(ep_asset_url('js/nav.js')) ?>" defer></script>
+<script src="<?= ep_h(ep_asset_url('js/reveal.js')) ?>" defer></script>
 <?php // GA4 conversion events (demo request, contact click, job application). ?>
 <script src="<?= ep_h(ep_asset_url('js/conversions.js')) ?>" defer></script>

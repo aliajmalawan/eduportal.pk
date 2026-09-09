@@ -694,7 +694,31 @@
 
     /* ========== Trusted By ========== */
     .trusted { padding: 2.5rem 0; background: var(--color-bg); }
-    .trusted p { text-align: center; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 1.5rem; font-weight: 500; }
+    /* The problem statement is the first thing after the hero, so it is set
+       at reading size rather than as a caption -- it has to be read, not
+       skimmed past on the way to the logos. */
+    .trusted-problem {
+      max-width: 46ch;
+      margin: 0 auto 2rem;
+      text-align: center;
+      font-size: clamp(1.0625rem, 2.2vw, 1.3rem);
+      line-height: 1.5;
+      color: var(--color-text-muted);
+      text-wrap: balance;
+    }
+    .trusted-problem strong { color: var(--color-text); font-weight: 700; }
+    .trusted-label {
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      /* --color-text-light (#888) measures 3.54:1 on white and fails AA.
+         Small uppercase text is the hardest thing on a page to read, so it
+         gets the stronger muted tone rather than the lighter one. */
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+    }
     .trusted-logos {
       display: flex;
       flex-wrap: wrap;
@@ -712,35 +736,10 @@
     }
 
     /* ========== Feature cards ========== */
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 992px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
-    .feature-card {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .feature-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .feature-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+    /* The six identical feature cards these styled were replaced by the
+       product tour above: index.php was the only page using them, and no
+       markup references .features-grid / .feature-card / .feature-icon
+       any more. (.feature-link is still used and is defined elsewhere.) */
     .feature-link {
       font-size: 0.875rem;
       font-weight: 600;
@@ -1379,70 +1378,10 @@
     /* Testimonial video cards — see css/video-cards.css */
 
     /* ========== App CTA banner ========== */
-    .app-cta {
-      padding: 2rem 0 4rem;
-    }
-    .app-cta-inner {
-      position: relative;
-      overflow: hidden;
-      background: radial-gradient(120% 90% at 78% 18%, rgba(242,140,40,.14) 0%, transparent 55%), radial-gradient(90% 70% at 12% 88%, rgba(45,74,99,.32) 0%, transparent 60%), var(--gradient-dark-band);
-      border-radius: var(--radius-xl);
-      padding: 2rem 1.5rem;
-      display: grid;
-      gap: 2rem;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
-    @media (min-width: 992px) {
-      .app-cta-inner {
-        grid-template-columns: 1fr auto auto;
-        padding: 2.5rem 3rem;
-        gap: 2rem;
-      }
-    }
-    .app-cta h3 {
-      color: #fff;
-      font-size: clamp(1.375rem, 3vw, 1.75rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    .app-cta p { color: rgba(255,255,255,.7); font-size: 0.9375rem; margin-bottom: 1.25rem; }
-    .store-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 10px;
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: background var(--transition);
-    }
-    .store-badge:hover { background: rgba(255,255,255,.18); }
-    .app-cta-phone {
-      justify-self: center;
-      filter: drop-shadow(0 16px 40px rgba(0,0,0,.35));
-    }
-    .qr-card {
-      background: #fff;
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      text-align: center;
-      max-width: 140px;
-      justify-self: center;
-    }
-    .qr-placeholder {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 0.5rem;
-      background: repeating-conic-gradient(#1a1a1a 0% 25%, #fff 0% 50%) 50% / 12px 12px;
-      border-radius: 4px;
-    }
-    .qr-card p { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-muted); }
+    /* The .app-cta block that lived here (store badges, phone shot, QR card)
+       was removed: no markup on any page has referenced it since before this
+       work began, and its "QR code" was a repeating-conic-gradient standing
+       in for a real one. Dead styling for a section that no longer exists. */
 
     /* ========== Footer ========== */
     .footer {
@@ -1523,19 +1462,8 @@
     .footer-bottom-links a:hover { color: var(--color-primary); }
 
     /* ========== Reveal animation ========== */
-    /* Focus pull. A 10px rise with a 2px defocus reads as a camera finding
-       its subject; the old 24px slide read as a panel arriving. House curve
-       and --t-reveal, replacing the ad-hoc 0.6s ease. */
-    .reveal {
-      opacity: 0;
-      transform: translateY(10px) scale(.985);
-      filter: blur(2px);
-      transition:
-        opacity var(--t-reveal) var(--ease),
-        transform var(--t-reveal) var(--ease),
-        filter var(--t-reveal) var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: none; filter: none; }
+    /* .reveal now lives in shared.css so every page shares the same
+       journey, and it is gated on .js there. */
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1552,3 +1480,114 @@
   pointer-events: none; opacity: .055;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
+    /* ==========================================================
+       PRODUCT TOUR (Step 7)
+       Split composition: the product sticks while the story scrolls
+       past it. Everything degrades to a readable stacked list with no
+       JavaScript, and the zoom is the only thing JS adds.
+       ========================================================== */
+    .tour { display: grid; gap: 2rem; align-items: start; }
+    @media (min-width: 992px) {
+      .tour { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 3.5rem; }
+    }
+
+    .tour-visual { position: relative; }
+    /* Sticky only where there is room for it. Below 992px the frame sits
+       above the steps and scrolls normally -- a sticky panel on a phone
+       eats the viewport the content needs. */
+    @media (min-width: 992px) {
+      .tour-visual { position: sticky; top: 6.5rem; }
+    }
+
+    .tour-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: #fff;
+      box-shadow: var(--plane-4);
+      aspect-ratio: 1536 / 1024;
+    }
+    .tour-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* translate() then scale() from the top-left corner. Anchoring with
+         transform-origin alone cannot reach the lower panels: the window's
+         top edge is capped at oy*(1-1/S), so the attendance heatmap and the
+         staff panel were unreachable and step 3 showed the revenue chart
+         instead. Panning explicitly addresses any region. */
+      transform-origin: 0 0;
+      transform: translate(0, 0) scale(1);
+      will-change: transform;
+    }
+    /* The pan/zoom is a transition on transform, so it is one animated
+       property and the global reduced-motion guard switches it off. */
+    .js .tour-frame img {
+      transition: transform var(--t-scene) var(--ease);
+    }
+
+    .tour-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+    @media (min-width: 992px) {
+      /* Space the steps so each one is roughly a screen apart, which is what
+         gives the scroll something to drive. */
+      .tour-steps { gap: 0; }
+      .tour-step { min-height: 62vh; display: flex; align-items: center; }
+    }
+
+    .tour-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
+    }
+    .tour-step-n {
+      font-family: var(--font-display);
+      font-size: .8125rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--color-text-light);
+      padding-top: .3rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .tour-step-k {
+      display: block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--flame-ink);
+      margin-bottom: .3rem;
+    }
+    .tour-step h3 {
+      font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.25;
+      margin: 0 0 .4rem;
+      color: var(--color-text);
+    }
+    .tour-step p {
+      margin: 0;
+      font-size: .9375rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      max-width: 46ch;
+    }
+
+    /* Dimming is gated on .js: with scripting off nothing can un-dim, so
+       every step must render at full strength. */
+    .js .tour-step {
+      opacity: .38;
+      transition: opacity var(--t-reveal) var(--ease);
+    }
+    .js .tour-step.is-current { opacity: 1; }
+    .js .tour-step-n { transition: color var(--t-reveal) var(--ease); }
+    .js .tour-step.is-current .tour-step-n { color: var(--flame-ink); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js .tour-step { opacity: 1 !important; }
+      .js .tour-frame img { transition: none !important; }
+    }

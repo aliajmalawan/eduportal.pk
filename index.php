@@ -192,16 +192,19 @@ $homeJsonLd = [
         // to be repeated here. Below 992px the desktop nav is display:none and
         // the mobile drawer only opens via JS, leaving no navigation at all
         // with JS disabled. ?>
-  <noscript><style>.faq-a,.home-faq-a,.fd-faq-a{max-height:none!important}.reveal,.reveal-fd{opacity:1!important;transform:none!important}@media(max-width:991px){.nav-toggle{display:none!important}.mobile-menu{position:static!important;transform:none!important;top:auto!important;inset:auto!important;border-top:1px solid var(--color-border)}}</style></noscript>
+  <noscript><style>.faq-a,.home-faq-a,.fd-faq-a{max-height:none!important}.reveal,.reveal-fd{opacity:1!important;transform:none!important}@media(max-width:991px){.nav-toggle{display:none!important}.mobile-menu{position:static!important;transform:none!important;visibility:visible!important;overflow:visible!important;top:auto!important;inset:auto!important;border-top:1px solid var(--color-border)}}</style></noscript>
   <script src="<?= ep_h(ep_asset_url('js/country-codes.js')) ?>" defer></script>
   <script src="<?= ep_h(ep_asset_url('js/lead-form.js')) ?>" defer></script>
   <script src="<?= ep_h(ep_asset_url('js/faqs.js')) ?>" defer></script>
   <script src="<?= ep_h(ep_asset_url('js/video-thumbs.js')) ?>" defer></script>
   <script src="<?= ep_h(ep_asset_url('js/reviews-slider.js')) ?>" defer></script>
+  <script src="<?= ep_h(ep_asset_url('js/product-tour.js')) ?>" defer></script>
   <?php // GA4 conversions. index.php includes partials/footer.php directly
         // rather than includes/footer.php, so it does not pick up
         // site-scripts.php — the tag has to be added here too, and the demo
         // form lives on this page. ?>
+  <script src="<?= ep_h(ep_asset_url('js/nav.js')) ?>" defer></script>
+  <script src="<?= ep_h(ep_asset_url('js/reveal.js')) ?>" defer></script>
   <script src="<?= ep_h(ep_asset_url('js/conversions.js')) ?>" defer></script>
 <?php $gaId = ep_setting('google_analytics_id'); if (!empty($gaId)): ?>
 <!-- Google tag (gtag.js) -->
@@ -390,69 +393,115 @@ require __DIR__ . '/includes/header.php';
   </div>
 
   <!-- Trusted By -->
-  <section class="trusted">
-    <div class="container reveal">
-      <p>Trusted by <?= ep_h(ep_site_metric('total_clients')) ?> schools worldwide</p>
-      <div class="trusted-logos">
-        <span>Green Valley</span>
-        <span>Northwood Academy</span>
-        <span>Sunrise Public</span>
-        <span>Heritage Intl</span>
-        <span>Maple Creek</span>
-        <span>Westfield Prep</span>
+    <?php // STORY BEAT: Problem -> Solution -> Trust.
+          // The page previously jumped straight from the hero into features,
+          // so nothing ever named the problem the product solves. This band
+          // does that in one line, answers it in the next, and then proves it
+          // with real customers -- without adding a section to the page.
+          //
+          // The names come from ep_client_school_names(), i.e. institutions
+          // that recorded a video testimonial. The six names hardcoded here
+          // before ("Green Valley", "Northwood Academy", "Sunrise Public",
+          // "Heritage Intl", "Maple Creek", "Westfield Prep") matched no
+          // record in the database -- invented social proof under a
+          // "trusted by" claim.
+          $clientSchools = ep_client_school_names(8); ?>
+    <section class="trusted" id="problem">
+      <div class="container reveal">
+        <p class="trusted-problem">
+          Most institutions still run on paper registers, WhatsApp groups and a
+          spreadsheet only one person understands.
+          <strong>EduPortal replaces all three.</strong>
+        </p>
+        <?php if ($clientSchools): ?>
+        <p class="trusted-label">Already running on EduPortal</p>
+        <div class="trusted-logos">
+          <?php foreach ($clientSchools as $school): ?>
+          <span><?= ep_h($school) ?></span>
+          <?php endforeach; ?>
+        </div>
+        <?php else: ?>
+        <p class="trusted-label">Trusted by <?= ep_h(ep_site_metric('total_clients')) ?> institutions across Pakistan</p>
+        <?php endif; ?>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- Features -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Features</span>
-        <h2 class="section-title">Powerful Tools for Parents &amp; Teachers</h2>
-        <p class="section-subtitle">Everything your school needs — attendance, fees, communication, and reports in one unified ERP.</p>
-        <p style="margin-top:1rem"><a href="features.php" class="feature-link">Explore all 22+ features <i data-lucide="arrow-right" style="width:14px"></i></a></p>
+    <?php // PRODUCT STORY: a guided tour of the real dashboard.
+          //
+          // This replaced six identical feature cards. Rather than describing
+          // modules in prose beside a generic icon, each step zooms the actual
+          // product screenshot to the panel that does the job, so the claim and
+          // the evidence are the same object.
+          //
+          // The image is assets/dashboard.png -- the same file the hero already
+          // loaded, so the tour costs no additional bytes. Regions below are
+          // expressed as transform-origin percentages of that 1536x1024 image.
+          //
+          // Progressive enhancement: without JavaScript no step is dimmed and
+          // the frame stays at scale 1, so every step is readable and the whole
+          // dashboard is visible. js/product-tour.js only adds the zoom.
+          $tourSteps = [
+            ['k' => 'Dashboard',      'h' => 'One screen the office actually runs on',
+             'p' => 'Collections, receivables, admissions, attendance and open alerts sit together, so the morning question — what needs attention today — is answered before anyone opens a register.',
+             's' => '1', 'tx' => '0%', 'ty' => '0%'],
+            ['k' => 'Fee management', 'h' => 'Money in, money outstanding, and who is behind',
+             'p' => 'Today\'s collection and total receivables update as payments post, and the defaulters panel names the families to chase rather than leaving it to a spreadsheet.',
+             's' => '2.2', 'tx' => '-18.18%', 'ty' => '0%'],
+            ['k' => 'Attendance',     'h' => 'Every section, every day, at a glance',
+             'p' => 'The class heatmap shows attendance per section across the week, so a class slipping below target is visible immediately instead of at month end.',
+             's' => '2.8', 'tx' => '-21.28%', 'ty' => '-180%'],
+            ['k' => 'Admissions',     'h' => 'From first inquiry to confirmed admission',
+             'p' => 'The funnel tracks inquiries through campus visits, assessments and follow-ups, so the drop-off between interest and enrolment is a number the office can act on.',
+             's' => '2.3', 'tx' => '-93.97%', 'ty' => '-81.96%'],
+            ['k' => 'Analytics',      'h' => 'Revenue against the target you set',
+             'p' => 'Income and expense are plotted against the collection target, with a school health score summarising finance, academics, attendance, admissions and compliance.',
+             's' => '2.1', 'tx' => '-17.47%', 'ty' => '-70.48%'],
+            ['k' => 'Staff & HRM',    'h' => 'Whether the work is actually getting done',
+             'p' => 'Attendance marking, diary completion, result submission and fee follow-ups are tracked per staff member, turning "is it done" into a figure rather than a phone call.',
+             's' => '2.8', 'tx' => '-81.52%', 'ty' => '-180%'],
+            ['k' => 'Communication',  'h' => 'What happened, and what still needs a reply',
+             'p' => 'A live feed records fees received, admissions, attendance marked and complaints resolved, while the priorities panel turns each one into a reminder, a call or a resolution.',
+             's' => '2.3', 'tx' => '-130%', 'ty' => '-81.96%'],
+          ]; ?>
+    <section class="section product-tour" id="features">
+      <div class="container">
+        <div class="section-header section-header--split reveal">
+          <span class="section-label">The product</span>
+          <h2 class="section-title">A tour of the actual dashboard</h2>
+          <p class="section-subtitle">Not a feature list &mdash; the screen your office would open every
+            morning, with each part of it explained. Scroll to walk through it.</p>
+        </div>
+
+        <div class="tour" id="productTour">
+          <div class="tour-visual">
+            <div class="tour-frame">
+              <img src="<?= ep_h(ep_url('assets/dashboard.png')) ?>"
+                   alt="EduPortal dashboard showing fee collection, attendance, admissions funnel, analytics and live activity"
+                   width="1536" height="1024" loading="lazy" decoding="async" id="tourImage">
+            </div>
+          </div>
+
+          <ol class="tour-steps">
+            <?php foreach ($tourSteps as $n => $step): ?>
+            <li class="tour-step<?= $n === 0 ? ' is-current' : '' ?>"
+                data-scale="<?= ep_h($step['s']) ?>"
+                data-tx="<?= ep_h($step['tx']) ?>"
+                data-ty="<?= ep_h($step['ty']) ?>">
+              <span class="tour-step-n"><?= str_pad((string) ($n + 1), 2, '0', STR_PAD_LEFT) ?></span>
+              <div class="tour-step-body">
+                <span class="tour-step-k"><?= ep_h($step['k']) ?></span>
+                <h3><?= ep_h($step['h']) ?></h3>
+                <p><?= ep_h($step['p']) ?></p>
+              </div>
+            </li>
+            <?php endforeach; ?>
+          </ol>
+        </div>
+
+        <p class="section-next reveal"><a href="<?= ep_h(ep_url('features.php')) ?>">See every module in detail <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
       </div>
-      <div class="features-grid">
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#e0f2fe;color:#0284c7"><i data-lucide="clipboard-check"></i></div>
-          <h3>Attendance Tracking</h3>
-          <p>Real-time attendance for students and staff with instant parent notifications and daily reports.</p>
-          <a href="<?= ep_h(ep_url('features/attendance')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#dcfce7;color:#16a34a"><i data-lucide="wallet"></i></div>
-          <h3>Fee Management</h3>
-          <p>Automate invoicing, online payments, reminders, and reconciliation with full audit trails.</p>
-          <a href="<?= ep_h(ep_url('features/fee-management')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#fef3c7;color:#d97706"><i data-lucide="message-circle"></i></div>
-          <h3>Parent Communication</h3>
-          <p>Broadcast announcements, chat with teachers, and share homework — all from one secure app.</p>
-          <a href="<?= ep_h(ep_url('features/parent-app')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#ede9fe;color:#7c3aed"><i data-lucide="bar-chart-3"></i></div>
-          <h3>Academic Analytics</h3>
-          <p>Track grades, performance trends, and class rankings with beautiful, exportable dashboards.</p>
-          <a href="<?= ep_h(ep_url('features/examinations')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#ffe4e6;color:#e11d48"><i data-lucide="calendar-days"></i></div>
-          <h3>Timetable &amp; Scheduling</h3>
-          <p>Build conflict-free schedules, manage substitutions, and sync events to parent calendars.</p>
-          <a href="<?= ep_h(ep_url('features/timetable')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon" style="background:#f3e8ff;color:#9333ea"><i data-lucide="shield-check"></i></div>
-          <h3>Secure Cloud ERP</h3>
-          <p>Enterprise-grade security, role-based access, and automatic backups for peace of mind.</p>
-          <a href="<?= ep_h(ep_url('features')) ?>" class="feature-link">Learn More <i data-lucide="arrow-right" style="width:14px"></i></a>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
   <!-- Analytics -->
   <section class="section section--alt analytics" id="analytics">
@@ -683,6 +732,7 @@ require __DIR__ . '/includes/header.php';
           <img src="assets/parent-app.jpg" alt="EduPortal mobile app for parents, teachers, and school executives" width="2452" height="4857" loading="lazy" decoding="async">
         </div>
       </div>
+        <p class="section-next reveal"><a href="<?= ep_h(ep_url('videos.php')) ?>">Watch principals using it <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
     </div>
   </section>
   <!-- Testimonials -->
@@ -841,6 +891,28 @@ require __DIR__ . '/includes/header.php';
     </div>
   </section>
 
+    <?php // STORY BEAT: Conversion.
+          // The page previously ended on the FAQ with no closing ask, so a
+          // visitor who read to the bottom had nowhere to go. Assembled from
+          // the existing system -- .section--dark carries the motivated band
+          // and grain, .cta-row sets the primary/secondary relationship -- so
+          // this introduces no new styling of its own. ?>
+    <section class="section section--dark" id="get-started">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Get started</span>
+          <h2 class="section-title">See EduPortal running your institution</h2>
+          <p class="section-subtitle">A short walkthrough on your own data &mdash; fees, attendance,
+            exams and the parent app &mdash; so you can judge it against how your office works today.</p>
+        </div>
+        <div class="cta-row cta-row--center reveal">
+          <button type="button" class="btn btn-primary btn-lg js-open-modal">Book a Demo <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <a href="<?= ep_h(ep_url('pricing.php')) ?>" class="btn btn-outline-light btn-lg">See Pricing</a>
+          <p class="cta-note">Free walkthrough &middot; No card required &middot; Answers within one working day</p>
+        </div>
+      </div>
+    </section>
+
 <?php require __DIR__ . '/includes/partials/footer.php'; ?>
 
   <!-- Pricing anchor (minimal) -->
@@ -852,21 +924,7 @@ require __DIR__ . '/includes/header.php';
       if (window.initEduportalVideoThumbs) window.initEduportalVideoThumbs();
       if (window.initEduportalReviewsSlider) window.initEduportalReviewsSlider();
 
-      const navbar = document.getElementById('navbar');
-      const navToggle = document.getElementById('navToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      window.addEventListener('scroll', () => navbar?.classList.toggle('scrolled', window.scrollY > 20));
-
-      navToggle?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('open');
-        const icon = navToggle.querySelector('[data-lucide]');
-        if (icon) {
-          icon.setAttribute('data-lucide', mobileMenu?.classList.contains('open') ? 'x' : 'menu');
-          lucide?.createIcons();
-        }
-      });
-      mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+      // Navigation behaviour lives in js/nav.js.
 
       /* Scroll lock helper (fixes hero popup scrollbar) */
       let savedScrollY = 0;
@@ -999,10 +1057,8 @@ require __DIR__ . '/includes/header.php';
         else if (modal.classList.contains('open')) closeModal();
       });
 
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      // Scroll reveal now lives in js/reveal.js, shared by every page, so the
+      // same gesture behaves identically site-wide.
     });
   </script>
 <?php $epTrackPage = 'home'; require __DIR__ . '/includes/partials/public-track.php'; ?>

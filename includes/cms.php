@@ -112,12 +112,18 @@ function ep_canonical_url(): string
 }
 
 /** Cache-busted asset URL relative to site root (e.g. js/foo.js). */
+/**
+ * Kept as a thin alias so existing call sites keep working.
+ *
+ * It used to fingerprint the SOURCE file's mtime, but .htaccess
+ * content-negotiates to the .min variant, so a rebuilt .min.js shipped under
+ * an unchanged version string and visitors kept the stale copy -- the same
+ * fault that made a CSS fix invisible earlier in this project.
+ * ep_asset_url() reads the mtime of whichever file is actually served.
+ */
 function ep_versioned_asset(string $relativeFromSiteRoot): string
 {
-    $relativeFromSiteRoot = ltrim($relativeFromSiteRoot, '/');
-    $abs = dirname(__DIR__) . '/' . $relativeFromSiteRoot;
-    $v = is_file($abs) ? (string) filemtime($abs) : (string) time();
-    return $relativeFromSiteRoot . '?v=' . $v;
+    return ep_asset_url(ltrim($relativeFromSiteRoot, '/'));
 }
 
 function ep_normalize_public_path(string $path, string $defaultDir): string
@@ -1537,4 +1543,70 @@ function ep_get_team_member(int $id): ?array
     $m->where('id', $id);
     $row = $m->getOne('ep_team_members');
     return $row ?: null;
+}
+
+/**
+ * Client school names for the homepage trust strip.
+ *
+ * Sourced from published video testimonials, i.e. institutions that went on
+ * camera for EduPortal, so every name shown is a verifiable customer. The
+ * homepage previously listed six invented names -- "Green Valley",
+ * "Northwood Academy", "Sunrise Public", "Heritage Intl", "Maple Creek",
+ * "Westfield Prep" -- none of which matched any record in the database. That
+ * is fabricated social proof sitting under a "trusted by" claim, and it is
+ * also less persuasive here than the real thing: a Pakistani principal
+ * recognises Leads School System, not Westfield Prep.
+ *
+ * Reading from the database keeps the strip true as the client list changes,
+ * and means corrections are made in the CMS rather than in markup.
+ */
+function ep_client_school_names(int $limit = 8): array
+{
+    global $m;
+    try {
+        $rows = $m->rawQuery(
+            "SELECT DISTINCT TRIM(school_name) AS name
+               FROM ep_video_testimonials
+              WHERE status = 'published'
+                AND TRIM(COALESCE(school_name, '')) <> ''
+              ORDER BY school_name
+              LIMIT ?",
+            [max(1, $limit) * 3]
+        );
+    } catch (Throwable $e) {
+        error_log('[EduPortal] client school names unavailable: ' . $e->getMessage());
+        return [];
+    }
+
+    $names = [];
+    $seen = [];
+    foreach ($rows as $row) {
+        $name = trim((string) ($row['name'] ?? ''));
+        if ($name === '') {
+            continue;
+        }
+        // Several records differ only by spelling ("Al-Qamar" / "Al-Qammar",
+        // "Khawala" / "Khawla"), which would show as two entries for one
+        // school. Several records differ only by spelling ("Al-Qamar" /
+        // "Al-Qammar", "Khawala Model" / "Khawla Modle"), which an exact key
+        // does not catch, so near matches are collapsed by edit distance.
+        // Ordering is alphabetical so the strip does not reshuffle per request.
+        $key = (string) preg_replace('/[^a-z]/', '', strtolower($name));
+        if ($key === '') {
+            continue;
+        }
+        $dupe = false;
+        foreach ($seen as $existing) {
+            if (levenshtein($key, $existing) <= 3) { $dupe = true; break; }
+        }
+        if ($dupe) {
+            continue;
+        }
+        $seen[] = $key;
+        $names[] = $name;
+        if (count($names) >= $limit) {
+            break;
+        }
+    }
+    return $names;
 }

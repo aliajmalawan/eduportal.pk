@@ -147,6 +147,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .btn-dark:hover{background:#333;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.18)}
 .btn-ghost{font-weight:500;color:var(--color-text)}
 .btn-ghost:hover{color:var(--color-primary)}
+/* Secondary action on a dark band. Used 28 times across the site but only
+   ever defined inside .faq-cta and .fd-cta, so the same class rendered as
+   an unstyled link anywhere else. Promoted here to match those two. */
+.btn-outline-light{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.75rem 1.5rem;font-size:.9375rem;font-weight:600;border-radius:999px;
+  border:2px solid rgba(255,255,255,.35);color:#fff;
+  transition:border-color var(--transition),background var(--transition),transform var(--transition)}
+.btn-outline-light:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;transition:background var(--transition),box-shadow var(--transition)}
 .navbar.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:0 2px 8px rgba(0,0,0,.04);padding:.65rem 0}
 .navbar:has(.mobile-menu.open){background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.04)}
@@ -479,4 +487,162 @@ h1,
 @media (min-width: 992px) {
   .section-header--split:not(:has(.section-subtitle)),
   .fd-section-header--split:not(:has(p)) { grid-template-columns: 1fr; }
+}
+
+/* Section next-step link. Deliberately not a button: mid-funnel sections
+   need a path onward without competing with the page's primary ask. */
+.section-next{margin:2rem 0 0;text-align:center}
+.section-next a{display:inline-flex;align-items:center;gap:.4rem;font-size:.9375rem;
+  font-weight:600;color:var(--flame-ink);transition:gap var(--transition),color var(--transition)}
+.section-next a:hover{gap:.7rem;color:var(--color-primary-dark)}
+.section-next i{width:16px;height:16px}
+.section--dark .section-next a{color:var(--flame-soft)}
+
+/* Scroll reveal — defined here, not in index.css, so every page that
+   includes shared.css gets the same journey. It was previously only in
+   index.css, which meant the .reveal class was inert on every other page.
+   Gated on .js: without scripting nothing parks at opacity 0, so a failed
+   or blocked script leaves the page fully readable rather than blank. */
+.js .reveal, .js .reveal-fd, .js .reveal-cs {
+  opacity: 0;
+  transform: translateY(10px) scale(.985);
+  filter: blur(2px);
+  transition:
+    opacity var(--t-reveal) var(--ease),
+    transform var(--t-reveal) var(--ease),
+    filter var(--t-reveal) var(--ease);
+}
+.js .reveal.visible, .js .reveal-fd.visible, .js .reveal-cs.visible {
+  opacity: 1; transform: none; filter: none;
+}
+
+/* ==============================================================
+   SECTION TRANSITIONS (Step 9)
+
+   The ground alternation from Step 4 gives the page rhythm, but each
+   change was a hard edge, so sections read as stacked panels rather
+   than one continuous scroll. A short gradient carries the previous
+   ground a little way into the next section, which removes the seam
+   without removing the contrast that creates the rhythm.
+
+   Pure CSS on a pseudo-element: no scroll listener, no JavaScript,
+   and nothing to recalculate while scrolling.
+   ============================================================== */
+.section--alt,
+.section--dark { position: relative; }
+
+/* Entering an alt band from white: the white bleeds down into it. */
+.section--alt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3.5rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--color-bg), transparent);
+}
+/* Two alt bands in a row already share a ground (the adjacency rule turns
+   the second white), so the seam there needs no softening. */
+.section--alt + .section--alt::before { background: none; }
+
+/* Leaving an alt band back to white. */
+.section--alt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.5rem;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--color-bg), transparent);
+}
+
+/* The dark closing band is the one deliberate hard cut on the page: it is a
+   change of scene, and softening it would weaken the arrival. It gets a thin
+   warm keyline instead, so the edge reads as intentional. */
+.section--dark { border-top: 1px solid rgba(242, 140, 40, .28); }
+
+/* Anything the section paints itself must sit above the bleed. */
+.section--alt > *,
+.section--dark > * { position: relative; z-index: 1; }
+
+/* ==============================================================
+   NAVIGATION (Step 10)
+   ============================================================== */
+
+/* Skip link — off-screen until focused, then a real, visible control. */
+.skip-link {
+  position: fixed;
+  top: .5rem;
+  left: .5rem;
+  z-index: 1100;
+  padding: .6rem 1rem;
+  border-radius: 999px;
+  background: var(--color-dark);
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform var(--transition);
+}
+.skip-link:focus { transform: translateY(0); outline: 2px solid var(--flame-soft); outline-offset: 2px; }
+.skip-target { display: block; height: 0; overflow: hidden; }
+.skip-target:focus { outline: none; }
+
+/* Sticky bar. The padding change on scroll alters the header's height, which
+   the mobile panel has to track — hence the custom property below. */
+.navbar { --nav-h: 4.5rem; }
+.navbar.scrolled { --nav-h: 3.75rem; }
+
+/* Active state. The underline alone read as a hover leftover; weight and
+   colour make the current page unmistakable, and aria-current carries the
+   same information to screen readers. */
+.nav-links a.active { color: var(--color-text); font-weight: 600; }
+.nav-links a::after { background: var(--color-primary); }
+.nav-links a:focus-visible::after { width: 100%; }
+
+.nav-toggle {
+  color: var(--color-text);
+  transition: background var(--transition), color var(--transition);
+}
+.nav-toggle:hover { background: var(--color-bg-alt); }
+.nav-toggle[aria-expanded="true"] { background: var(--color-bg-alt); }
+
+/* Mobile panel.
+   - top follows the real header height rather than a hardcoded 60px, which
+     was wrong the moment the bar shrank on scroll.
+   - visibility (not just transform) so links inside a closed panel cannot be
+     reached by Tab; a keyboard user was previously able to focus items sitting
+     off-screen.
+   - overflow-y so a long menu on a short phone can still be scrolled. */
+.mobile-menu {
+  top: var(--nav-h);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  visibility: hidden;
+  transition:
+    transform var(--transition),
+    visibility 0s linear var(--t-ui);
+}
+.mobile-menu.open {
+  visibility: visible;
+  transition:
+    transform var(--transition),
+    visibility 0s linear 0s;
+}
+.mobile-menu a { color: var(--color-text); transition: background var(--transition), color var(--transition); }
+/* --flame-ink is calibrated against white (4.61:1); on the warm tint it
+   falls to 4.24:1 and misses AA, so the active row uses the next step
+   down, which clears it at 5.06:1. */
+.mobile-menu a.active {
+  background: var(--color-primary-light);
+  color: #a1550b;
+  font-weight: 600;
+}
+.mobile-menu .btn { margin-top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu { transition: none; }
+  .skip-link { transition: none; }
 }

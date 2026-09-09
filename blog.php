@@ -7,6 +7,7 @@ $pageTitle = 'EduPortal Blog — EdTech & School ERP Insights';
 $pageDescription = 'EduPortal blog — expert insights on edtech, school ERP, parent engagement, and digital fee collection.';
 $canonicalUrl = ep_canonical_url();
 $extraStylesheets = ['css/shared.css'];
+$extraBodyScripts = [ep_versioned_asset('js/reveal.js')];
 $inlineStyles = <<<'CSS'
 .nav-links a.active, .mobile-menu a.active { color: var(--color-primary); font-weight: 600; }
 .blog-grid { display: grid; gap: 2rem; }
@@ -53,7 +54,7 @@ require __DIR__ . '/includes/header.php';
             $postUrl = ep_blog_post_url($blog);
             $readLabel = $blog['read_time_minutes'] ? (int) $blog['read_time_minutes'] . ' min read' : '';
           ?>
-          <article class="blog-card">
+          <article class="blog-card reveal">
             <?= ep_blog_thumb_html($blog, $postUrl) ?>
             <div class="blog-card-body">
               <div class="blog-meta">
