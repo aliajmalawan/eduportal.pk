@@ -19,5 +19,6 @@ Disallow: /cms/
 Disallow: /uploads/careers/
 Disallow: /includes/
 Disallow: /scripts/
+Disallow: /api/
 
 Sitemap: https://eduportal.pk/sitemap.xml
