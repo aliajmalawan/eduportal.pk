@@ -1,27 +1,5 @@
-/* ========== CSS Variables ========== */
-    :root {
-      --color-primary: #f28c28;
-      --color-primary-dark: #d97a1f;
-      --color-primary-light: #fff4e6;
-      --color-text: #1a1a1a;
-      --color-text-muted: #666666;
-      --color-text-light: #888888;
-      --color-bg: #ffffff;
-      --color-bg-alt: #f9fafb;
-      --color-border: #e8eaed;
-      --color-dark: #0f1419;
-      --color-dark-card: #1a2332;
-      --font: 'Inter', system-ui, sans-serif;
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.04);
-      --shadow-md: 0 8px 30px rgba(0,0,0,.08);
-      --shadow-lg: 0 20px 60px rgba(0,0,0,.12);
-      --container: 1200px;
-      --transition: 0.3s ease;
-    }
+/* CSS variables now come from css/shared.css, loaded on index.php right
+   before this file — kept in sync there rather than duplicated here. */
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }

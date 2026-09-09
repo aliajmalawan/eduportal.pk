@@ -161,6 +161,7 @@ $homeJsonLd = [
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/shared.css')) ?>">
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/index.css')) ?>">
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/video-cards.css')) ?>">
   <link rel="stylesheet" href="<?= ep_h(ep_asset_url('css/lead-toast.css')) ?>">
