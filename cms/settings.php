@@ -41,6 +41,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Logo / favicon uploads (Branding). Same reasoning as the demo video
+    // file above: these are files, not plain text, so they're handled here
+    // rather than through the generic settings[] loop below.
+    $logoFile = $_FILES['logo_file'] ?? null;
+    if (is_array($logoFile) && ($logoFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+        $m->where('setting_key', 'logo_path');
+        $existingLogoRow = $m->getOne('ep_site_settings');
+        $existingLogoPath = $existingLogoRow ? (string) $existingLogoRow['setting_value'] : '';
+        $newLogoPath = cms_upload_branding_image(
+            $logoFile,
+            $existingLogoPath,
+            'logo',
+            ['png', 'jpg', 'jpeg', 'webp'],
+            5 * 1024 * 1024
+        );
+        if ($newLogoPath !== $existingLogoPath) {
+            if ($existingLogoRow) {
+                $m->where('setting_key', 'logo_path');
+                $m->update('ep_site_settings', ['setting_value' => $newLogoPath]);
+            } else {
+                $m->insert('ep_site_settings', [
+                    'setting_key' => 'logo_path',
+                    'setting_value' => $newLogoPath,
+                    'setting_group' => 'branding',
+                ]);
+            }
+        } elseif (!$existingLogoRow) {
+            cms_flash('error', 'Logo not saved — please upload a PNG, JPG or WebP under 5 MB.');
+        }
+    }
+
+    $faviconFile = $_FILES['favicon_file'] ?? null;
+    if (is_array($faviconFile) && ($faviconFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+        $m->where('setting_key', 'favicon_path');
+        $existingFaviconRow = $m->getOne('ep_site_settings');
+        $existingFaviconPath = $existingFaviconRow ? (string) $existingFaviconRow['setting_value'] : '';
+        $newFaviconPath = cms_upload_branding_image(
+            $faviconFile,
+            $existingFaviconPath,
+            'favicon',
+            ['png', 'jpg', 'jpeg'],
+            1 * 1024 * 1024
+        );
+        if ($newFaviconPath !== $existingFaviconPath) {
+            if ($existingFaviconRow) {
+                $m->where('setting_key', 'favicon_path');
+                $m->update('ep_site_settings', ['setting_value' => $newFaviconPath]);
+            } else {
+                $m->insert('ep_site_settings', [
+                    'setting_key' => 'favicon_path',
+                    'setting_value' => $newFaviconPath,
+                    'setting_group' => 'branding',
+                ]);
+            }
+        } elseif (!$existingFaviconRow) {
+            cms_flash('error', 'Favicon not saved — please upload a square PNG or JPG under 1 MB.');
+        }
+    }
+
     $pairs = $_POST['settings'] ?? [];
     if (is_array($pairs)) {
         $errors = [];
@@ -210,6 +269,23 @@ if (isset($grouped['home_page'])) {
     }
 }
 
+// Logo / favicon (Branding): same reasoning as the demo video block above —
+// pulled out of $grouped and rendered as a bespoke upload block instead of
+// a plain-text row.
+$logoPath = trim((string) ep_setting('logo_path', ''));
+$logoExists = $logoPath !== '' && is_file(dirname(__DIR__) . '/' . ltrim($logoPath, '/'));
+$faviconPath = trim((string) ep_setting('favicon_path', ''));
+$faviconExists = $faviconPath !== '' && is_file(dirname(__DIR__) . '/' . ltrim($faviconPath, '/'));
+if (isset($grouped['branding'])) {
+    $grouped['branding'] = array_values(array_filter(
+        $grouped['branding'],
+        static fn (array $row): bool => !in_array($row['setting_key'], ['logo_path', 'favicon_path'], true)
+    ));
+    if (!$grouped['branding']) {
+        unset($grouped['branding']);
+    }
+}
+
 cms_page_start('Site Settings', 'settings', 'settings.manage');
 ?>
 <div class="panel">
@@ -276,6 +352,35 @@ cms_page_start('Site Settings', 'settings', 'settings.manage');
         u.addEventListener('change', sync);
       })();
     </script>
+
+    <h2>Branding — Logo &amp; Favicon</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-sm-6">
+        <label class="form-label fw-semibold" for="logoFile">Logo</label>
+        <div class="form-text mb-2">Shown in the navbar and footer on every page. PNG, JPG or WebP, up to 5&nbsp;MB — a transparent-background PNG works best.</div>
+        <?php if ($logoExists): ?>
+        <div class="mb-2 p-2 border rounded d-inline-block bg-light">
+          <img src="../<?= ep_h($logoPath) ?>" alt="Current logo" style="max-height:48px;max-width:220px;display:block">
+        </div>
+        <?php endif; ?>
+        <input type="file" id="logoFile" name="logo_file" class="form-control" accept="image/png,image/jpeg,image/webp">
+        <div class="form-text">Choosing a new file replaces the current one. Leave empty to keep it.</div>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label fw-semibold" for="faviconFile">Favicon</label>
+        <div class="form-text mb-2">The small icon shown in the browser tab and on phone home screens. Square PNG or JPG, up to 1&nbsp;MB — 512&times;512px or larger works best.</div>
+        <?php if ($faviconExists): ?>
+        <div class="mb-2 p-2 border rounded d-inline-block bg-light">
+          <img src="../<?= ep_h($faviconPath) ?>" alt="Current favicon" style="height:32px;width:32px;display:block;object-fit:contain">
+        </div>
+        <?php endif; ?>
+        <input type="file" id="faviconFile" name="favicon_file" class="form-control" accept="image/png,image/jpeg">
+        <div class="form-text">Choosing a new file replaces the current one. Leave empty to keep it.</div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <button class="btn btn-primary"><i class="bi bi-check-lg me-1"></i>Save</button>
+    </div>
 
     <?php foreach ($grouped as $groupKey => $groupRows): ?>
     <h2><?= ep_h($groupLabels[$groupKey] ?? ucfirst($groupKey)) ?></h2>

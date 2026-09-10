@@ -5,6 +5,10 @@
 require_once __DIR__ . '/careers.php';
 $navActive = $navActive ?? '';
 $siteName = ep_setting('site_name', 'EduPortal');
+$siteLogo = trim((string) ep_setting('logo_path', ''));
+if ($siteLogo === '' || !is_file(dirname(__DIR__) . '/' . ltrim($siteLogo, '/'))) {
+    $siteLogo = 'assets/logo_icon.jpg';
+}
 
 // One source for both menus. Previously the desktop nav and the mobile menu
 // were two hand-maintained lists, and they had already drifted: Home, Features
@@ -26,7 +30,7 @@ $navItems = [
 <header class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="<?= ep_h(ep_url('index.php#hero')) ?>" class="logo">
-      <img src="<?= ep_h(ep_url('assets/logo_icon.jpg')) ?>" alt="" class="logo-img" width="36" height="36">
+      <img src="<?= ep_h(ep_url($siteLogo)) ?>" alt="" class="logo-img" width="36" height="36">
       <span class="logo-text"><?= ep_h($siteName) ?></span>
     </a>
 

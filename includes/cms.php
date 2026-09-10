@@ -1317,6 +1317,10 @@ function ep_organization_schema(): array
 {
     $base = 'https://eduportal.pk/';
     $siteName = ep_setting('site_name', 'EduPortal');
+    $schemaLogo = trim((string) ep_setting('favicon_path', ''));
+    if ($schemaLogo === '' || !is_file(dirname(__DIR__) . '/' . ltrim($schemaLogo, '/'))) {
+        $schemaLogo = 'assets/logo_icon.jpg';
+    }
 
     $phone = '';
     $email = ep_setting('support_email', '');
@@ -1345,11 +1349,11 @@ function ep_organization_schema(): array
         'url' => $base,
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => $base . 'assets/logo_icon.jpg',
+            'url' => $base . $schemaLogo,
             'width' => 512,
             'height' => 512,
         ],
-        'image' => $base . 'assets/logo_icon.jpg',
+        'image' => $base . $schemaLogo,
         'description' => ep_setting('site_tagline', $siteName),
     ];
 

@@ -862,6 +862,74 @@ function cms_upload_video_file(?array $file, string $existingPath, ?string $slug
     return cms_video_files_dir_rel() . $finalName;
 }
 
+function cms_branding_dir_abs(): string
+{
+    return dirname(__DIR__, 2) . '/assets/branding';
+}
+
+function cms_branding_dir_rel(): string
+{
+    return 'assets/branding/';
+}
+
+function cms_ensure_branding_dir(): void
+{
+    $dir = cms_branding_dir_abs();
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0775, true);
+    }
+}
+
+/**
+ * Uploads the site logo or favicon. Unlike the blog/video/team-photo
+ * uploaders, this never re-encodes the file — a logo's transparent PNG
+ * background has to stay transparent, and there's no sensible single crop
+ * size for a mark that gets used at very different aspect ratios (a wide
+ * navbar lockup vs. a square favicon).
+ *
+ * @param array<string, mixed>|null $file
+ * @param array<int, string> $allowedExt
+ */
+function cms_upload_branding_image(?array $file, string $existingPath, string $slugHint, array $allowedExt, int $maxBytes): string
+{
+    cms_ensure_branding_dir();
+    $existingPath = trim($existingPath);
+
+    if (!$file || !is_array($file) || ($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
+        return $existingPath;
+    }
+    if (($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK) {
+        return $existingPath;
+    }
+
+    $tmp = (string) ($file['tmp_name'] ?? '');
+    $name = (string) ($file['name'] ?? '');
+    $size = (int) ($file['size'] ?? 0);
+    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    if (!in_array($ext, $allowedExt, true)) {
+        return $existingPath;
+    }
+    if ($size > $maxBytes || $size < 1 || !is_uploaded_file($tmp)) {
+        return $existingPath;
+    }
+    // Confirms the upload is a real image (reads the file's actual header,
+    // not the filename) -- blocks a renamed .php disguised with a .png
+    // extension from ever reaching disk under an image name.
+    if (@getimagesize($tmp) === false) {
+        return $existingPath;
+    }
+
+    $finalName = $slugHint . '-' . date('YmdHis') . '.' . $ext;
+    $abs = cms_branding_dir_abs() . '/' . $finalName;
+
+    if (!move_uploaded_file($tmp, $abs)) {
+        return $existingPath;
+    }
+
+    cms_delete_public_file($existingPath, cms_branding_dir_rel());
+    return cms_branding_dir_rel() . $finalName;
+}
+
 function cms_ffmpeg_path(): string
 {
     static $cached = null;

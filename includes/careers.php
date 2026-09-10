@@ -814,6 +814,10 @@ function ep_job_posting_schema(array $job): array
 {
     $base = 'https://eduportal.pk/';
     $siteName = ep_setting('site_name', 'EduPortal');
+    $schemaLogo = trim((string) ep_setting('favicon_path', ''));
+    if ($schemaLogo === '' || !is_file(dirname(__DIR__) . '/' . ltrim($schemaLogo, '/'))) {
+        $schemaLogo = 'assets/logo_icon.jpg';
+    }
 
     $descriptionParts = [];
     $description = trim((string) ($job['description'] ?? ''));
@@ -852,7 +856,7 @@ function ep_job_posting_schema(array $job): array
             '@id' => $base . '#organization',
             'name' => $siteName,
             'sameAs' => rtrim($base, '/'),
-            'logo' => $base . 'assets/logo_icon.jpg',
+            'logo' => $base . $schemaLogo,
         ],
         'employmentType' => ep_job_schema_employment_type((string) $job['job_type']),
         'url' => ep_job_url($job),

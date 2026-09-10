@@ -2,7 +2,11 @@
 require_once __DIR__ . '/includes/cms.php';
 require_once __DIR__ . '/includes/faqs-data.php';
 require_once __DIR__ . '/includes/google-reviews.php';
-$homeTestimonials = ep_get_video_testimonials(true);
+// Capped at six so the grid fills whole rows at every breakpoint (6 = 3x2
+// on desktop, 2x3 on tablet, 6x1 on mobile). Uncapped it rendered ten,
+// leaving a single orphaned card in the last desktop row. This section is
+// a preview -- the full set lives on /videos, which the CTA below links to.
+$homeTestimonials = array_slice(ep_get_video_testimonials(true), 0, 6);
 $homeFaqs = ep_faqs_featured();
 // Reads only the local cache — never calls Google, and if the cache is
 // empty (nothing synced yet, or Google's API has been down) the section
@@ -165,8 +169,19 @@ $homeJsonLd = [
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EduPortal — School Management Software">
   <meta name="twitter:description" content="AI-powered school ERP trusted by <?= ep_h(ep_site_metric('total_clients')) ?> schools. Automate fees, attendance, results &amp; parent communication.">
-  <link rel="icon" href="assets/logo_icon.jpg" type="image/jpeg">
-  <link rel="apple-touch-icon" href="assets/logo_icon.jpg">
+  <?php
+  $indexFaviconPath = trim((string) ep_setting('favicon_path', ''));
+  if ($indexFaviconPath === '' || !is_file(__DIR__ . '/' . ltrim($indexFaviconPath, '/'))) {
+      $indexFaviconPath = 'assets/logo_icon.jpg';
+  }
+  $indexFaviconMime = match (strtolower(pathinfo($indexFaviconPath, PATHINFO_EXTENSION))) {
+      'png' => 'image/png',
+      'webp' => 'image/webp',
+      default => 'image/jpeg',
+  };
+  ?>
+  <link rel="icon" href="<?= ep_h($indexFaviconPath) ?>" type="<?= ep_h($indexFaviconMime) ?>">
+  <link rel="apple-touch-icon" href="<?= ep_h($indexFaviconPath) ?>">
   <?php // Marks the document as JS-capable BEFORE first paint, so the
         // .ep-pull reveal only ever parks content at opacity:0 when there is
         // JavaScript able to un-park it. With JS off the class is absent and
@@ -227,6 +242,7 @@ $useDemoModal = true;
 $demoVideo = ep_demo_video();
 require __DIR__ . '/includes/header.php';
 ?>
+<main id="main">
 
   <!-- Hero -->
   <section class="hero" id="hero">
@@ -305,38 +321,38 @@ require __DIR__ . '/includes/header.php';
           </div>
           </div>
         </div>
-      </div>
-      <div class="hero-dashboard">
-        <?php // Demo video comes from Settings -> Home Page (Task 6). The same
-              // data-* attributes the video-testimonial cards use, so the
-              // existing player script handles it with no special casing. ?>
-        <?php // Same no-JS fallback as the testimonial cards below.
-              $demoHref = $demoVideo['type'] === 'upload' && $demoVideo['file_url'] !== ''
-                  ? $demoVideo['file_url']
-                  : (!empty($demoVideo['youtube_id'])
-                      ? 'https://www.youtube.com/watch?v=' . $demoVideo['youtube_id']
-                        . ((int) $demoVideo['start'] > 0 ? '&t=' . (int) $demoVideo['start'] : '')
-                      : ''); ?>
-        <a<?= $demoHref !== '' ? ' href="' . ep_h($demoHref) . '"' : ' role="button" tabindex="0"' ?> class="dashboard-mockup js-open-video"
-             aria-label="Play video: <?= ep_h($demoVideo['title']) ?>"
-             data-video-type="<?= ep_h($demoVideo['type']) ?>"
-             data-video-src="<?= ep_h($demoVideo['file_url']) ?>"
-             data-youtube-id="<?= ep_h($demoVideo['youtube_id']) ?>"
-             data-youtube-start="<?= (int) $demoVideo['start'] ?>">
-          <img
-            src="assets/dashboard.png"
-            alt="EduPortal school ERP dashboard — attendance, fees, analytics, and live activity"
-            class="dashboard-img"
-            width="1400"
-            height="900"
-            fetchpriority="high"
-            decoding="async"
-          >
-          <span class="dashboard-play-btn" aria-hidden="true">
-            <span class="play-pulse"></span>
-            <i data-lucide="play"></i>
-          </span>
-        </a>
+        <div class="hero-dashboard">
+          <?php // Demo video comes from Settings -> Home Page (Task 6). The same
+                // data-* attributes the video-testimonial cards use, so the
+                // existing player script handles it with no special casing. ?>
+          <?php // Same no-JS fallback as the testimonial cards below.
+                $demoHref = $demoVideo['type'] === 'upload' && $demoVideo['file_url'] !== ''
+                    ? $demoVideo['file_url']
+                    : (!empty($demoVideo['youtube_id'])
+                        ? 'https://www.youtube.com/watch?v=' . $demoVideo['youtube_id']
+                          . ((int) $demoVideo['start'] > 0 ? '&t=' . (int) $demoVideo['start'] : '')
+                        : ''); ?>
+          <a<?= $demoHref !== '' ? ' href="' . ep_h($demoHref) . '"' : ' role="button" tabindex="0"' ?> class="dashboard-mockup js-open-video"
+               aria-label="Play video: <?= ep_h($demoVideo['title']) ?>"
+               data-video-type="<?= ep_h($demoVideo['type']) ?>"
+               data-video-src="<?= ep_h($demoVideo['file_url']) ?>"
+               data-youtube-id="<?= ep_h($demoVideo['youtube_id']) ?>"
+               data-youtube-start="<?= (int) $demoVideo['start'] ?>">
+            <img
+              src="assets/dashboard.png"
+              alt="EduPortal school ERP dashboard — attendance, fees, analytics, and live activity"
+              class="dashboard-img"
+              width="1400"
+              height="900"
+              fetchpriority="high"
+              decoding="async"
+            >
+            <span class="dashboard-play-btn" aria-hidden="true">
+              <span class="play-pulse"></span>
+              <i data-lucide="play"></i>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -514,7 +530,7 @@ require __DIR__ . '/includes/header.php';
       <div class="analytics-grid reveal">
         <div class="analytics-card">
           <div class="analytics-card-head">
-            <h4>Student Attendance</h4>
+            <h3>Student Attendance</h3>
             <div class="analytics-metric">78.6%<small class="down">↓ 6.4% today</small></div>
           </div>
           <div class="chart-line">
@@ -527,7 +543,7 @@ require __DIR__ . '/includes/header.php';
         </div>
         <div class="analytics-card">
           <div class="analytics-card-head">
-            <h4>Monthly Revenue</h4>
+            <h3>Monthly Revenue</h3>
             <div class="analytics-metric">72%<small>Collected</small></div>
           </div>
           <div class="chart-donut">
@@ -537,7 +553,7 @@ require __DIR__ . '/includes/header.php';
         </div>
         <div class="analytics-card">
           <div class="analytics-card-head">
-            <h4>Fee Collection</h4>
+            <h3>Fee Collection</h3>
             <div class="analytics-metric">Rs. 672K<small>Today</small></div>
           </div>
           <div class="chart-bars">
@@ -546,7 +562,7 @@ require __DIR__ . '/includes/header.php';
         </div>
         <div class="analytics-card analytics-card-wide analytics-activity">
           <div class="activity-top">
-            <h4>Recent Activities</h4>
+            <h3>Recent Activities</h3>
             <span class="activity-viewall" aria-hidden="true">View all</span>
           </div>
           <div class="activity-layout">
@@ -591,15 +607,15 @@ require __DIR__ . '/includes/header.php';
           <div class="check-list">
             <div class="check-item">
               <span class="check-icon"><i data-lucide="check" style="width:14px"></i></span>
-              <div><h4>Smart fee reminders</h4><p>Auto-send payment nudges via SMS, email, and in-app alerts before due dates.</p></div>
+              <div><h3>Smart fee reminders</h3><p>Auto-send payment nudges via SMS, email, and in-app alerts before due dates.</p></div>
             </div>
             <div class="check-item">
               <span class="check-icon"><i data-lucide="check" style="width:14px"></i></span>
-              <div><h4>Attendance workflows</h4><p>Trigger alerts to parents when students are absent or late without manual follow-up.</p></div>
+              <div><h3>Attendance workflows</h3><p>Trigger alerts to parents when students are absent or late without manual follow-up.</p></div>
             </div>
             <div class="check-item">
               <span class="check-icon"><i data-lucide="check" style="width:14px"></i></span>
-              <div><h4>Report generation</h4><p>Schedule PDF report cards, payroll summaries, and compliance exports on autopilot.</p></div>
+              <div><h3>Report generation</h3><p>Schedule PDF report cards, payroll summaries, and compliance exports on autopilot.</p></div>
             </div>
           </div>
         </div>
@@ -673,15 +689,15 @@ require __DIR__ . '/includes/header.php';
         <p class="section-subtitle">Built for scale, security, and simplicity — from single campuses to multi-branch districts.</p>
       </div>
       <div class="why-grid reveal">
-        <div class="why-card"><i data-lucide="lock" style="width:28px"></i><h4>Bank-level Security</h4><p>Encrypted data at rest and in transit with SOC 2 practices.</p></div>
-        <div class="why-card"><i data-lucide="zap" style="width:28px"></i><h4>Lightning Fast</h4><p>Optimized cloud infrastructure for sub-second load times.</p></div>
-        <div class="why-card"><i data-lucide="headphones" style="width:28px"></i><h4>24/7 Support</h4><p>Dedicated onboarding and round-the-clock help desk.</p></div>
-        <div class="why-card"><i data-lucide="layers" style="width:28px"></i><h4>Multi-campus</h4><p>Manage branches, roles, and reporting from one dashboard.</p></div>
-        <div class="why-card"><i data-lucide="smartphone" style="width:28px"></i><h4>Mobile-first</h4><p>Native iOS &amp; Android apps for parents and teachers.</p></div>
-        <div class="why-card"><i data-lucide="puzzle" style="width:28px"></i><h4>Easy Integrations</h4><p>Connect with Google, Zoom, payment gateways, and more.</p></div>
-        <div class="why-card"><i data-lucide="globe" style="width:28px"></i><h4>Cloud Anywhere</h4><p>Access your ERP securely from any device, anywhere.</p></div>
-        <div class="why-card"><i data-lucide="trending-up" style="width:28px"></i><h4>Scalable Plans</h4><p>Grow from 100 to 10,000+ students without switching tools.</p></div>
-        <div class="why-card"><i data-lucide="award" style="width:28px"></i><h4>Proven Results</h4><p>98% customer satisfaction across <?= ep_h(ep_site_metric('total_clients')) ?> institutions.</p></div>
+        <div class="why-card"><i data-lucide="lock" style="width:28px"></i><h3>Bank-level Security</h3><p>Encrypted data at rest and in transit with SOC 2 practices.</p></div>
+        <div class="why-card"><i data-lucide="zap" style="width:28px"></i><h3>Lightning Fast</h3><p>Optimized cloud infrastructure for sub-second load times.</p></div>
+        <div class="why-card"><i data-lucide="headphones" style="width:28px"></i><h3>24/7 Support</h3><p>Dedicated onboarding and round-the-clock help desk.</p></div>
+        <div class="why-card"><i data-lucide="layers" style="width:28px"></i><h3>Multi-campus</h3><p>Manage branches, roles, and reporting from one dashboard.</p></div>
+        <div class="why-card"><i data-lucide="smartphone" style="width:28px"></i><h3>Mobile-first</h3><p>Native iOS &amp; Android apps for parents and teachers.</p></div>
+        <div class="why-card"><i data-lucide="puzzle" style="width:28px"></i><h3>Easy Integrations</h3><p>Connect with Google, Zoom, payment gateways, and more.</p></div>
+        <div class="why-card"><i data-lucide="globe" style="width:28px"></i><h3>Cloud Anywhere</h3><p>Access your ERP securely from any device, anywhere.</p></div>
+        <div class="why-card"><i data-lucide="trending-up" style="width:28px"></i><h3>Scalable Plans</h3><p>Grow from 100 to 10,000+ students without switching tools.</p></div>
+        <div class="why-card"><i data-lucide="award" style="width:28px"></i><h3>Proven Results</h3><p>98% customer satisfaction across <?= ep_h(ep_site_metric('total_clients')) ?> institutions.</p></div>
       </div>
     </div>
   </section>
@@ -703,27 +719,27 @@ require __DIR__ . '/includes/header.php';
           <div class="mobile-perks">
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="bell-ring"></i></div>
-              <div><h4>Push Notifications</h4><p>Instant alerts for fees, homework, results, events, and emergency announcements.</p></div>
+              <div><h3>Push Notifications</h3><p>Instant alerts for fees, homework, results, events, and emergency announcements.</p></div>
             </div>
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="bar-chart-3"></i></div>
-              <div><h4>Real-time Analytics</h4><p>Live attendance, fee status, and performance insights on your phone.</p></div>
+              <div><h3>Real-time Analytics</h3><p>Live attendance, fee status, and performance insights on your phone.</p></div>
             </div>
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="message-circle"></i></div>
-              <div><h4>Two-way Communication</h4><p>Chat with teachers, receive diary updates, and share feedback securely.</p></div>
+              <div><h3>Two-way Communication</h3><p>Chat with teachers, receive diary updates, and share feedback securely.</p></div>
             </div>
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="shield-check"></i></div>
-              <div><h4>Secure &amp; Synced</h4><p>Bank-level security synced with your EduPortal ERP in real time.</p></div>
+              <div><h3>Secure &amp; Synced</h3><p>Bank-level security synced with your EduPortal ERP in real time.</p></div>
             </div>
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="video"></i></div>
-              <div><h4>Online Lectures</h4><p>Access video lectures, study material, and date sheets on the go.</p></div>
+              <div><h3>Online Lectures</h3><p>Access video lectures, study material, and date sheets on the go.</p></div>
             </div>
             <div class="mobile-perk">
               <div class="mobile-perk-icon"><i data-lucide="wallet"></i></div>
-              <div><h4>Fee &amp; Results</h4><p>View fee history, download vouchers, and check exam results instantly.</p></div>
+              <div><h3>Fee &amp; Results</h3><p>View fee history, download vouchers, and check exam results instantly.</p></div>
             </div>
           </div>
           <a href="https://play.google.com/store/apps/details?id=com.educationportal" target="_blank" rel="noopener noreferrer" class="feature-link" style="margin-top:1.25rem;display:inline-flex">Download on Google Play <i data-lucide="arrow-right" style="width:14px"></i></a>
@@ -913,6 +929,7 @@ require __DIR__ . '/includes/header.php';
       </div>
     </section>
 
+</main>
 <?php require __DIR__ . '/includes/partials/footer.php'; ?>
 
   <!-- Pricing anchor (minimal) -->
@@ -1023,12 +1040,12 @@ require __DIR__ . '/includes/header.php';
         const videoSrc  = card?.dataset.videoSrc   || '';
         if (vType === 'upload' && videoSrc) {
           youtubeFrame.style.display = 'none';
-          youtubeFrame.src = '';
+          youtubeFrame.removeAttribute('src');
           html5Player.style.display = '';
           html5Player.src = videoSrc;
           html5Player.play?.();
         } else {
-          if (html5Player) { html5Player.style.display = 'none'; html5Player.src = ''; }
+          if (html5Player) { html5Player.style.display = 'none'; html5Player.removeAttribute('src'); html5Player.load(); }
           youtubeFrame.style.display = '';
           youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${ytId}?start=${ytStart}&autoplay=1&rel=0&playsinline=1`;
         }
@@ -1039,8 +1056,8 @@ require __DIR__ . '/includes/header.php';
       const closeVideo = () => {
         videoModal.classList.remove('open');
         videoModal.setAttribute('aria-hidden', 'true');
-        youtubeFrame.src = '';
-        if (html5Player) { html5Player.pause?.(); html5Player.src = ''; html5Player.style.display = 'none'; }
+        youtubeFrame.removeAttribute('src');
+        if (html5Player) { html5Player.pause?.(); html5Player.removeAttribute('src'); html5Player.load(); html5Player.style.display = 'none'; }
         youtubeFrame.style.display = '';
         unlockScroll();
       };

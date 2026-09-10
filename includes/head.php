@@ -29,7 +29,19 @@ $extraHeadHtml = $extraHeadHtml ?? '';
   <link rel="canonical" href="<?= ep_h($canonicalUrl) ?>">
   <?php endif; ?>
   <title><?= ep_h($pageTitle) ?></title>
-  <link rel="icon" href="<?= ep_h(ep_url('assets/logo_icon.jpg')) ?>" type="image/jpeg">
+  <?php
+  $faviconPath = trim((string) ep_setting('favicon_path', ''));
+  if ($faviconPath === '' || !is_file(dirname(__DIR__) . '/' . ltrim($faviconPath, '/'))) {
+      $faviconPath = 'assets/logo_icon.jpg';
+  }
+  $faviconMime = match (strtolower(pathinfo($faviconPath, PATHINFO_EXTENSION))) {
+      'png' => 'image/png',
+      'webp' => 'image/webp',
+      default => 'image/jpeg',
+  };
+  ?>
+  <link rel="icon" href="<?= ep_h(ep_url($faviconPath)) ?>" type="<?= ep_h($faviconMime) ?>">
+  <link rel="apple-touch-icon" href="<?= ep_h(ep_url($faviconPath)) ?>">
   <?php // Marks the document as JS-capable BEFORE first paint, so the
         // .ep-pull reveal only ever parks content at opacity:0 when there is
         // JavaScript able to un-park it. With JS off the class is absent and

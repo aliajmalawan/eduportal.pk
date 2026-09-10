@@ -41,7 +41,13 @@ require __DIR__ . '/includes/head.php';
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
       <a href="#" class="lp-logo">
-        <img src="assets/logo_icon.jpg" alt="EduPortal" width="222" height="223">
+        <?php
+        $lpLogo = trim((string) ep_setting('logo_path', ''));
+        if ($lpLogo === '' || !is_file(__DIR__ . '/' . ltrim($lpLogo, '/'))) {
+            $lpLogo = 'assets/logo_icon.jpg';
+        }
+        ?>
+        <img src="<?= ep_h($lpLogo) ?>" alt="EduPortal" width="222" height="223">
         <span>EduPortal</span>
       </a>
       <button type="button" class="lp-header-cta js-open-modal">Get Started</button>

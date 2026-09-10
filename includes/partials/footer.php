@@ -8,13 +8,17 @@ $copyright = ep_setting('copyright_text', '© ' . date('Y') . ' EduPortal. All r
 $siteName = ep_setting('site_name', 'EduPortal');
 $socialLinks = ep_get_social_links(true);
 $footerContacts = ep_get_contact_items(false);
+$siteLogo = trim((string) ep_setting('logo_path', ''));
+if ($siteLogo === '' || !is_file(dirname(__DIR__, 2) . '/' . ltrim($siteLogo, '/'))) {
+    $siteLogo = 'assets/logo_icon.jpg';
+}
 ?>
 <footer class="footer" id="contact">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="<?= ep_h(ep_url('index.php#hero')) ?>" class="logo">
-          <img src="assets/logo_icon.jpg" alt="" class="logo-img" width="36" height="36">
+          <img src="<?= ep_h(ep_url($siteLogo)) ?>" alt="" class="logo-img" width="36" height="36">
           <span class="logo-text"><?= ep_h($siteName) ?></span>
         </a>
         <p><?= ep_h($footerAbout) ?></p>
@@ -29,7 +33,7 @@ $footerContacts = ep_get_contact_items(false);
         <?php endif; ?>
       </div>
       <div class="footer-col">
-        <h5>Product</h5>
+        <h2>Product</h2>
         <ul>
           <li><a href="<?= ep_h(ep_url('features.php')) ?>">Features</a></li>
           <li><a href="<?= ep_h(ep_url('pricing.php')) ?>">Pricing</a></li>
@@ -39,7 +43,7 @@ $footerContacts = ep_get_contact_items(false);
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <ul>
           <li><a href="<?= ep_h(ep_url('about.php')) ?>">About Us</a></li>
           <li><a href="<?= ep_h(ep_url('contact.php')) ?>">Contact</a></li>
@@ -48,7 +52,7 @@ $footerContacts = ep_get_contact_items(false);
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h2>Support</h2>
         <ul>
           <li><a href="<?= ep_h(ep_url('contact.php')) ?>">Contact</a></li>
           <li><a href="<?= ep_h(ep_url('pricing.php')) ?>">Pricing</a></li>
@@ -56,7 +60,7 @@ $footerContacts = ep_get_contact_items(false);
       </div>
       <?php if ($footerContacts): ?>
       <div class="footer-col footer-contact">
-        <h5>Contact</h5>
+        <h2>Contact</h2>
         <ul>
           <?php foreach ($footerContacts as $item):
             if (in_array($item['item_type'], ['map_embed', 'hours'], true)) {
