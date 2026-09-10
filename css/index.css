@@ -446,6 +446,15 @@
       object-fit: cover;
       object-position: top center;
     }
+    /* At full width:auto the image just shrinks uniformly with the viewport,
+       so object-fit never gets a chance to act — every KPI card's text goes
+       past reading size on a phone. Below 640px, cap the frame to a shorter
+       aspect ratio so it genuinely crops to the top stat-card row instead,
+       shown at a size that's still legible rather than the whole screen
+       shrunk down. Quality audit (STEP 16) finding, HIGH severity. */
+    @media (max-width: 640px) {
+      .dashboard-img { aspect-ratio: 2.7; height: auto; }
+    }
     .dashboard-play-btn {
       position: absolute;
       top: 50%;
@@ -783,7 +792,7 @@
       gap: 0.5rem;
       margin-bottom: 1rem;
     }
-    .analytics-card h4 { font-size: 0.9375rem; font-weight: 700; margin: 0; }
+    .analytics-card h4, .analytics-card h3, .analytics-card h2 { font-size: 0.9375rem; font-weight: 700; margin: 0; }
     .analytics-metric {
       font-size: 1.125rem;
       font-weight: 800;
@@ -837,7 +846,7 @@
       justify-content: space-between;
       margin-bottom: 1.25rem;
     }
-    .activity-top h4 { font-size: 1rem; font-weight: 800; margin: 0; }
+    .activity-top h4, .activity-top h3, .activity-top h2 { font-size: 1rem; font-weight: 800; margin: 0; }
     .activity-top a {
       font-size: 0.8125rem;
       font-weight: 600;
@@ -960,7 +969,7 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .check-item h4 { font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .check-item h4, .check-item h3, .check-item h2 { font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.2rem; }
     .check-item p { font-size: 0.875rem; color: var(--color-text-muted); }
 
     /* Automation panel � right visual */
@@ -1212,7 +1221,7 @@
       box-shadow: var(--shadow-sm);
     }
     .why-card i { color: var(--color-primary); margin-bottom: 0.75rem; }
-    .why-card h4 { font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .why-card h4, .why-card h3, .why-card h2 { font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.35rem; }
     .why-card p { font-size: 0.8125rem; color: var(--color-text-muted); }
 
     /* ========== Integration highlights ========== */
@@ -1239,7 +1248,7 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .highlight h3 {
+    .highlight h3, .highlight h2 {
       font-size: clamp(1.375rem, 3vw, 1.75rem);
       font-weight: 800;
       line-height: 1.25;
@@ -1308,7 +1317,7 @@
       background: var(--color-primary-light);
       color: var(--color-primary);
     }
-    .mobile-perk h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .mobile-perk h4, .mobile-perk h3, .mobile-perk h2 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.2rem; }
     .mobile-perk p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.45; }
     .mobile-roles {
       display: flex;
@@ -1418,7 +1427,7 @@
       transition: color var(--transition), border-color var(--transition);
     }
     .social-links a:hover { color: var(--color-primary); border-color: var(--color-primary); }
-    .footer-col h5 {
+    .footer-col h5,  .footer-col h2 {
       font-size: 0.8125rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -1498,6 +1507,7 @@
        eats the viewport the content needs. */
     @media (min-width: 992px) {
       .tour-visual { position: sticky; top: 6.5rem; }
+      .tour-frame img { will-change: transform; }
     }
 
     .tour-frame {
@@ -1521,7 +1531,8 @@
          instead. Panning explicitly addresses any region. */
       transform-origin: 0 0;
       transform: translate(0, 0) scale(1);
-      will-change: transform;
+      /* Only promote to its own layer where the zoom actually runs. */
+      will-change: auto;
     }
     /* The pan/zoom is a transition on transform, so it is one animated
        property and the global reduced-motion guard switches it off. */
@@ -1561,7 +1572,7 @@
       color: var(--flame-ink);
       margin-bottom: .3rem;
     }
-    .tour-step h3 {
+    .tour-step h3, .tour-step h2 {
       font-size: clamp(1.125rem, 2.2vw, 1.375rem);
       font-weight: 700;
       letter-spacing: -.02em;
