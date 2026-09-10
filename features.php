@@ -173,6 +173,26 @@ $inlineStyles     = '
       display: block;
       border-radius: 24px;
     }
+    /* Real-screenshot crop: zooms the actual dashboard.png (the same asset
+       used on the homepage product tour) into the panel that matches this
+       feature, instead of the generic icon + fake mock-bars placeholder.
+       Only applied where the dashboard genuinely shows that feature\'s data
+       -- the transform values match the pre-verified homepage tour crops,
+       not new guesses. Static (no JS): each card always shows its own
+       region, there is nothing to scroll-drive here. */
+    .feat-showcase--crop {
+      padding: 0;
+      min-height: auto;
+      background: #fff;
+      aspect-ratio: 1536 / 1024;
+    }
+    .feat-showcase--crop img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: 0 0;
+    }
 
     .feat-content h3 {
       font-size: clamp(1.25rem, 2.5vw, 1.5rem);
@@ -326,10 +346,11 @@ require __DIR__ . '/includes/header.php';
 
         <article class="feat-block feat-block--right">
           <div class="feat-visual">
-                        <div class="feat-showcase feat-showcase--blue">
-              <div class="feat-showcase-bg"></div>
-              <div class="feat-showcase-icon"><i data-lucide="clipboard-check"></i></div>
-              <div class="feat-showcase-mock"><span></span><span></span><span></span></div>
+                        <div class="feat-showcase feat-showcase--crop">
+              <img src="<?= ep_h(ep_url('assets/dashboard.png')) ?>"
+                   alt="EduPortal class attendance heatmap showing attendance per section across the week"
+                   width="1536" height="1024" loading="lazy" decoding="async"
+                   style="transform: translate(-21.28%, -180%) scale(2.8);">
             </div>
           </div>
           <div class="feat-content">
@@ -341,10 +362,11 @@ require __DIR__ . '/includes/header.php';
 
         <article class="feat-block feat-block--left">
           <div class="feat-visual">
-                        <div class="feat-showcase feat-showcase--green">
-              <div class="feat-showcase-bg"></div>
-              <div class="feat-showcase-icon"><i data-lucide="wallet"></i></div>
-              <div class="feat-showcase-mock"><span></span><span></span><span></span></div>
+                        <div class="feat-showcase feat-showcase--crop">
+              <img src="<?= ep_h(ep_url('assets/dashboard.png')) ?>"
+                   alt="EduPortal fee collection and outstanding receivables panel"
+                   width="1536" height="1024" loading="lazy" decoding="async"
+                   style="transform: translate(-18.18%, 0%) scale(2.2);">
             </div>
           </div>
           <div class="feat-content">
@@ -589,10 +611,11 @@ require __DIR__ . '/includes/header.php';
 
         <article class="feat-block feat-block--right">
           <div class="feat-visual">
-                        <div class="feat-showcase feat-showcase--orange">
-              <div class="feat-showcase-bg"></div>
-              <div class="feat-showcase-icon"><i data-lucide="banknote"></i></div>
-              <div class="feat-showcase-mock"><span></span><span></span><span></span></div>
+                        <div class="feat-showcase feat-showcase--crop">
+              <img src="<?= ep_h(ep_url('assets/dashboard.png')) ?>"
+                   alt="EduPortal staff productivity panel tracking attendance marking, diary completion and result submission"
+                   width="1536" height="1024" loading="lazy" decoding="async"
+                   style="transform: translate(-81.52%, -180%) scale(2.8);">
             </div>
           </div>
           <div class="feat-content">
@@ -604,10 +627,11 @@ require __DIR__ . '/includes/header.php';
 
         <article class="feat-block feat-block--left">
           <div class="feat-visual">
-                        <div class="feat-showcase feat-showcase--green">
-              <div class="feat-showcase-bg"></div>
-              <div class="feat-showcase-icon"><i data-lucide="trending-up"></i></div>
-              <div class="feat-showcase-mock"><span></span><span></span><span></span></div>
+                        <div class="feat-showcase feat-showcase--crop">
+              <img src="<?= ep_h(ep_url('assets/dashboard.png')) ?>"
+                   alt="EduPortal revenue overview chart plotting income and expense against the collection target"
+                   width="1536" height="1024" loading="lazy" decoding="async"
+                   style="transform: translate(-17.47%, -70.48%) scale(2.1);">
             </div>
           </div>
           <div class="feat-content">
