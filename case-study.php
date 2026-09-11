@@ -152,15 +152,16 @@ require __DIR__ . '/includes/header.php';
       </script>
       <?php endif; ?>
 
-      <div class="cs-post-cta">
-        <h3>See EduPortal in action</h3>
-        <p>Want similar results for your school? Get a live demo today.</p>
-        <a href="<?= ep_h(ep_url('index.php')) ?>" class="btn btn-primary">Get Started Free</a>
-      </div>
-
     </div>
   </main>
 
 <?php
+$ctaLabel   = 'Get Started';
+$ctaHeading = 'See EduPortal in action';
+$ctaText    = 'Want similar results for your school? Get a live demo today.';
+$ctaPrimary = 'demo';
+require __DIR__ . '/includes/partials/cta-band.php';
+
 $epTrackPage = 'case-study:' . ($cs['slug'] ?? 'unknown');
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

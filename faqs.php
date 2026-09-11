@@ -70,9 +70,9 @@ require __DIR__ . '/includes/header.php';
         <div class="faq-list" id="faqList" aria-live="polite">
           <?php foreach ($faqs as $faq): ?>
           <div class="faq-item" data-id="<?= ep_h($faq['id']) ?>" data-category="<?= ep_h($faq['category']) ?>" data-search="<?= ep_h(mb_strtolower($faq['q'] . ' ' . $faq['a'])) ?>">
-            <h3><button type="button" class="faq-q" aria-expanded="false">
+            <h2><button type="button" class="faq-q" aria-expanded="false">
               <span><?= ep_h($faq['q']) ?></span><i data-lucide="chevron-down"></i>
-            </button></h3>
+            </button></h2>
             <div class="faq-a"><div class="faq-a-inner"><span class="faq-tag"><?= ep_h($faqCategoryLabels[$faq['category']] ?? $faq['category']) ?></span><p><?= ep_h($faq['a']) ?></p></div></div>
           </div>
           <?php endforeach; ?>
@@ -84,16 +84,14 @@ require __DIR__ . '/includes/header.php';
       </div>
     </section>
 
-    <section class="faq-cta">
-      <div class="container">
-        <h2>Still have questions?</h2>
-        <p>Book a free demo with our team or contact sales — we will walk through EduPortal with your school structure and answer everything live.</p>
-        <div class="faq-cta-btns">
-          <button type="button" class="btn btn-primary js-open-modal">Book a Demo</button>
-          <a href="contact.php" class="btn-outline-light">Contact Sales</a>
-        </div>
-      </div>
-    </section>
+    <?php
+    $ctaLabel     = 'Get Started';
+    $ctaHeading   = 'Still have questions?';
+    $ctaText      = 'Book a free demo with our team or contact sales — we will walk through EduPortal with your school structure and answer everything live.';
+    $ctaPrimary   = 'demo';
+    $ctaSecondary = ['href' => ep_url('contact.php'), 'label' => 'Contact Sales'];
+    require __DIR__ . '/includes/partials/cta-band.php';
+    ?>
   </main>
 
 <?php require __DIR__ . '/includes/partials/demo-modal.php'; ?>

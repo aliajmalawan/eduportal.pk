@@ -212,24 +212,9 @@
   margin: 0 auto 3rem;
 }
 
-.cs-post-cta {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 20px;
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
-}
-.cs-post-cta h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.cs-post-cta p {
-  color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
-}
+/* CTA moved to the shared includes/partials/cta-band.php component
+   (.section--dark, tokenized ink/flame palette) -- see git history for the
+   previous light-card .cs-post-cta rules this replaced. */
 
 /* ── Case study story blocks, metrics & quote (Task 8) ────────────── */
 .cs-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0;padding:1.5rem;background:var(--color-bg-alt);border-radius:14px}

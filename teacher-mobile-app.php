@@ -495,17 +495,14 @@ require __DIR__ . '/includes/header.php';
       </div>
     </section>
 
-    <section class="fd-cta reveal-fd">
-      <div class="container">
-        <span class="section-label" style="color:var(--color-primary)">Get Started</span>
-        <h2>Ready to modernize teacher mobile app?</h2>
-        <p>Book a personalized demo and see how EduPortal school ERP Pakistan fits your campus — from admission to graduation.</p>
-        <div class="fd-cta-btns">
-          <button type="button" class="btn btn-primary js-open-modal">Book a Demo</button>
-          <a href="<?= ep_h(ep_url('contact.php')) ?>" class="btn-outline-light">Contact Sales</a>
-        </div>
-      </div>
-    </section>
+    <?php
+    $ctaLabel     = 'Get Started';
+    $ctaHeading   = 'Ready to modernize teacher mobile app?';
+    $ctaText      = 'Book a personalized demo and see how EduPortal school ERP Pakistan fits your campus — from admission to graduation.';
+    $ctaPrimary   = 'demo';
+    $ctaSecondary = ['href' => ep_url('contact.php'), 'label' => 'Contact Sales'];
+    require __DIR__ . '/includes/partials/cta-band.php';
+    ?>
 
     
     <section class="fd-related">
