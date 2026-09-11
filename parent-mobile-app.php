@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Parent Mobile App?</h2>
-            <p>Parent Mobile App is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Give parents instant access to attendance, fees, results, and school notices. It centralizes workflows that schools previously handled with endless phone calls to the office for fee and result updates, giving every stakeholder accurate information from a single login.</p>
+            <p>The Parent Mobile App gives parents direct access to their child's attendance, fees, results and school notices from one app, signed in against their own child's record.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Parent Mobile App important for schools?</h2>
-            <p>Parent Mobile App matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>Every "what is my balance" or "did my child attend today" call to the office is a question the app can already answer. Schools that get parents onto it see front-desk call volume drop within weeks, not months.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Parent Mobile App work?</h2>
-            <p>EduPortal's parent mobile app connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Parents install the app and sign in with credentials tied to their child's profile. Fee due dates, absences and result publishing reach them as notifications pulled from the same live records the school works from.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, parent mobile app must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>The app supports the bilingual, WhatsApp-adjacent habits Pakistani parents already have, and scales the same way for a single campus or every branch in a multi-campus group, each parent seeing only their own family's data.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive parent mobile app tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>One app, not four separate channels</h3>
+            <p>Attendance, fees, results and notices are all in the same place instead of spread across calls, SMS and paper slips.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All parent mobile app data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Answers the question before the call happens</h3>
+            <p>A parent checking "did my child attend today" finds it in the app rather than dialing the office.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Notifications instead of remembering to check</h3>
+            <p>Fee due dates, absences and result publishing reach parents as alerts, not something they have to think to look up.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Signed in against their own child's record</h3>
+            <p>Each parent sees only their own family's data, pulled directly from the student profile.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Fewer front-desk calls, measurably</h3>
+            <p>Routine balance and attendance questions drop once parents get used to checking the app themselves.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Same data the office sees, in real time</h3>
+            <p>What a parent sees in the app reflects the same live records the school is working from — not a delayed sync.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Works on the phones parents already have</h3>
+            <p>No special hardware — just the app on a standard Android or iOS phone.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built for how Pakistani families expect updates</h3>
+            <p>Bilingual, WhatsApp-adjacent notification habits are the starting point, not an afterthought.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Scales from one campus to a whole group</h3>
+            <p>Every parent across every branch uses the same app, tied to their own child's record.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Parent Mobile App connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Pulls from every module automatically</h3>
+            <p>Fees, attendance, exams and communication all feed the same parent view without separate integration work.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with informed families, fewer front-desk calls, and stronger school trust instead of reacting after problems escalate.</p>
+            <h3>Stronger trust, not just convenience</h3>
+            <p>Families who can see accurate, current information tend to trust the school's administration more, not just call it less.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate parent-portal subscription</h3>
+            <p>The app is part of EduPortal itself, not a third-party portal billed on top.</p>
           </article>
         </div>
       </div>

@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Fee Management?</h2>
-            <p>Fee Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Define fee heads, generate vouchers in bulk, and track every rupee collected. It centralizes workflows that schools previously handled with manual voucher printing, missed concessions, and endless defaulter follow-ups, giving every stakeholder accurate information from a single login.</p>
+            <p>Fee Management is the module schools use to define fee heads and structures, generate vouchers in bulk, and track collections as they come in. It replaces printing vouchers one at a time, applying concessions by hand each cycle, and chasing defaulters from memory.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Fee Management important for schools?</h2>
-            <p>Fee Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A fee cycle with no clear aging view means the office reacts to complaints instead of working a list. Schools that can see exactly who is overdue, and by how much, collect faster and spend less time on phone calls that a dashboard could have answered.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Fee Management work?</h2>
-            <p>EduPortal's fee management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Vouchers generate for a class or the whole school together, payments post against the student's account as they arrive, and balances update immediately. Reminders go out on a schedule rather than depending on staff to remember each family.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, fee management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Fee cycles, board formats and bilingual billing are set up for how Pakistani schools actually collect — WhatsApp and SMS reminders, PKR amounts, and aging reports that match local defaulter-chasing habits rather than a generic invoicing template.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive fee management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Vouchers in bulk, not one at a time</h3>
+            <p>Generate a class, a campus or the whole school's fee vouchers together instead of printing them one student at a time.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All fee management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Concessions carry forward automatically</h3>
+            <p>Set a sibling discount or scholarship once — it applies every cycle without the office reapplying it by hand.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Aging, not just a total</h3>
+            <p>Outstanding balances are grouped by how overdue they are, so the office knows who to call this week, not just who owes money.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Reminders that go out on their own</h3>
+            <p>SMS and app reminders follow the schedule you set — no one has to remember to chase a family individually.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>A balance that updates the moment it changes</h3>
+            <p>Front-desk and bank payments post to the student account immediately, so the number owners see is never a day stale.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Fee data feeds accounting directly</h3>
+            <p>Collections flow into Accounting Management on their own, so income does not get re-entered into a second ledger.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Works from the office or a phone</h3>
+            <p>Vouchers and collections can be handled from a desktop at the front desk or an app on the move.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around how Pakistani schools actually bill</h3>
+            <p>Local fee cycles, board formats and WhatsApp-first reminders are the default, not an add-on.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Holds up at 200 students or 2,000</h3>
+            <p>Bulk voucher generation and collection stay fast through admission season regardless of campus size.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Fee Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>One ledger across every module</h3>
+            <p>Fees, attendance and finance share the same student record, so a payment never needs to be typed twice.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with accurate billing, faster collections, and clear aging reports for owners instead of reacting after problems escalate.</p>
+            <h3>Fewer front-desk phone calls</h3>
+            <p>When parents can see an accurate balance in the app themselves, they stop calling the office to ask.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>Usually pays for itself in one cycle</h3>
+            <p>Cutting manual voucher printing and defaulter chasing recovers the software cost within a single fee cycle for most schools.</p>
           </article>
         </div>
       </div>

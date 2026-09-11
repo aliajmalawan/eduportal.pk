@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Lesson Plans &amp; Syllabus Tracking?</h2>
-            <p>Lesson Plans &amp; Syllabus Tracking is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Ensure curriculum completion with visible lesson plans and coverage dashboards. It centralizes workflows that schools previously handled with unknown syllabus gaps discovered weeks before board exams, giving every stakeholder accurate information from a single login.</p>
+            <p>Lesson Plans & Syllabus Tracking sets coverage targets per subject and class, lets teachers log daily lesson plans, and gives coordinators a dashboard of syllabus progress.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Lesson Plans &amp; Syllabus Tracking important for schools?</h2>
-            <p>Lesson Plans &amp; Syllabus Tracking matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A syllabus gap discovered weeks before board exams leaves little time to recover. Visible coverage tracking during the term is what catches a subject falling behind while there is still time to address it.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Lesson Plans &amp; Syllabus Tracking work?</h2>
-            <p>EduPortal's lesson plans &amp; syllabus tracking connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Coverage targets are set once per subject, teachers log what was taught each day, and coordinators see progress across classes on a dashboard rather than reconstructing it from individual notebooks.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, lesson plans &amp; syllabus tracking must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Coverage targets and terms align with the syllabus Pakistani schools actually follow, and the same dashboard works whether it's one class or coverage tracking across every grade in the school.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive lesson plans &amp; syllabus tracking tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Coverage targets set per subject and class</h3>
+            <p>Teachers plan against a defined scope instead of an informal, unwritten expectation.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All lesson plans &amp; syllabus tracking data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Daily plans logged, not kept in a notebook</h3>
+            <p>What was taught each day becomes a running record rather than existing only in a teacher's personal notes.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Coverage gaps visible during the term</h3>
+            <p>Coordinators see which subjects are falling behind while there is still time to act, not weeks before board exams.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Inspection-ready without extra prep</h3>
+            <p>Because plans are logged as they happen, the record is already in a state ready for review.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Coordinated across teachers automatically</h3>
+            <p>Multiple teachers on the same subject can see coverage progress together, not working from separate notes.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Accessible from the classroom</h3>
+            <p>Teachers can log a lesson plan right after class from the app, not only from an office computer.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Tracks against the syllabus your school follows</h3>
+            <p>Coverage targets match your actual curriculum plan, not a generic template.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Board-exam timing built in</h3>
+            <p>Coverage dashboards are useful specifically because they surface gaps before board exam season, not after.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works across one grade or the whole school</h3>
+            <p>Coverage tracking scales the same way whether it's a single class or every section in every grade.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Lesson Plans &amp; Syllabus Tracking connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects to the timetable</h3>
+            <p>Lesson plans align with the actual periods scheduled in Timetable Management.</p>
           </article>
         </div>
       </div>

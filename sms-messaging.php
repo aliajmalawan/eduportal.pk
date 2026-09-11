@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is SMS Messaging?</h2>
-            <p>SMS Messaging is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Reach thousands of parents in minutes with branded SMS from your SIM. It centralizes workflows that schools previously handled with manual texting, no delivery proof, and missed fee reminder campaigns, giving every stakeholder accurate information from a single login.</p>
+            <p>SMS Messaging sends bulk text messages from your own school SIM — fee reminders, event notices, and general announcements — to a targeted list rather than the whole parent body every time.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is SMS Messaging important for schools?</h2>
-            <p>SMS Messaging matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A reminder that never reaches a parent, or reaches them with no record of it, turns into a dispute at the front desk. Logged, targeted sends give the office something to point to and cut down on messages going to people who did not need them.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's SMS Messaging work?</h2>
-            <p>EduPortal's sms messaging connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A recipient list is built or chosen — a class, a campus, defaulters only — and the message goes out as a bulk send, logged as it happens. Delivery records stay available to check later.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, sms messaging must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Messages send from your school's own SIM rather than a shared or foreign sender ID, in Urdu or English, and work alongside WhatsApp Communication so a single campaign can reach both channels without a second contact list.</p>
           </article>
         </div>
       </div>
@@ -182,68 +182,68 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive sms messaging tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Sent from your own SIM</h3>
+            <p>Messages arrive branded as your school's number, not an unfamiliar shared sender ID.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All sms messaging data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Every send is logged</h3>
+            <p>A delivery record exists for each bulk send — useful the next time a parent says they never got a reminder.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Target the list, not the whole school</h3>
+            <p>Send to defaulters only, a single class, or everyone — the list matches the message instead of over-sending by default.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Fee reminders that don't need a phone call</h3>
+            <p>Bulk fee-due reminders go out on a schedule, cutting into the manual follow-up calls the front desk used to make.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>No delivery-proof guesswork</h3>
+            <p>Bulk sends are logged as they go out, replacing manual texting with no record of what actually reached parents.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Staff send from the app, not a personal phone</h3>
+            <p>Bulk messaging runs through the school's own system rather than a staff member's personal SIM and contact list.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Works alongside WhatsApp, not instead of it</h3>
+            <p>SMS and WhatsApp Communication share the same contact and campaign data, so you are not maintaining two lists.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Bilingual by default</h3>
+            <p>Messages go out in Urdu or English to match how your parent community actually communicates.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>One send reaches one campus or every branch</h3>
+            <p>Bulk campaigns work the same way at a single-campus school or a multi-branch group.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>SMS Messaging connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Tied to fee and attendance data</h3>
+            <p>Reminder campaigns can pull from the same defaulter or absence lists Fee Management and Attendance already track.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with logged bulk sends, targeted lists, and reliable parent reach instead of reacting after problems escalate.</p>
+            <h3>Fewer missed-reminder disputes</h3>
+            <p>A logged send record settles the "I was never told" conversation before it becomes an argument.</p>
           </article>
         </div>
       </div>

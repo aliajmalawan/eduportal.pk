@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Timetable Management?</h2>
-            <p>Timetable Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Drag-and-drop schedules that avoid conflicts and sync to mobile apps. It centralizes workflows that schools previously handled with double-booked teachers, last-minute sticky notes, and confused substitute plans, giving every stakeholder accurate information from a single login.</p>
+            <p>Timetable Management builds class schedules with drag-and-drop placement, flags conflicts as they happen, and syncs the published timetable to mobile apps.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Timetable Management important for schools?</h2>
-            <p>Timetable Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A double-booked teacher discovered after the timetable is printed and distributed is a conflict that's expensive to fix. Catching it while the schedule is still being built is what keeps a published timetable actually usable.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Timetable Management work?</h2>
-            <p>EduPortal's timetable management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Teachers, rooms and sections are set up first, periods are placed with conflicts flagged immediately, and the finalized timetable syncs to staff and student apps — with substitutions pushed as live updates when needed.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, timetable management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Period structures and substitution norms reflect how Pakistani school days are actually scheduled, and the same conflict-checking works for a single section or a full campus timetable.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive timetable management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Conflicts flagged while you're building, not after</h3>
+            <p>Double-booked teachers or rooms are caught as the schedule is built, not discovered once it's distributed.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All timetable management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Drag-and-drop instead of a manual grid</h3>
+            <p>Periods are placed visually rather than worked out on paper or a spreadsheet.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Synced to mobile the moment it's published</h3>
+            <p>Staff and students see the finalized timetable on their phones as soon as it's published.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Substitutions pushed as live updates</h3>
+            <p>A last-minute teacher change reaches everyone affected directly, not through a staff-room notice.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Built from real teachers, rooms and sections</h3>
+            <p>Scheduling works from the actual resources you've set up, not a generic grid filled in by hand.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Fewer sticky-note schedule changes</h3>
+            <p>Digital publishing and live updates are what actually replace sticky notes and printed copies pinned to a board.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible to every teacher, not just the office</h3>
+            <p>Each teacher sees their own schedule from the app rather than checking a single posted copy.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around Pakistani school period structures</h3>
+            <p>Local period lengths, break patterns and substitution norms are the default, not adapted from elsewhere.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works for one section or a whole campus</h3>
+            <p>Conflict-checking and scheduling scale the same way from a single class to the full timetable.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Timetable Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects to lesson plans and syllabus tracking</h3>
+            <p>The published timetable is what lesson plans and coverage tracking align against.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with conflict-free timetables, live updates, and coordinated substitutions instead of reacting after problems escalate.</p>
+            <h3>Coordinated substitutions, not confusion</h3>
+            <p>A live-updated schedule is what actually prevents the mix-up of two teachers assuming someone else covered a class.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate timetabling software</h3>
+            <p>Scheduling lives inside EduPortal rather than a dedicated timetabling tool exported and re-imported separately.</p>
           </article>
         </div>
       </div>

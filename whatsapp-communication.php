@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is WhatsApp Communication?</h2>
-            <p>WhatsApp Communication is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Deliver notices on WhatsApp with templates for fees, events, and results. It centralizes workflows that schools previously handled with parents missing SMS but active on WhatsApp groups all day, giving every stakeholder accurate information from a single login.</p>
+            <p>WhatsApp Communication delivers notices — fee reminders, event invitations, results — using templates, over the channel many parents already check throughout the day instead of SMS they might miss.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is WhatsApp Communication important for schools?</h2>
-            <p>WhatsApp Communication matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>Parents who are active on WhatsApp groups all day but easy to miss by SMS need a channel with a real chance of being read. Template consistency also means a notice reads the same way whoever on staff sends it.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's WhatsApp Communication work?</h2>
-            <p>EduPortal's whatsapp communication connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A template is picked or built for the notice type, the right list is chosen — a class, a campus, or everyone — and the campaign sends as a logged batch, so what went out and when stays on record.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, whatsapp communication must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Templates and delivery patterns reflect how Pakistani parents actually use WhatsApp for school updates, sharing contact data with SMS Messaging so campaigns do not need two separately maintained lists.</p>
           </article>
         </div>
       </div>
@@ -182,68 +182,68 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive whatsapp communication tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Templates for the notices that repeat</h3>
+            <p>Fee due dates, events and results each have a ready template instead of being retyped every time.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All whatsapp communication data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Higher read rates where it matters</h3>
+            <p>WhatsApp is the channel to pick for a notice you need parents to actually see, not just receive.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Choose the channel per campaign</h3>
+            <p>A single-class event notice does not need the same channel as a school-wide fee reminder — pick per send.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Logged sends, not group-chat chaos</h3>
+            <p>Notices go out as tracked campaigns instead of disappearing into a parent WhatsApp group thread.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Reaches parents already active on WhatsApp</h3>
+            <p>Families who miss SMS but check WhatsApp throughout the day get notices where they are actually looking.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Shares contact data with SMS</h3>
+            <p>The same parent contact list powers both SMS Messaging and WhatsApp — no separate list to maintain.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Send to a class, a campus, or everyone</h3>
+            <p>Reach matches the notice instead of a single broadcast list used for every message.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Template consistency across campaigns</h3>
+            <p>A fee reminder reads the same way every month rather than however the person sending it phrased it that day.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Built for how Pakistani parents actually message</h3>
+            <p>WhatsApp-first communication reflects how families in Pakistan already stay in touch, not a channel bolted on afterward.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>WhatsApp Communication connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects to fee and attendance campaigns</h3>
+            <p>The same defaulter or absence lists used for SMS reminders can drive a WhatsApp campaign too.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with higher read rates, template consistency, and channel choice per campaign instead of reacting after problems escalate.</p>
+            <h3>Fewer "I didn't see the notice" calls</h3>
+            <p>A read-heavy channel for time-sensitive notices means fewer parents missing something that mattered.</p>
           </article>
         </div>
       </div>

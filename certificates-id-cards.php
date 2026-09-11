@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Certificates &amp; ID Cards?</h2>
-            <p>Certificates &amp; ID Cards is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Batch-generate leaving certificates, character certificates, and achievement awards with your branding. It centralizes workflows that schools previously handled with designer delays and manual mail-merge every graduation season, giving every stakeholder accurate information from a single login.</p>
+            <p>Certificates & ID Cards generates leaving certificates, character certificates, achievement awards and bonafide letters, merging student data into your school's own templates.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Certificates &amp; ID Cards important for schools?</h2>
-            <p>Certificates &amp; ID Cards matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A hand-typed certificate is where a name, date or class gets misspelled, and that mistake ends up on a formal document a family keeps. Merging fields from the actual student record removes that specific failure point.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Certificates &amp; ID Cards work?</h2>
-            <p>EduPortal's certificates &amp; id cards connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A template is chosen, fields merge automatically from the student's profile, and documents generate individually or as a batch — hundreds at once during graduation season — ready to print or issue.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, certificates &amp; id cards must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Templates carry Urdu/English text and formats familiar to Pakistani institutions, and this module stays separate from daily ID Cards Generation, which handles the QR-code cards used for attendance.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive certificates &amp; id cards tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Fields merge from the student record</h3>
+            <p>Name, class and dates pull automatically from the profile, so nothing gets retyped by hand into a document.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All certificates &amp; id cards data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Batch print for graduation season</h3>
+            <p>Generate hundreds of leaving or character certificates as PDF in one run instead of one at a time.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Templates carry your branding</h3>
+            <p>Logo, signature block and Urdu/English text are part of the template, not added manually to each document.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>A single reprint when one is needed</h3>
+            <p>One certificate can be regenerated any time without touching the rest of a batch.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Fewer typos on official documents</h3>
+            <p>Because fields merge from records rather than being typed, a name or date matches the student profile exactly.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Separate from daily ID cards by design</h3>
+            <p>Formal certificates and graduation documents are their own module — daily ID cards live in ID Cards Generation.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Generate from office or admin app</h3>
+            <p>Certificate runs can be kicked off from a desktop or the admin mobile app.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Formats familiar to Pakistani institutions</h3>
+            <p>Leaving certificates, bonafide letters and character certificates follow the layouts schools already expect.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Same process for ten students or five hundred</h3>
+            <p>Batch generation performance does not change with the size of the graduating class.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Certificates &amp; ID Cards connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Pulled from the same profile as every other module</h3>
+            <p>Certificate data is the same student record used by fees, attendance and exams — no separate database.</p>
           </article>
         </div>
       </div>

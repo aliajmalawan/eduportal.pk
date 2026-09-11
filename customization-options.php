@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Customization Options?</h2>
-            <p>Customization Options is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Tailor fields, reports, and workflows without breaking core stability. It centralizes workflows that schools previously handled with rigid software that forces your school to change established processes, giving every stakeholder accurate information from a single login.</p>
+            <p>Customization Options let a school tailor fields, reports and workflows to match how it already operates, instead of changing established processes to fit a fixed system.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Customization Options important for schools?</h2>
-            <p>Customization Options matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>Software that forces a school to change how it already runs admissions or billing gets worked around, not adopted. Configuring the system to match existing processes is what actually gets used day to day.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Customization Options work?</h2>
-            <p>EduPortal's customization options connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A specific field, report or workflow gap is identified, raised through support to scope it against what stays configurable, then added with role-based permissions so a new field is not accidentally visible to the wrong staff.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, customization options must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Board-specific fields, local terminology and bilingual labels are common requests already understood, and customizations can be scoped to a single branch or applied across a multi-campus group.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive customization options tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Configure fields to match your process</h3>
+            <p>Add the fields your school actually uses instead of adapting your process to fit a fixed form.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All customization options data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Custom reports, not just custom fields</h3>
+            <p>Reports can be shaped around what your admin team and owners actually need to see.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Scoped through support, not self-service guesswork</h3>
+            <p>Requests go through your support contact so a change is scoped against what stays stable for the platform.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Role-fit permissions on anything new</h3>
+            <p>Access to a customized field or report is scoped by role, so a change does not accidentally expose data.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Core stability stays intact</h3>
+            <p>Customization changes what you see and enter, not the underlying stability other schools on the platform depend on.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Workflow changes, not just cosmetic ones</h3>
+            <p>Custom workflows can follow how your school actually approves or processes something, not a fixed default path.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Available from the same admin screens</h3>
+            <p>Customized fields and reports appear in the same interface staff already use — nothing bolted on separately.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built with Pakistani school variation in mind</h3>
+            <p>Board-specific fields, local terminology and bilingual labels are common customization requests already accounted for.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works whether you're one campus or several</h3>
+            <p>Customizations can be scoped to a single branch or applied group-wide, depending on what you need.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Customization Options connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Customized fields flow through the full ERP</h3>
+            <p>A custom field added once is available anywhere that student or staff record is used.</p>
           </article>
         </div>
       </div>

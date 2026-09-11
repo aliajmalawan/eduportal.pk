@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Library Management?</h2>
-            <p>Library Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Digital catalog, issuance tracking, and overdue reminders without manual registers. It centralizes workflows that schools previously handled with lost books, handwritten ledgers, and uncollected fines, giving every stakeholder accurate information from a single login.</p>
+            <p>Library Management runs a searchable digital catalog, tracks issuance and returns per borrower, and sends automatic overdue reminders in place of handwritten ledgers.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Library Management important for schools?</h2>
-            <p>Library Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A book tracked only on a card inside its own cover is a book that's effectively untracked once it leaves the shelf. Logging issuance against the borrower's record is what keeps accountability specific instead of general.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Library Management work?</h2>
-            <p>EduPortal's library management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Books are entered into a searchable catalog, issuance and returns log against the borrower, due dates calculate automatically, and reminders go out for anything overdue with fines tracked against that borrower.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, library management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Borrowing limits and school-term due dates reflect real library policy at Pakistani schools, and the same catalog and issuance workflow scale from a small reading room to a full library.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive library management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>A catalog you can actually search</h3>
+            <p>Books are entered into a searchable catalog by title, author or category — not a handwritten ledger.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All library management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Issuance logged against the borrower</h3>
+            <p>What is out and to whom is always current, rather than tracked on a card inside the book.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Due dates calculated automatically</h3>
+            <p>The system tracks when a book is due, so an overdue item is flagged rather than relying on memory.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Overdue reminders sent, not chased by hand</h3>
+            <p>Reminders go out for overdue items automatically, and fines track against the borrower's record.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Accountability per borrower, not per shelf</h3>
+            <p>Lost books and unreturned items are traceable to a specific borrower rather than a general shortfall.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Accessible from the librarian's desk or a phone</h3>
+            <p>Issuance and returns can be logged from wherever the librarian is working.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Built for how school libraries actually run</h3>
+            <p>Class-linked borrowing limits and school-term due dates reflect real library policy, not a generic catalog tool.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Works for a small reading room or a full library</h3>
+            <p>Catalog size does not change how issuance and returns are tracked.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Connects to the student record</h3>
+            <p>Borrowing history sits against the same student profile used elsewhere in EduPortal.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Library Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Fine tracking that's actually collected</h3>
+            <p>Because fines are logged against a borrower automatically, they are far less likely to be quietly forgotten.</p>
           </article>
         </div>
       </div>

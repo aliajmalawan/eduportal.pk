@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Dedicated Customer Support?</h2>
-            <p>Dedicated Customer Support is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Real humans who understand schools — setup, training, and year-round help. It centralizes workflows that schools previously handled with generic helpdesks that do not understand admission or exam urgency, giving every stakeholder accurate information from a single login.</p>
+            <p>Dedicated Customer Support means real people who work with school administration specifically — setup help, staff training, and year-round assistance — rather than a generic ticketing queue.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Dedicated Customer Support important for schools?</h2>
-            <p>Dedicated Customer Support matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A support ticket that does not understand what admission week or exam season actually means gets the wrong priority. Support that already knows school timing treats a time-sensitive issue as time-sensitive.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Dedicated Customer Support work?</h2>
-            <p>EduPortal's dedicated customer support connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Setup and staff training happen during onboarding, aimed at a faster go-live. After that, support continues for whatever comes up, with time-sensitive issues during exams or admissions escalated accordingly.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, dedicated customer support must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Support understands local admission cycles, board exam timing, and fee seasons specifically, giving the same responsiveness to a single-campus school as to a multi-branch group.</p>
           </article>
         </div>
       </div>
@@ -182,68 +182,68 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive dedicated customer support tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>People who understand school timing</h3>
+            <p>Support staff know what admission week or exam season urgency actually means, not a generic ticket queue.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All dedicated customer support data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Onboarding gets you to go-live faster</h3>
+            <p>Initial setup and staff training are part of getting started, not left for your team to work out alone.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Help continues after setup</h3>
+            <p>Support is year-round, not a one-time onboarding call that ends once the software is installed.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Urgent issues get treated as urgent</h3>
+            <p>A problem during exams or admissions is escalated with the priority that timing actually calls for.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Staff learn the screens they use daily</h3>
+            <p>Training focuses on the day-to-day workflows your team will actually touch, not a generic feature tour.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>One point of contact, not a ticket number</h3>
+            <p>Requests go to people who already know your school's setup, not a rotating support queue.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Reachable from office or on the move</h3>
+            <p>Support can be contacted whether staff are at a desktop or handling something from the app.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around how Pakistani schools operate</h3>
+            <p>Support understands local admission cycles, board exam timing and fee seasons, not a generic SaaS calendar.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Same support whether you have one campus or five</h3>
+            <p>A multi-branch group gets the same responsiveness as a single-campus school.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Dedicated Customer Support connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Support that already knows your other modules</h3>
+            <p>Because support is dedicated, they understand how your fee setup, attendance methods and exam config already work.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with faster go-live, confident staff, and reliable help when it matters instead of reacting after problems escalate.</p>
+            <h3>Confidence, not just a fixed bug</h3>
+            <p>Staff who know help is available make fewer hesitant workarounds and more direct use of the system.</p>
           </article>
         </div>
       </div>

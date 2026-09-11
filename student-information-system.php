@@ -155,19 +155,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Student Information System?</h2>
-            <p>Student Information System is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. One digital profile for every student — from admission to graduation. It centralizes workflows that schools previously handled with scattered paper files, duplicate Excel sheets, and lost admission documents, giving every stakeholder accurate information from a single login.</p>
+            <p>The Student Information System gives every student one digital profile from admission to graduation, with guardian details and documents attached directly to the record.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Student Information System important for schools?</h2>
-            <p>Student Information System matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A paper file that has to be physically tracked down, or a duplicate spreadsheet kept alongside it, is where student records go missing or go stale. One searchable digital profile is what keeps them current and findable.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Student Information System work?</h2>
-            <p>EduPortal's student information system connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A profile is created at admission, guardian contacts and admission documents attach to it directly, and the record stays searchable — accessible to attendance, fees and exams without being re-entered per module.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, student information system must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Guardian and documentation fields match what Pakistani schools are actually required to keep on file, and the same profile system scales from a single class to a school's full enrollment.</p>
           </article>
         </div>
       </div>
@@ -184,74 +184,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive student information system tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>One profile from admission to graduation</h3>
+            <p>A student's record follows them through their whole time at the school instead of resetting each year.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All student information system data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Guardian details stored against the record</h3>
+            <p>Contact and relationship information for guardians lives with the student profile, not a separate register.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Documents attached, not filed separately</h3>
+            <p>Admission documents attach directly to the profile, so the record and its paperwork stay together.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Searchable, not filed alphabetically in a cabinet</h3>
+            <p>Finding a specific student is a search, not a trip to a filing cabinet.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Audit-ready by default</h3>
+            <p>Because records are digital and logged, they are already in a state ready for a board or franchisor review.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Accessible to every module that needs it</h3>
+            <p>The same profile powers attendance, fees, exams and communication — no separate student databases per module.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Updated from the office or the app</h3>
+            <p>Staff can update a student's record from a desktop or from a mobile device.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built for how Pakistani schools track admissions</h3>
+            <p>Board, guardian and local documentation fields match what schools are actually required to keep.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Scales from a single class to the whole school</h3>
+            <p>Profile search and management perform the same way at any enrollment size.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Student Information System connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>One source feeding every report</h3>
+            <p>Attendance sheets, fee vouchers and result cards all pull from the same underlying profile.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with searchable profiles, complete guardian records, and audit-ready archives instead of reacting after problems escalate.</p>
+            <h3>Fewer lost admission documents</h3>
+            <p>Attaching documents to the digital profile is what actually prevents paperwork from going missing.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No duplicate Excel sheets to reconcile</h3>
+            <p>A single searchable record replaces the scattered spreadsheets schools used to keep student data in.</p>
           </article>
         </div>
       </div>

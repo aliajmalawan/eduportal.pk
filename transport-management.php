@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Transport Management?</h2>
-            <p>Transport Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Assign routes, link transport fees, and keep parents informed about pickups. It centralizes workflows that schools previously handled with route confusion, manual transport fee billing, and safety communication gaps, giving every stakeholder accurate information from a single login.</p>
+            <p>Transport & Route Management assigns students to routes and stops, links transport fees to regular billing, and gives parents pickup information through the app.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Transport Management important for schools?</h2>
-            <p>Transport Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A route known only to the driver running it is a route no one else can answer questions about. Recording routes, stops and student assignments in the system is what makes transport information something the office — and parents — can actually check.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Transport Management work?</h2>
-            <p>EduPortal's transport management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Routes and stops are configured with assigned vehicles, students are linked to their stop, transport fees bill alongside regular fees, and parents see pickup details directly through the app.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, transport management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Multi-stop route patterns and vehicle assignment reflect how Pakistani school transport actually runs, with billing sharing the same aging report as tuition rather than a separate transport ledger.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive transport management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Routes recorded, not driver-memorized</h3>
+            <p>Routes and stops are configured in the system rather than known only to the driver running them.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All transport management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Students linked to their actual stop</h3>
+            <p>Each student's pickup point is recorded against their profile, not tracked informally by the transport team.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Transport fees billed with regular fees</h3>
+            <p>Transport charges go through the same billing cycle as tuition, instead of a separate manual process.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Parents see pickup information directly</h3>
+            <p>Route and timing details are visible to parents through the app, cutting down on "where is the bus" calls.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>One aging report covers transport too</h3>
+            <p>Because transport bills through the same fee cycle, defaulter tracking covers it without a separate list.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Accessible to the transport coordinator on the move</h3>
+            <p>Route assignments can be checked and updated from a phone, not only an office desktop.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Built for how Pakistani school transport actually runs</h3>
+            <p>Multi-stop routes and vehicle assignment patterns reflect real local transport setups.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Works for a few vans or a full fleet</h3>
+            <p>Route management scales the same way whether it's three vehicles or thirty.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Connects to fees and the student record</h3>
+            <p>Transport assignment and billing share data with Fee Management and Student Information directly.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Transport Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Safety through visibility, not assumption</h3>
+            <p>Recorded routes and stops give the school an actual reference for where each student should be picked up.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with clear route assignments, integrated billing, and parent app visibility instead of reacting after problems escalate.</p>
+            <h3>Fewer route-confusion complaints</h3>
+            <p>Clear, recorded route assignments are what actually prevent the mix-ups that come from informal tracking.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate transport-tracking spreadsheet</h3>
+            <p>Route and billing data live in the same platform as the rest of school operations.</p>
           </article>
         </div>
       </div>

@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Examination Management?</h2>
-            <p>Examination Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Configure exams, enter marks securely, and publish results parents trust. It centralizes workflows that schools previously handled with marksheet errors, delayed result days, and retyping grades for report cards, giving every stakeholder accurate information from a single login.</p>
+            <p>Examination Management covers configuring an exam, entering marks securely by subject, compiling results into one set, and publishing report cards. It replaces marksheet errors, delayed result days, and retyping grades by hand.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Examination Management important for schools?</h2>
-            <p>Examination Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A delayed or wrong result reaches parents directly and is hard to walk back once published. Catching entry mistakes before compiling, not after, is what keeps result day predictable instead of stressful for the exam office.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Examination Management work?</h2>
-            <p>EduPortal's examination management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Teachers enter marks for their own subjects in guided screens. Once every subject is in, results compile into a class-level set, report cards generate with your school's branding, and results publish to the parent portal on the date you choose.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, examination management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Grading scales, result formats and board-exam timing match Pakistani school conventions, with report cards publishing bilingually and result-day notifications going out over WhatsApp and SMS rather than a printed notice board.</p>
           </article>
         </div>
       </div>
@@ -182,68 +182,68 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive examination management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Marks entry that catches mistakes early</h3>
+            <p>Teachers enter marks in guided screens, so an entry error is caught before results compile, not after.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All examination management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>One compiled result set</h3>
+            <p>Every subject's marks come together into a single result per class instead of being reconciled from separate sheets.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Report cards ready to publish, not retype</h3>
+            <p>Branded report cards generate from the same compiled results — no separate retyping for printing.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Parents see results the day you choose</h3>
+            <p>Publishing to the parent portal happens on your schedule, not whenever printing catches up.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>A grading scale set once per exam</h3>
+            <p>Configure the exam type and weightage once at the start of the cycle rather than per subject.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Coordinators see status, not guesswork</h3>
+            <p>Which subjects have marks entered and which are outstanding is visible before the result deadline arrives.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Entry from a classroom or the exam office</h3>
+            <p>Teachers can enter marks from the app between classes; the exam office reviews from a desktop.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Report cards in your board's format</h3>
+            <p>Layouts follow the grading and format conventions Pakistani boards expect, with your school's branding.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Same process for one section or twenty</h3>
+            <p>Compiling and publishing results scales the same way whether it's a single class or every section sitting an exam.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Examination Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects straight to datasheets and records</h3>
+            <p>Results link to the Exam Datasheets module and each student's academic record without re-entry.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with accurate results, branded report cards, and secure parent portal publishing instead of reacting after problems escalate.</p>
+            <h3>A review step before anything goes out</h3>
+            <p>Compiled results can be checked once before publishing — the one point where a mistake is still easy to fix.</p>
           </article>
         </div>
       </div>

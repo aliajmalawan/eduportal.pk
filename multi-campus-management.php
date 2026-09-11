@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Multi-Campus Management?</h2>
-            <p>Multi-Campus Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. One platform for every branch with consolidated owner visibility. It centralizes workflows that schools previously handled with duplicate systems per campus and delayed group-level reporting, giving every stakeholder accurate information from a single login.</p>
+            <p>Multi-Campus Management runs every branch of a school group on one platform, with branch-level staff access and consolidated reporting for the owner.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Multi-Campus Management important for schools?</h2>
-            <p>Multi-Campus Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A second campus running on a separate, duplicate system means owner-level reporting has to be assembled by hand from each branch. One platform with consolidated analytics is what keeps group-level decisions current.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Multi-Campus Management work?</h2>
-            <p>EduPortal's multi-campus management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A new campus is added under the same owner account, branch staff manage their own campus's data, policies like fee structures can differ per branch where needed, and owners see analytics across every branch from one dashboard.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, multi-campus management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>This setup matches a common growth pattern for Pakistani school groups opening a second or third campus, holding governance central while letting each branch run its own day-to-day operations.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive multi-campus management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>One platform, every branch</h3>
+            <p>A second, third or fourth campus runs on the same system instead of a duplicate setup per site.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All multi-campus management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Branch autonomy, central visibility</h3>
+            <p>Each campus's staff manage their own day-to-day data while the owner sees everything from one account.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Policies set per branch where it matters</h3>
+            <p>Fee structures and timetables can differ by campus, without needing separate software to support that.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Consolidated analytics, not a manual roll-up</h3>
+            <p>Owners see performance across every branch from one dashboard instead of compiling group-level reports by hand.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>One owner login for the whole group</h3>
+            <p>A single account covers every campus rather than juggling separate logins per branch.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Shared reporting standards across campuses</h3>
+            <p>Every branch reports in the same format, so comparing performance across campuses is straightforward.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible centrally or from each branch</h3>
+            <p>Branch staff work from their own campus view; owners see the consolidated one.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built for how Pakistani school groups expand</h3>
+            <p>Adding a second campus reflects a common local growth pattern, not an edge case bolted on.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Scales from two campuses to many</h3>
+            <p>The same governance model works whether a group has two branches or a dozen.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Multi-Campus Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Every module works the same at every branch</h3>
+            <p>Fees, attendance, exams and communication run identically across campuses, avoiding fragmented systems.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with central governance, branch autonomy, and unified analytics instead of reacting after problems escalate.</p>
+            <h3>Faster group-level decisions</h3>
+            <p>Owners act on consolidated numbers immediately instead of waiting for each branch to send its own report.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No duplicate software licenses per campus</h3>
+            <p>Multi-campus governance is part of the same EduPortal account, not a separate purchase per branch.</p>
           </article>
         </div>
       </div>

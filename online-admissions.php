@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Online Admissions?</h2>
-            <p>Online Admissions is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Capture inquiries, process applications, and enroll students without paper chaos. It centralizes workflows that schools previously handled with long admission queues, manual form sorting, and enrollment errors every April, giving every stakeholder accurate information from a single login.</p>
+            <p>Online Admissions captures inquiries, processes applications, and enrolls students, with fee accounts linked from day one rather than a paper-heavy admission season.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Online Admissions important for schools?</h2>
-            <p>Online Admissions matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A form sorted manually during peak admission season is where enrollment errors happen. Digital application processing is what keeps the merit list and enrollment accurate under that same time pressure.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Online Admissions work?</h2>
-            <p>EduPortal's online admissions connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>An inquiry is logged as soon as a family shows interest, applications are processed and organized into a merit list, and an admitted student's fee account is set up immediately as part of enrollment.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, online admissions must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>This module is built around the admission-season volume and timing Pakistani schools actually see, working the same way for a single school or a multi-branch group processing applications across campuses.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive online admissions tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Inquiries logged the moment they happen</h3>
+            <p>An inquiry is captured as soon as a family shows interest, not noted on paper and possibly lost.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All online admissions data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Applications processed, not sorted by hand</h3>
+            <p>Applications move through the system rather than being manually sorted at the admissions desk.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>A merit list built from real application data</h3>
+            <p>The merit list compiles from the same applications on file, instead of being reassembled separately after.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Fee accounts linked from day one</h3>
+            <p>An admitted student's fee record is set up immediately, so their first voucher is not a separate manual step.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Shorter admission-day queues</h3>
+            <p>Digital application processing is what actually reduces the line at the admissions desk during peak season.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Visible pipeline year-round</h3>
+            <p>Inquiries and applications stay visible outside peak admission season too, not just during the rush.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible to admissions staff on any device</h3>
+            <p>Applications can be reviewed from the office or while moving around a busy admissions day.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around the Pakistani admission calendar</h3>
+            <p>Peak-season volume and local application patterns are the default case, not an edge case.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works the same at one campus or a growing group</h3>
+            <p>Admissions processing scales the same way whether it's a single school or a multi-branch operation.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Online Admissions connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects straight to Student Information</h3>
+            <p>An admitted applicant becomes a full student record without re-entering their details.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with faster enrollment, organized merit lists, and linked fee accounts from day one instead of reacting after problems escalate.</p>
+            <h3>Fewer enrollment errors every intake</h3>
+            <p>Digital processing removes the specific mistakes that come from manual form sorting under time pressure.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate admissions-management tool</h3>
+            <p>Inquiry capture through enrollment runs in the same platform as the rest of the school's operations.</p>
           </article>
         </div>
       </div>

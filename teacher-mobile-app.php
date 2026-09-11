@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Teacher Mobile App?</h2>
-            <p>Teacher Mobile App is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Empower teachers to mark attendance, enter marks, and share updates on the go. It centralizes workflows that schools previously handled with teachers waiting for office computers to update records after class, giving every stakeholder accurate information from a single login.</p>
+            <p>The Teacher Mobile App lets teachers mark attendance, enter marks, and share day-to-day updates from a phone, scoped to their own classes and timetable.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Teacher Mobile App important for schools?</h2>
-            <p>Teacher Mobile App matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>Data entered from a shared office computer after class is data entered late, and late data is where mistakes creep in. Same-day entry from the classroom is what actually keeps records accurate.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Teacher Mobile App work?</h2>
-            <p>EduPortal's teacher mobile app connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A teacher signs in and sees their own schedule, marks attendance during the period itself, and enters marks or updates the same day. Substitutions push to the app directly rather than through a staff-room notice.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, teacher mobile app must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Period structures, substitution norms and bilingual screens are set up for how Pakistani school days actually run, and the same account covers attendance, marks and lesson plans without separate logins per task.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive teacher mobile app tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Attendance marked from the classroom</h3>
+            <p>Teachers mark their own class during the period itself, instead of waiting for a shared office computer after.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All teacher mobile app data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Marks and updates entered the same day</h3>
+            <p>Data entry happens from wherever the teacher is, so a day's work does not sit unrecorded until they reach a desktop.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Each teacher sees only their own classes</h3>
+            <p>The app scopes to a teacher's own timetable and records — not the whole school's data.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Substitutions reach teachers directly</h3>
+            <p>A last-minute schedule change is pushed to the phone instead of relying on a staff-room notice board.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>The mobile timetable is the real one</h3>
+            <p>What a teacher sees on their phone is the same schedule the office is working from, not a static printout.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Cuts the wait for shared computers</h3>
+            <p>Multiple teachers no longer queue for the same office desktop to log attendance or marks between classes.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Same login across every EduPortal screen</h3>
+            <p>Teachers use one account for attendance, marks and lesson plans rather than separate logins per task.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built for Pakistani school timetables</h3>
+            <p>Period structures, substitution patterns and bilingual interfaces match how local schools actually run the day.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works the same for one teacher or two hundred</h3>
+            <p>Adoption scales campus-wide without a different setup per teacher.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Teacher Mobile App connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Feeds straight into attendance and exam records</h3>
+            <p>What a teacher enters from the app updates the same records the office and parents see — no manual re-entry.</p>
           </article>
         </div>
       </div>

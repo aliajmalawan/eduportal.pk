@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Exam Datasheets &amp; Roll Slips?</h2>
-            <p>Exam Datasheets &amp; Roll Slips is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Print accurate seating plans and roll slips before exam day in one click. It centralizes workflows that schools previously handled with last-minute seating mistakes and manual roll slip typing, giving every stakeholder accurate information from a single login.</p>
+            <p>Exam Datasheets & Roll Slips generates room-wise seating plans and printed roll slips from the exam and room list already configured in Examination Management.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Exam Datasheets &amp; Roll Slips important for schools?</h2>
-            <p>Exam Datasheets &amp; Roll Slips matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A seating mistake discovered the morning of an exam is a mistake with no time left to fix. Generating seating and slips from real room capacities ahead of time is what avoids that scramble.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Exam Datasheets &amp; Roll Slips work?</h2>
-            <p>EduPortal's exam datasheets &amp; roll slips connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>The exam and available rooms are confirmed, seating plans generate per room based on class and student lists, and roll slips print per student from the same data — all before exam day, with time to spare.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, exam datasheets &amp; roll slips must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Datasheet layouts follow the format Pakistani boards expect for internal and external exams, and the same one-click generation works consistently whether it's one class or an entire school sitting an exam.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive exam datasheets &amp; roll slips tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Seating plans generated, not hand-drawn</h3>
+            <p>Room-wise seating comes from the class and student lists automatically, removing manual seat assignment.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All exam datasheets &amp; roll slips data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Roll slips printed per student</h3>
+            <p>Slips generate directly from the same exam data instead of being typed individually.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Room-wise accuracy by default</h3>
+            <p>Seating respects each room's actual capacity, cutting down on last-minute seating mistakes.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Built from the exam already configured</h3>
+            <p>Datasheets pull straight from Examination Management's setup — no separate data entry.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Time to spare before exam day</h3>
+            <p>Because generation is one step, datasheets and slips can be finalized well ahead instead of the night before.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Board-ready formats</h3>
+            <p>Datasheet layouts follow the format Pakistani boards expect for external and internal exams alike.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Coordinator peace of mind at scale</h3>
+            <p>The same one-click generation works whether it's one class sitting an exam or the entire school.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Consistent across every campus</h3>
+            <p>Multi-branch groups get datasheets in the same format and process at every campus.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Reprint a single slip without redoing the batch</h3>
+            <p>A lost or damaged roll slip can be reprinted individually.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Exam Datasheets &amp; Roll Slips connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects to results once the exam is done</h3>
+            <p>The same exam record used for datasheets feeds Examination Management's results afterward.</p>
           </article>
         </div>
       </div>

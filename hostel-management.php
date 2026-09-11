@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Hostel Management?</h2>
-            <p>Hostel Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Manage rooms, boarders, fees, and warden operations from one dashboard. It centralizes workflows that schools previously handled with manual room charts, missed hostel fees, and paper leave registers, giving every stakeholder accurate information from a single login.</p>
+            <p>Hostel & Accommodation Management tracks rooms and occupancy, boarder fees, and warden operations like leave requests and discipline notes, from one dashboard.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Hostel Management important for schools?</h2>
-            <p>Hostel Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A paper room chart and a separate hostel fee ledger drift apart the moment either one is updated without the other. One system for occupancy, billing and warden records keeps them in sync by default.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Hostel Management work?</h2>
-            <p>EduPortal's hostel management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Rooms are configured with real capacity, boarders are allocated against it, hostel fees bill alongside the regular fee cycle, and wardens log leave requests and discipline notes digitally instead of on paper.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, hostel management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Boarding fee structures and warden workflows reflect how residential campuses in Pakistan actually operate, and hostel billing shares the same aging report as tuition rather than needing a separate one.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive hostel management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Occupancy tracked against real room capacity</h3>
+            <p>Rooms are configured with their actual capacity, so occupancy is measured against a real limit, not a manual chart.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All hostel management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Hostel fees billed with regular fee cycles</h3>
+            <p>Boarding charges go through the same billing cycle as tuition, instead of a separate manual hostel ledger.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Leave requests logged, not lost on paper</h3>
+            <p>Boarders' leave requests are recorded digitally, replacing the paper register wardens used to keep.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Wardens get their own dashboard</h3>
+            <p>Occupancy, leave requests and discipline notes are visible to wardens directly, not relayed through the office.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Discipline notes tied to the student record</h3>
+            <p>Notes are logged against the boarder's profile, so the history travels with the student, not a separate hostel file.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>One aging report covers hostel and tuition</h3>
+            <p>Because hostel fees bill through the same cycle, a single aging report shows the full picture per family.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible to wardens on the move</h3>
+            <p>Occupancy and leave records can be checked from a phone, not only from an office desktop.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built for residential campuses in Pakistan</h3>
+            <p>Boarding fee structures and warden workflows reflect how local residential schools actually operate.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Works for one hostel block or several</h3>
+            <p>Room and occupancy tracking scales the same way across a single block or a multi-building campus.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Hostel Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects to fees and student records natively</h3>
+            <p>Hostel billing and boarder profiles share data with Fee Management and the Student Information System.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with visible occupancy, linked hostel billing, and warden-friendly workflows instead of reacting after problems escalate.</p>
+            <h3>Visible occupancy instead of a guess</h3>
+            <p>Owners and wardens see current occupancy rather than reconstructing it from a paper chart.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate hostel-management spreadsheet</h3>
+            <p>Room charts, billing and leave tracking replace what used to be three separate manual records.</p>
           </article>
         </div>
       </div>

@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Expenses &amp; Profit/Loss Tracking?</h2>
-            <p>Expenses &amp; Profit/Loss Tracking is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. See where money goes and how fee income compares to operating costs. It centralizes workflows that schools previously handled with owners discovering cash shortfalls weeks after expenses pile up, giving every stakeholder accurate information from a single login.</p>
+            <p>Expenses & Profit/Loss Tracking records spending by category — utilities, maintenance, supplies — and compares it against fee income to show real-time profit and loss.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Expenses &amp; Profit/Loss Tracking important for schools?</h2>
-            <p>Expenses &amp; Profit/Loss Tracking matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A cash shortfall discovered weeks after expenses have already piled up leaves no room to adjust. Seeing category-wise spend against income every month is what catches a budget problem while it's still fixable.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Expenses &amp; Profit/Loss Tracking work?</h2>
-            <p>EduPortal's expenses &amp; profit/loss tracking connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Expenses are logged under their category as they happen rather than reconstructed from receipts later, and because fee income is already tracked in Fee Management, the P&L comparison happens automatically rather than being assembled by hand.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, expenses &amp; profit/loss tracking must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Expense categories match how Pakistani school budgets are typically organized, and the same monthly P&L view scales from a single campus's budget to a consolidated view across a multi-branch group.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive expenses &amp; profit/loss tracking tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Spending broken down by category</h3>
+            <p>Utilities, maintenance and supplies are tracked separately, not lumped into one expense total.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All expenses &amp; profit/loss tracking data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Recorded as it happens, not reconstructed later</h3>
+            <p>Expenses log against their category the day they occur instead of being pieced together from receipts at month end.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Compared against real fee income automatically</h3>
+            <p>Because Fee Management already tracks collections, expenses are set against real income rather than an estimate.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Monthly P&L, not a year-end surprise</h3>
+            <p>Profit and loss is visible every month, so a cash shortfall is caught while there is still time to react.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Category-wise visibility for smarter budgeting</h3>
+            <p>Seeing which category is driving cost makes the next budget decision specific instead of a guess.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Same dashboard for owners and accountants</h3>
+            <p>Both roles look at the same current numbers, not two different versions reconciled separately.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible from office or app</h3>
+            <p>Expenses can be logged and reviewed from a desktop or a phone.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around how Pakistani schools categorize spend</h3>
+            <p>Utility, maintenance and supply categories match how local school budgets are already organized.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Scales from one campus's budget to a group's</h3>
+            <p>Category-wise tracking works the same way whether it is a single campus or several branches under one owner.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Expenses &amp; Profit/Loss Tracking connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Feeds the same books as Accounting</h3>
+            <p>Expense data connects directly into Accounting Management rather than living in a separate spreadsheet.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with category-wise spend visibility, monthly P&amp;L, and smarter budget calls instead of reacting after problems escalate.</p>
+            <h3>Smarter budget calls, not just recordkeeping</h3>
+            <p>Owners make budget decisions from current category-wise data instead of reacting after a shortfall is already felt.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate expense-tracking app</h3>
+            <p>Expense and P&L tracking is part of the same platform as fees and accounting, not a bolt-on tool.</p>
           </article>
         </div>
       </div>

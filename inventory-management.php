@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Inventory Management?</h2>
-            <p>Inventory Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Never run out of uniforms or lab supplies before the new session. It centralizes workflows that schools previously handled with surprise stockouts and no vendor purchase history, giving every stakeholder accurate information from a single login.</p>
+            <p>Inventory Management tracks stock — uniforms, lab supplies and other categories — with reorder alerts and vendor purchase history, so supplies do not run out before a new session.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Inventory Management important for schools?</h2>
-            <p>Inventory Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>A stockout discovered when a supply is actually needed is a stockout that already cost the school time. Reorder alerts set ahead of a threshold are what turn that into a routine restock instead of a scramble.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Inventory Management work?</h2>
-            <p>EduPortal's inventory management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>Stock is categorized and current levels logged, reorder alerts trigger before a category runs low, and purchases are tracked per vendor for cost comparison on the next order.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, inventory management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>Reorder timing accounts for real Pakistani supplier lead times, and category-wise tracking works the same way for a single storeroom or inventory spread across a multi-campus group.</p>
           </article>
         </div>
       </div>
@@ -182,74 +182,74 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive inventory management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>Reorder alerts before you actually run out</h3>
+            <p>Alerts trigger ahead of a shortage, so uniforms or lab supplies are reordered before the new session, not after.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All inventory management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Stock visibility per category</h3>
+            <p>Uniforms, lab supplies and other categories are tracked separately, so a shortfall in one does not hide in a general total.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Vendor purchase history you can compare</h3>
+            <p>Past purchases are logged per vendor, giving a reference point for cost control on the next order.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Current counts, not a guess</h3>
+            <p>Stock levels reflect what is actually logged, replacing the surprise stockouts that come from not tracking at all.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>Cost control category by category</h3>
+            <p>Spend per category is visible, making it clear where inventory cost is actually going.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Accessible from the store room or the office</h3>
+            <p>Stock can be checked and updated from wherever inventory is actually being handled.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Built around the supply cycles schools actually have</h3>
+            <p>Session-start uniform and lab-supply ordering patterns are the default use case, not a generic retail inventory tool.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Works for one storeroom or several campuses</h3>
+            <p>Category tracking and reorder alerts scale the same way across a single site or a multi-branch group.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Connects to canteen and procurement data</h3>
+            <p>Where relevant, inventory shares data with other modules instead of living in an isolated spreadsheet.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Inventory Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Set your own reorder threshold per vendor</h3>
+            <p>Alerts can be tuned to a vendor's actual lead time, not a fixed one-size-fits-all trigger.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="heart-handshake"></i></div>
-            <h3>Faster decision making</h3>
-            <p>Leaders spot issues early with stock visibility, reorder alerts, and cost control per category instead of reacting after problems escalate.</p>
+            <h3>Fewer new-session scrambles</h3>
+            <p>Reordering ahead of a shortage avoids the last-week rush to restock before students arrive.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Lower operational cost</h3>
-            <p>Reduce paper, printing, and manual labor — typical schools recover software cost within one fee cycle.</p>
+            <h3>No separate inventory spreadsheet to maintain</h3>
+            <p>Stock tracking lives in the same platform as the rest of school operations, not a disconnected file.</p>
           </article>
         </div>
       </div>

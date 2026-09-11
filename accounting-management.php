@@ -153,19 +153,19 @@ require __DIR__ . '/includes/header.php';
         <div class="fd-ai-grid">
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="help-circle"></i> What is Accounting Management?</h2>
-            <p>Accounting Management is a core module of EduPortal — AI-ready school management software Pakistan used by hundreds of campuses. Run school accounts with ledger, statements, and auditor-ready reports. It centralizes workflows that schools previously handled with fee income in one tool and expenses in another with no single truth, giving every stakeholder accurate information from a single login.</p>
+            <p>Accounting Management runs your school's books — chart of accounts, ledger entries, and financial statements — in one place rather than fee income in one tool and expenses in a spreadsheet.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="star"></i> Why is Accounting Management important for schools?</h2>
-            <p>Accounting Management matters because operational mistakes directly affect student experience and school reputation. When records are late or incomplete, parents lose trust, teachers duplicate effort, and owners fly blind on decisions. EduPortal helps schools professionalize back-office work so education stays the focus.</p>
+            <p>Two versions of the truth, one from fee collections and one from a separate expense sheet, is how a board inspection turns into a scramble. One ledger that both feed into is what keeps the books ready to open at any time.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="route"></i> How does EduPortal's Accounting Management work?</h2>
-            <p>EduPortal's accounting management connects staff dashboards, optional mobile apps, and parent-facing portals. Administrators configure rules once; daily users complete tasks in simple screens; reports and notifications flow automatically to the right people — principals, accountants, teachers, and families.</p>
+            <p>A chart of accounts is set up to match how your school already categorizes spending. Fee income posts in automatically from Fee Management, other transactions are entered as they happen, and statements compile from the same ledger.</p>
           </article>
           <article class="fd-ai-card reveal-fd">
             <h2><i data-lucide="map-pin"></i> Benefits for schools in Pakistan</h2>
-            <p>For schools in Pakistan, accounting management must respect local realities: multi-lingual families, WhatsApp as the primary channel, tight fee cycles, and board exam pressure. EduPortal supports Urdu/English workflows, SIM and WhatsApp messaging, PKR billing, and formats familiar to regional education boards — without forcing you to adopt foreign software habits.</p>
+            <p>The chart of accounts and reporting periods follow Pakistani school fee-cycle conventions, and consolidated books work the same way for a single campus or a multi-branch group under one owner.</p>
           </article>
         </div>
       </div>
@@ -182,62 +182,62 @@ require __DIR__ . '/includes/header.php';
           
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="zap"></i></div>
-            <h3>Save admin hours every week</h3>
-            <p>Automate repetitive accounting management tasks so your office team focuses on students, not spreadsheets.</p>
+            <h3>One ledger, not two spreadsheets</h3>
+            <p>Fee income and expenses sit in the same books instead of being reconciled from separate tools at month end.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="shield-check"></i></div>
-            <h3>Single source of truth</h3>
-            <p>All accounting management data lives inside EduPortal school ERP Pakistan — no duplicate tools or manual sync.</p>
+            <h3>Fee income posts automatically</h3>
+            <p>Collections from Fee Management flow into accounting on their own — nothing to re-enter by hand.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="clock"></i></div>
-            <h3>Real-time visibility for owners</h3>
-            <p>Principals and school owners see live dashboards instead of waiting for end-of-month summaries.</p>
+            <h3>Statements generated from real entries</h3>
+            <p>Financial statements compile from the ledger itself, so the reported numbers and the transactions behind them always match.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="trending-up"></i></div>
-            <h3>Parent trust &amp; transparency</h3>
-            <p>When families see accurate updates in the app, phone calls to the front desk drop dramatically.</p>
+            <h3>Books an auditor can open directly</h3>
+            <p>Every entry is logged as it happens, so a board inspection or external audit does not need weeks of cleanup first.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="users"></i></div>
-            <h3>Audit-ready records</h3>
-            <p>Every action is logged with timestamps — ideal for board inspections, franchisor reviews, and internal audits.</p>
+            <h3>A chart of accounts that matches how you think</h3>
+            <p>Ledger categories are configured to your school's own categories, not a generic accounting template.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="smartphone"></i></div>
-            <h3>Role-based security</h3>
-            <p>Teachers, accountants, and admins see only what their job requires. Sensitive data stays protected.</p>
+            <h3>Owner-ready clarity, not raw entries</h3>
+            <p>Principals and owners get a readable financial picture, not a transaction log they have to interpret themselves.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
-            <h3>Works on mobile &amp; desktop</h3>
-            <p>Staff update records from office computers or mobile apps — data syncs instantly across campus.</p>
+            <h3>Accessible from the office or on the move</h3>
+            <p>Statements and ledger entries can be reviewed from a desktop or a phone.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="check-circle"></i></div>
-            <h3>Built for Pakistani schools</h3>
-            <p>Fee calendars, Urdu/English workflows, local boards, and WhatsApp-first parent culture are supported out of the box.</p>
+            <h3>Built around Pakistani school fee cycles</h3>
+            <p>Local billing periods and reporting conventions are the default, not adapted from a generic accounting product.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="lock"></i></div>
-            <h3>Scales with enrollment</h3>
-            <p>Whether you have 200 or 2,000 students, performance stays fast during admission and exam peaks.</p>
+            <h3>Holds together at multi-campus scale</h3>
+            <p>Consolidated books work the same way whether it is one campus or several under one owner.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="globe"></i></div>
-            <h3>Integrated with full ERP</h3>
-            <p>Accounting Management connects natively to fees, attendance, exams, and finance — no brittle integrations.</p>
+            <h3>Connects natively to fees and expenses</h3>
+            <p>Accounting shares data with Fee Management and Expenses tracking without a separate import step.</p>
           </article>
         </div>
       </div>
