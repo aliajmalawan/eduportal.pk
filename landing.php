@@ -30,6 +30,7 @@ require __DIR__ . '/includes/head.php';
 ?>
 
   <!-- Urgency countdown -->
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="lp-urgency" role="status" aria-live="polite">
     <div class="lp-container lp-urgency-inner">
       <span><strong>Facebook Exclusive:</strong> Free onboarding + setup support ends in</span>
@@ -53,6 +54,7 @@ require __DIR__ . '/includes/head.php';
       <button type="button" class="lp-header-cta js-open-modal">Get Started</button>
     </div>
   </header>
+  <main id="main" tabindex="-1">
 
   <!-- Hero -->
   <section class="lp-hero">
@@ -136,32 +138,32 @@ require __DIR__ . '/includes/head.php';
       <div class="lp-pain-grid" style="margin-top:2rem">
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="calendar-clock"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">AI Timetable in Minutes</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">AI Timetable in Minutes</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">Generates clash-free class timetables for all sections and teachers — a task that used to take days, done in minutes.</p>
         </article>
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="scan-face"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">Smart Digital Attendance</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">Smart Digital Attendance</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">AI flags chronic absentees, sends automatic parent alerts, and generates monthly attendance analytics — all without manual effort.</p>
         </article>
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="calendar-range"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">Automated Datesheet</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">Automated Datesheet</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">AI builds balanced exam datesheets with zero subject clashes — and publishes to students and parents instantly.</p>
         </article>
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="file-badge"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">Instant Report Cards</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">Instant Report Cards</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">Marks entered once — AI aggregates results, calculates grades, and generates formatted report cards shared with parents in one click.</p>
         </article>
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="bell-dot"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">Smart Fee Reminders</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">Smart Fee Reminders</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">AI identifies defaulters and auto-sends personalized SMS &amp; WhatsApp fee reminders — better collection without awkward calls.</p>
         </article>
         <article class="lp-pain-card" style="border-top:3px solid #6366f1">
           <div class="lp-pain-icon" style="background:#ede9fe;color:#6366f1"><i data-lucide="message-square-text"></i></div>
-          <h4 style="font-weight:700;margin-bottom:0.4rem">AI Notice Generator</h4>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem">AI Notice Generator</h3>
           <p style="font-size:0.875rem;color:var(--lp-muted)">Draft school circulars and announcements in seconds. AI writes them — staff just review and publish to all parents instantly.</p>
         </article>
       </div>
@@ -370,4 +372,5 @@ require __DIR__ . '/includes/head.php';
 
 <?php require __DIR__ . '/includes/partials/demo-modal.php'; ?>
 
+  </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

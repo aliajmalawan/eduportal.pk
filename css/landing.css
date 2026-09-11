@@ -111,6 +111,11 @@ ul { list-style: none; }
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 1.25rem;
+  /* Measured at 28px tall on a phone -- too small to hit reliably, and it
+     is the landing page's only header action. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--lp-primary);
   color: #fff;
   font-weight: 700;
@@ -392,7 +397,7 @@ ul { list-style: none; }
   text-align: center;
   padding: 1.75rem 1.25rem;
 }
-.lp-price-head h3 {
+.lp-price-head h3, .lp-price-head h2 {
   font-size: 0.8125rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -772,3 +777,14 @@ body.modal-open {
 }
 .lp-guarantee span { display: flex; align-items: center; gap: 0.35rem; }
 .lp-guarantee i { width: 18px; }
+
+@media (max-width: 991px), (pointer: coarse) {
+  .lp-header-cta { min-height: 44px; }
+}
+
+/* Touch targets. Measured under 40px on a 390px viewport; 44px is the
+   accepted minimum. Width-triggered as well as pointer-triggered, because
+   a phone is the case that actually matters and it is testable. */
+@media (max-width: 991px), (pointer: coarse) {
+  .lp-billing-option { min-height: 44px; }
+}

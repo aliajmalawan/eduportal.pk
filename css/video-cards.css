@@ -12,6 +12,11 @@
   display: inline-flex;
   align-items: center;
   padding: 0.45rem 1.1rem;
+  /* Measured at 30px tall on a 390px viewport, well under the 44px touch
+     target guideline. The pill stays visually the same size on a mouse;
+     the extra height only applies where the pointer is coarse. */
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -294,4 +299,8 @@
 
 body.modal-open {
   overflow: hidden;
+}
+
+@media (max-width: 991px), (pointer: coarse) {
+  .filter-pill { min-height: 44px; padding-left: 1.25rem; padding-right: 1.25rem; }
 }

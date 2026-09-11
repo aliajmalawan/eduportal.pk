@@ -122,7 +122,7 @@ $noJobsText = ep_setting('careers_no_jobs_text', 'We do not have any open positi
                 <span class="job-badge job-badge--featured">Featured</span>
                 <?php endif; ?>
               </div>
-              <h3><a href="<?= ep_h($jobUrl) ?>"><?= ep_h($job['title']) ?></a></h3>
+              <h2><a href="<?= ep_h($jobUrl) ?>"><?= ep_h($job['title']) ?></a></h2>
               <?php if (!empty($job['summary'])): ?>
               <p class="job-card-summary"><?= ep_h($job['summary']) ?></p>
               <?php endif; ?>
@@ -183,17 +183,17 @@ $noJobsText = ep_setting('careers_no_jobs_text', 'We do not have any open positi
         <div class="careers-work-grid">
           <article class="careers-work-card">
             <i data-lucide="school" aria-hidden="true"></i>
-            <h3>Software schools rely on daily</h3>
+            <h2>Software schools rely on daily</h2>
             <p>EduPortal runs attendance, fees, exams and parent communication for <?= ep_h(ep_site_metric('total_clients')) ?> institutes and <?= ep_h(ep_site_metric('total_students')) ?> students. What you ship is in front of administrators, teachers and parents the same week.</p>
           </article>
           <article class="careers-work-card">
             <i data-lucide="layout-grid" aria-hidden="true"></i>
-            <h3>A broad product, not one screen</h3>
+            <h2>A broad product, not one screen</h2>
             <p>Twenty-six modules span admissions, finance, hostel, transport, library, payroll and the parent and teacher apps. There is real depth to work on rather than a single feature to maintain.</p>
           </article>
           <article class="careers-work-card">
             <i data-lucide="users" aria-hidden="true"></i>
-            <h3>A small team, close to the product</h3>
+            <h2>A small team, close to the product</h2>
             <p>We are a product team, so decisions are made quickly and you talk to the people using the software instead of hearing about them second-hand.</p>
           </article>
         </div>

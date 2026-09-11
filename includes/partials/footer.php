@@ -26,7 +26,23 @@ if ($siteLogo === '' || !is_file(dirname(__DIR__, 2) . '/' . ltrim($siteLogo, '/
         <div class="social-links">
           <?php foreach ($socialLinks as $social): ?>
           <a href="<?= ep_h($social['url']) ?>" aria-label="<?= ep_h($social['label']) ?>" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-<?= ep_h($social['icon']) ?>" style="font-size:16px"></i>
+            <?php
+            // Footer icons are Bootstrap Icons, but the admin-entered names are
+            // Lucide-style ("smartphone"), because the rest of the site uses Lucide.
+            // Bootstrap has no "smartphone", so the Google Play link rendered as an
+            // empty box on every page. Lucide cannot take over here: 1.43 ships no
+            // brand icons at all (facebook, linkedin, instagram, youtube).
+            // Platform is the more specific signal, so it is checked first.
+            $biByPlatform = [
+                'play_store' => 'google-play', 'app_store' => 'apple', 'x' => 'twitter-x',
+                'whatsapp' => 'whatsapp', 'youtube' => 'youtube', 'tiktok' => 'tiktok',
+            ];
+            $biAlias = ['smartphone' => 'phone', 'mobile' => 'phone', 'mail' => 'envelope', 'map-pin' => 'geo-alt', 'x' => 'twitter-x'];
+            $platformKey = strtolower((string) ($social['platform'] ?? ''));
+            $iconKey = strtolower(trim((string) ($social['icon'] ?? '')));
+            $biName = $biByPlatform[$platformKey] ?? ($biAlias[$iconKey] ?? $iconKey);
+            ?>
+            <i class="bi bi-<?= ep_h($biName) ?>" style="font-size:16px" aria-hidden="true"></i>
           </a>
           <?php endforeach; ?>
         </div>

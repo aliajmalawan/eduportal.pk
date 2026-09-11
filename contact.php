@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/cms.php';
+$useDemoModal = true;
 
 $navActive = 'contact';
 $contactItems = ep_get_contact_items(true);
@@ -41,7 +42,7 @@ require __DIR__ . '/includes/header.php';
           <?php if ($phones): ?>
           <article class="contact-card">
             <div class="contact-card-icon"><i data-lucide="phone"></i></div>
-            <h3><?= ep_h($phones[array_key_first($phones)]['label'] ?: 'Phone & WhatsApp') ?></h3>
+            <h2><?= ep_h($phones[array_key_first($phones)]['label'] ?: 'Phone & WhatsApp') ?></h2>
             <?php foreach ($phones as $p): ?>
             <a href="<?= ep_h($p['link_url'] ?: '#') ?>" class="primary-link" target="_blank" rel="noopener noreferrer"><?= ep_h($p['value']) ?></a>
             <?php endforeach; ?>
@@ -52,7 +53,7 @@ require __DIR__ . '/includes/header.php';
           <?php if ($emails): foreach ($emails as $e): ?>
           <article class="contact-card">
             <div class="contact-card-icon"><i data-lucide="mail"></i></div>
-            <h3><?= ep_h($e['label'] ?: 'Email') ?></h3>
+            <h2><?= ep_h($e['label'] ?: 'Email') ?></h2>
             <a href="<?= ep_h($e['link_url'] ?: 'mailto:' . $e['value']) ?>" class="primary-link"><?= ep_h($e['value']) ?></a>
             <p class="contact-sub">We typically reply within one business day</p>
           </article>
@@ -61,7 +62,7 @@ require __DIR__ . '/includes/header.php';
           <?php if ($addresses): foreach ($addresses as $a): ?>
           <article class="contact-card">
             <div class="contact-card-icon"><i data-lucide="map-pin"></i></div>
-            <h3><?= ep_h($a['label'] ?: 'Office Address') ?></h3>
+            <h2><?= ep_h($a['label'] ?: 'Office Address') ?></h2>
             <p><?= nl2br(ep_h($a['value'])) ?></p>
             <?php if ($a['link_url']): ?>
             <a href="<?= ep_h($a['link_url']) ?>" class="primary-link" target="_blank" rel="noopener noreferrer" style="margin-top:0.75rem;display:inline-block">Open in Google Maps</a>
@@ -72,7 +73,7 @@ require __DIR__ . '/includes/header.php';
           <?php if ($hours): foreach ($hours as $h): ?>
           <article class="contact-card">
             <div class="contact-card-icon"><i data-lucide="clock"></i></div>
-            <h3><?= ep_h($h['label'] ?: 'Business Hours') ?></h3>
+            <h2><?= ep_h($h['label'] ?: 'Business Hours') ?></h2>
             <p><?= nl2br(ep_h($h['value'])) ?></p>
             <?php if (ep_setting('business_hours_sunday')): ?>
             <p class="contact-sub"><?= ep_h(ep_setting('business_hours_sunday')) ?></p>
@@ -96,7 +97,7 @@ require __DIR__ . '/includes/header.php';
         <div class="contact-cta">
           <h2>Ready to transform your school?</h2>
           <p>Book a free demo and see how EduPortal simplifies fees, attendance, exams, and parent communication.</p>
-          <a href="<?= ep_h(ep_url('index.php')) ?>" class="btn btn-primary js-book-demo">Get Started</a>
+          <button type="button" class="btn btn-primary btn-lg js-open-modal">Book a Demo <i data-lucide="arrow-right" aria-hidden="true"></i></button>
         </div>
       </div>
     </section>
@@ -104,4 +105,5 @@ require __DIR__ . '/includes/header.php';
 
 <?php
 $epTrackPage = 'contact';
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

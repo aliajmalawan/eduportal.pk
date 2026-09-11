@@ -140,6 +140,15 @@ require __DIR__ . '/includes/header.php';
     </section>
   </main>
 
+<?php
+$ctaLabel     = 'Next step';
+$ctaHeading   = 'See what they are reviewing';
+$ctaText      = 'Book a walkthrough and judge EduPortal against how your office works today.';
+$ctaPrimary   = 'demo';
+$ctaSecondary = ['href' => ep_url('videos.php'), 'label' => 'Watch principals using it'];
+$ctaNote      = '';
+require __DIR__ . '/includes/partials/cta-band.php';
+?>
 <?php require __DIR__ . '/includes/partials/demo-modal.php'; ?>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

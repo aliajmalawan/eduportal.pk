@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/cms.php';
+$useDemoModal = true;
 
 $slug = isset($_GET['slug']) ? trim((string) $_GET['slug']) : '';
 $blog = $slug ? ep_get_blog_by_slug($slug) : null;
@@ -65,7 +66,7 @@ require __DIR__ . '/includes/header.php';
       <div class="blog-post-cta">
         <h3>See EduPortal in action</h3>
         <p>Discover how AI-driven school ERP can simplify your daily operations.</p>
-        <a href="<?= ep_h(ep_url('index.php')) ?>" class="btn btn-primary">Get Started</a>
+        <button type="button" class="btn btn-primary js-open-modal">Book a Demo</button>
       </div>
 
       <?php if ($related): ?>
@@ -98,4 +99,5 @@ require __DIR__ . '/includes/header.php';
 
 <?php
 $epTrackPage = 'blog:' . ($blog['slug'] ?? 'unknown');
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

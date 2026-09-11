@@ -38,3 +38,17 @@
     </form>
   </div>
 </div>
+
+<?php
+// The modal ships with everything it needs. Previously the behaviour lived in
+// js/feature-detail.js, so any page that included this markup without also
+// loading that page-specific script rendered a dead button over a working
+// dialog. Emitted once per request even if the partial is included twice.
+if (!defined('EP_DEMO_MODAL_ASSETS')) {
+    define('EP_DEMO_MODAL_ASSETS', true);
+    foreach (['js/country-codes.js', 'js/lead-form.js', 'js/demo-modal.js'] as $epModalScript) {
+        echo '<script src="' . ep_h(ep_asset_url($epModalScript)) . '" defer></script>' . "
+";
+    }
+}
+?>

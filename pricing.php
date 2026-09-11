@@ -66,6 +66,7 @@ $jsonLdSchema = ep_append_faq_schema($jsonLdSchema, $moduleFaqs, $canonicalUrl);
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 ?>
+<main id="main">
 
   <!-- Page hero -->
   <section class="page-hero">
@@ -115,7 +116,7 @@ require __DIR__ . '/includes/header.php';
               <li><i data-lucide="check"></i> Core ERP modules</li>
               <li><i data-lucide="check"></i> Up to 300 students</li>
             </ul>
-            <button type="button" class="btn btn-primary js-open-modal" data-package="Silver">Get Started</button>
+            <button type="button" class="btn btn-primary js-open-modal" data-package="Silver">Request a Demo</button>
           </div>
         </article>
         <article class="plan-card plan-card--featured" data-plan="gold">
@@ -138,7 +139,7 @@ require __DIR__ . '/includes/header.php';
               <li><i data-lucide="check"></i> Parent &amp; teacher apps</li>
               <li><i data-lucide="check"></i> Up to 800 students</li>
             </ul>
-            <button type="button" class="btn btn-primary js-open-modal" data-package="Gold">Get Started</button>
+            <button type="button" class="btn btn-primary js-open-modal" data-package="Gold">Request a Demo</button>
           </div>
         </article>
         <article class="plan-card" data-plan="diamond">
@@ -160,7 +161,7 @@ require __DIR__ . '/includes/header.php';
               <li><i data-lucide="check"></i> Hostel &amp; finance modules</li>
               <li><i data-lucide="check"></i> Up to 1200 students</li>
             </ul>
-            <button type="button" class="btn btn-primary js-open-modal" data-package="Diamond">Get Started</button>
+            <button type="button" class="btn btn-primary js-open-modal" data-package="Diamond">Request a Demo</button>
           </div>
         </article>
       </div>
@@ -335,7 +336,8 @@ require __DIR__ . '/includes/header.php';
       </div>
       <div class="compare-cta">
         <p>Ready to transform your school management?</p>
-        <button type="button" class="btn btn-primary js-open-modal" data-package="Pricing — General Inquiry">Get Started</button>
+        <button type="button" class="btn btn-primary btn-lg js-open-modal" data-package="Pricing — Contact Sales">Contact Sales <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <a href="<?= ep_h(ep_url('contact.php')) ?>" class="btn btn-outline">Other ways to reach us</a>
       </div>
     </div>
   </section>
@@ -455,4 +457,5 @@ require __DIR__ . '/includes/header.php';
   </div>
 </section>
 
+</main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

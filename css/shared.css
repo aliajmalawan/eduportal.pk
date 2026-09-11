@@ -192,7 +192,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 @media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:992px){.footer-grid{grid-template-columns:1.4fr repeat(4,1fr)}}
 .footer-brand p{font-size:.875rem;color:var(--color-text-muted);margin:.75rem 0 1rem;max-width:260px}
-.footer-col h5{font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+.footer-col h5, .footer-col h2{font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
 .footer-col ul{display:flex;flex-direction:column;gap:.5rem}
 .footer-col a{display:inline-block;font-size:.875rem;color:var(--color-text-muted);transition:color var(--transition),transform var(--transition)}
 .footer-col a:hover{color:var(--color-primary);transform:translateX(3px)}
@@ -655,4 +655,23 @@ h1,
 @media (prefers-reduced-motion: reduce) {
   .mobile-menu { transition: none; }
   .skip-link { transition: none; }
+}
+
+/* The mobile menu's CTA measured just under 44px. */
+@media (max-width: 991px), (pointer: coarse) {
+  .mobile-menu .btn { min-height: 44px; }
+}
+
+/* Touch targets inside the modals.
+   .btn-modal-submit / .btn-modal-cancel are each defined in five separate
+   stylesheets (demo-modal, feature-detail, index, landing, pricing) and
+   .video-close in three, all at single-class specificity. A matching rule
+   here would lose to whichever page stylesheet loads last, so these are
+   scoped to their overlay to win on specificity instead of order.
+   Measured at 37px on a 390px viewport -- and the submit button is the last
+   control in the lead funnel. */
+@media (max-width: 991px), (pointer: coarse) {
+  .modal-overlay .btn-modal-submit,
+  .modal-overlay .btn-modal-cancel { min-height: 44px; }
+  .video-modal-overlay .video-close { width: 44px; height: 44px; }
 }

@@ -51,7 +51,9 @@ $extraHeadHtml = $extraHeadHtml ?? '';
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <?php // Bootstrap Icons draws only the footer social icons (Lucide 1.43 has no brand glyphs), which sit far below the fold. Loading its 85 KB stylesheet as print-then-all takes it off the render-blocking path; the noscript copy keeps the icons for visitors without JavaScript. ?>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
   <?php
   // Any page that renders the Get Started modal needs its styles. Loading it
   // here, off the same flag that renders the partial, means a page can never

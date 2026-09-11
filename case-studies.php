@@ -67,4 +67,12 @@ require __DIR__ . '/includes/header.php';
 <?php
 $epTrackPage = 'case-studies-list';
 $extraBodyScripts = ['js/cs-reveal.js'];
+$ctaLabel     = 'Next step';
+$ctaHeading   = 'Run the same playbook at your institution';
+$ctaText      = 'We will walk through how these schools set EduPortal up, using your own fee structure and class list.';
+$ctaPrimary   = 'demo';
+$ctaSecondary = ['href' => ep_url('pricing.php'), 'label' => 'See pricing'];
+$ctaNote      = 'Free walkthrough / No card required';
+require __DIR__ . '/includes/partials/cta-band.php';
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

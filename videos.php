@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/cms.php';
+$useDemoModal = true;
 
 $navActive = 'videos';
 $videos = ep_get_video_testimonials(false);
@@ -132,4 +133,12 @@ require __DIR__ . '/includes/header.php';
 
 <?php
 $epTrackPage = 'videos-list';
+$ctaLabel     = 'Next step';
+$ctaHeading   = 'Hear it from them, then see it for yourself';
+$ctaText      = 'A short walkthrough on your own numbers - fees, attendance, exams and the parent app.';
+$ctaPrimary   = 'demo';
+$ctaSecondary = ['href' => ep_url('case-studies.php'), 'label' => 'Read the case studies'];
+$ctaNote      = 'Free walkthrough / No card required';
+require __DIR__ . '/includes/partials/cta-band.php';
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

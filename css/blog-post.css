@@ -170,7 +170,7 @@
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
 }
-.blog-post-cta h3 {
+.blog-post-cta h3, .blog-post-cta h2 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -233,7 +233,7 @@
 .blog-related-thumb--parents { background: linear-gradient(135deg, #2563eb, #60a5fa); }
 .blog-related-thumb--fees { background: linear-gradient(135deg, #059669, #34d399); }
 .blog-related-thumb i { width: 28px; height: 28px; color: #fff; }
-.blog-related-body h3 {
+.blog-related-body h3, .blog-related-body h2 {
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.35;

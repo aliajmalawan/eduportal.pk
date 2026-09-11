@@ -281,12 +281,16 @@
     /* Module rail. This replaced six saturated floating icons that were
        aria-hidden decoration: same visual interest, but it answers "what does
        it actually do" in five words a principal recognises. */
+    /* Five pills measured 558px against a 565px copy column: the labels fit
+       but the gaps pushed them over, orphaning "Parent app" on its own row.
+       Tighter padding and gap keep all five on one line from 1200px up, which
+       covers standard desktop; narrower viewports wrap normally. */
     .hero-modules {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: .5rem;
+      gap: .4rem;
       margin: 1.5rem 0 0;
       padding: 0;
     }
@@ -295,7 +299,7 @@
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      padding: .4rem .8rem;
+      padding: .4rem .65rem;
       font-size: .8125rem;
       font-weight: 500;
       color: var(--color-text-muted);
@@ -372,14 +376,17 @@
       margin: 0 auto;
       padding: 0 0 3rem;
     }
+    /* The screen sits inside its column. It used to run wider than the column
+       (calc(100% + 7rem)) as a deliberate bleed, but in the split layout that
+       pushed it past the container and the right-hand column of the dashboard
+       was clipped by the viewport edge. */
     @media (min-width: 992px) {
       .hero-dashboard {
         max-width: none;
-        width: calc(100% + 4rem);
+        width: 100%;
         padding-bottom: 0;
       }
     }
-    @media (min-width: 1280px) { .hero-dashboard { width: calc(100% + 7rem); } }
 
     /* Staged entrance: badge, headline, support, action, then the product —
        the order the visitor reads in. House curve and --t-reveal; the global
@@ -423,11 +430,14 @@
     .dashboard-mockup {
       display: block;
       position: relative;
+      /* Bezel: a thin light rim with the screen inset inside it, so the shot
+         reads as a device showing the product rather than an image dropped on
+         the page. */
+      padding: .5rem;
       border-radius: var(--radius-lg);
-      box-shadow: var(--plane-4);
+      background: linear-gradient(150deg, rgba(255,255,255,.9), rgba(255,255,255,.55));
       border: 1px solid var(--color-border);
-      overflow: hidden;
-      background: #fff;
+      box-shadow: var(--plane-4);
       line-height: 0;
       cursor: pointer;
       transition: box-shadow var(--t-ui) var(--ease), transform var(--t-ui) var(--ease);
@@ -445,6 +455,8 @@
       display: block;
       object-fit: cover;
       object-position: top center;
+      border-radius: calc(var(--radius-lg) - 6px);
+      border: 1px solid rgba(15, 23, 42, .07);
     }
     /* At full width:auto the image just shrinks uniformly with the viewport,
        so object-fit never gets a chance to act — every KPI card's text goes

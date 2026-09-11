@@ -35,7 +35,15 @@ $initials = static function (string $name): string {
   <main>
 
     <section class="page-hero team-hero">
-      <img class="team-hero-bg" src="<?= ep_h(ep_url('assets/careers-team.jpg')) ?>" alt="" loading="eager" decoding="async" aria-hidden="true" data-parallax="0.12">
+      <?php // The image is parallaxed, so it needs overscan: js/parallax.js
+            // translates it by up to 60px either way, and with the image sized
+            // exactly to its frame that movement exposed a strip of the white
+            // hero background at one edge. The wrapper does the clipping (still
+            // starting below the navbar, so the nav keeps a plain backdrop) while
+            // the image inside overscans past it. ?>
+      <span class="team-hero-media" aria-hidden="true">
+        <img class="team-hero-bg" src="<?= ep_h(ep_url('assets/careers-team.jpg')) ?>" alt="" loading="eager" decoding="async" data-parallax="0.12">
+      </span>
       <span class="team-hero-overlay" aria-hidden="true"></span>
       <div class="container">
         <span class="section-label">Our People</span>

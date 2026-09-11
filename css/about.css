@@ -146,7 +146,7 @@
   letter-spacing: .06em;
   margin-bottom: .4rem;
 }
-.timeline-content h4 {
+.timeline-content h4, .timeline-content h3, .timeline-content h2 {
   font-size: 1.0625rem;
   font-weight: 700;
   margin-bottom: .375rem;
@@ -189,7 +189,7 @@
   margin-bottom: 1rem;
 }
 .value-icon i { width: 22px; height: 22px; }
-.value-card h4 {
+.value-card h4, .value-card h3, .value-card h2 {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: .5rem;

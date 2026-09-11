@@ -191,7 +191,9 @@ $homeJsonLd = [
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <?php // Bootstrap Icons draws only the footer social icons (Lucide 1.43 has no brand glyphs), which sit far below the fold. Loading its 85 KB stylesheet as print-then-all takes it off the render-blocking path; the noscript copy keeps the icons for visitors without JavaScript. ?>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
   <?php // Pinned deliberately. At @latest an upstream release could change or
         // break every icon on the site with no deploy here. Bump this version
         // intentionally, after checking the icons still render. ?>
@@ -274,7 +276,7 @@ require __DIR__ . '/includes/header.php';
             <div class="hero-avatars" aria-hidden="true">
               <span></span><span></span><span></span><span></span><span></span>
             </div>
-            <span class="hero-social-text"><?= ep_h(ep_site_metric('total_clients')) ?> Trusted users</span>
+            <span class="hero-social-text"><?= ep_h(ep_site_metric('total_clients')) ?> institutions</span>
             <?php
             // Google rating + review count for the hero pill. Both values come
             // from ep_site_settings, written only by the Business Profile sync
@@ -689,15 +691,15 @@ require __DIR__ . '/includes/header.php';
         <p class="section-subtitle">Built for scale, security, and simplicity — from single campuses to multi-branch districts.</p>
       </div>
       <div class="why-grid reveal">
-        <div class="why-card"><i data-lucide="lock" style="width:28px"></i><h3>Bank-level Security</h3><p>Encrypted data at rest and in transit with SOC 2 practices.</p></div>
-        <div class="why-card"><i data-lucide="zap" style="width:28px"></i><h3>Lightning Fast</h3><p>Optimized cloud infrastructure for sub-second load times.</p></div>
-        <div class="why-card"><i data-lucide="headphones" style="width:28px"></i><h3>24/7 Support</h3><p>Dedicated onboarding and round-the-clock help desk.</p></div>
+        <div class="why-card"><i data-lucide="lock" style="width:28px"></i><h3>Secure Access</h3><p>Role-based permissions decide who can see fees, results and records, over encrypted connections.</p></div>
+        <div class="why-card"><i data-lucide="zap" style="width:28px"></i><h3>Quick to Use</h3><p>Cloud-hosted and built to stay responsive when the fee counter is busy.</p></div>
+        <div class="why-card"><i data-lucide="headphones" style="width:28px"></i><h3>Real Support</h3><p>Guided onboarding, and a help desk <?php $epHours = trim((string) ep_setting('business_hours_weekday', '')); echo $epHours !== '' ? 'open ' . ep_h($epHours) : 'during business hours'; ?>.</p></div>
         <div class="why-card"><i data-lucide="layers" style="width:28px"></i><h3>Multi-campus</h3><p>Manage branches, roles, and reporting from one dashboard.</p></div>
-        <div class="why-card"><i data-lucide="smartphone" style="width:28px"></i><h3>Mobile-first</h3><p>Native iOS &amp; Android apps for parents and teachers.</p></div>
+        <div class="why-card"><i data-lucide="smartphone" style="width:28px"></i><h3>Mobile-first</h3><p>Android apps for parents and teachers, with live alerts and results.</p></div>
         <div class="why-card"><i data-lucide="puzzle" style="width:28px"></i><h3>Easy Integrations</h3><p>Connect with Google, Zoom, payment gateways, and more.</p></div>
         <div class="why-card"><i data-lucide="globe" style="width:28px"></i><h3>Cloud Anywhere</h3><p>Access your ERP securely from any device, anywhere.</p></div>
         <div class="why-card"><i data-lucide="trending-up" style="width:28px"></i><h3>Scalable Plans</h3><p>Grow from 100 to 10,000+ students without switching tools.</p></div>
-        <div class="why-card"><i data-lucide="award" style="width:28px"></i><h3>Proven Results</h3><p>98% customer satisfaction across <?= ep_h(ep_site_metric('total_clients')) ?> institutions.</p></div>
+        <div class="why-card"><i data-lucide="award" style="width:28px"></i><h3>Proven at Scale</h3><p>In daily use at <?= ep_h(ep_site_metric('total_clients')) ?> institutions across Pakistan.</p></div>
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/cms.php';
+$useDemoModal = true;
 
 $navActive = 'blog';
 $blogs = ep_get_blogs();
@@ -76,4 +77,12 @@ require __DIR__ . '/includes/header.php';
 
 <?php
 $epTrackPage = 'blog-list';
+$ctaLabel     = 'Keep exploring';
+$ctaHeading   = 'See what the software actually does';
+$ctaText      = 'The articles cover the thinking. The product tour shows the screens your office would use every morning.';
+$ctaPrimary   = ['href' => ep_url('features.php'), 'label' => 'Explore the modules'];
+$ctaSecondary = ['href' => ep_url('pricing.php'), 'label' => 'See pricing'];
+$ctaNote      = '';
+require __DIR__ . '/includes/partials/cta-band.php';
+require __DIR__ . '/includes/partials/demo-modal.php';
 require __DIR__ . '/includes/footer.php';

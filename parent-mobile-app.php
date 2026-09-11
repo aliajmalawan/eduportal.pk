@@ -219,7 +219,7 @@ require __DIR__ . '/includes/header.php';
           <article class="fd-benefit-card reveal-fd">
             <div class="fd-benefit-icon"><i data-lucide="bar-chart-3"></i></div>
             <h3>Works on the phones parents already have</h3>
-            <p>No special hardware — just the app on a standard Android or iOS phone.</p>
+            <p>No special hardware — just the app on a standard Android phone.</p>
           </article>
 
           <article class="fd-benefit-card reveal-fd">

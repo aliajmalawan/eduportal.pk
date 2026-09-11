@@ -133,7 +133,10 @@ export function softwareApplication(opts = {}) {
     name: opts.name || SITE.name,
     applicationCategory: 'BusinessApplication',
     applicationSubCategory: 'School Management Software',
-    operatingSystem: 'Web, Android, iOS',
+    // Android only: there is a Google Play listing and no App Store one, and
+    // index.php's own JSON-LD already says 'Web, Android'. Re-running this
+    // build would otherwise re-inject an iOS claim the site cannot back.
+    operatingSystem: 'Web, Android',
     description: opts.description || SITE.description,
     url,
     image: SITE.screenshots,

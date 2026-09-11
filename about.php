@@ -100,49 +100,49 @@ require __DIR__ . '/includes/header.php';
         <div class="timeline-item">
           <div class="timeline-year">2018</div>
           <div class="timeline-content">
-            <h4>Founded</h4>
+            <h3>Founded</h3>
             <p>EduPortal was established with a core focus on fee management and student records for schools in Punjab.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2019</div>
           <div class="timeline-content">
-            <h4>First 50 Schools</h4>
+            <h3>First 50 Schools</h3>
             <p>Reached 50 partner institutes. Launched digital attendance tracking and SMS notification features.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2020</div>
           <div class="timeline-content">
-            <h4>Mobile App Launch</h4>
+            <h3>Mobile App Launch</h3>
             <p>Launched the parent and teacher mobile apps on Android, enabling real-time communication during challenging times.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2021</div>
           <div class="timeline-content">
-            <h4>100+ Institutes</h4>
+            <h3>100+ Institutes</h3>
             <p>Crossed the 100-institute milestone. Expanded to multi-campus management and WhatsApp integration.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2022</div>
           <div class="timeline-content">
-            <h4>AI Features Introduced</h4>
+            <h3>AI Features Introduced</h3>
             <p>Introduced smart analytics, face-recognition attendance, and automated report generation powered by AI.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2023</div>
           <div class="timeline-content">
-            <h4>500+ Institutes Nationwide</h4>
+            <h3>500+ Institutes Nationwide</h3>
             <p>Expanded operations beyond Punjab to serve schools across Khyber Pakhtunkhwa, Sindh, and Azad Kashmir.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2024–25</div>
           <div class="timeline-content">
-            <h4>700+ and Growing</h4>
+            <h3>700+ and Growing</h3>
             <p>Proudly serving 700+ institutes. Launched advanced LMS, exam datasheets, canteen POS, and hostel management.</p>
           </div>
         </div>
@@ -160,33 +160,33 @@ require __DIR__ . '/includes/header.php';
       <div class="values-grid">
         <div class="value-card">
           <div class="value-icon"><i data-lucide="heart"></i></div>
-          <h4>Passion for Education</h4>
+          <h3>Passion for Education</h3>
           <p>We believe technology can unlock the full potential of every student, teacher, and school leader in Pakistan.</p>
         </div>
         <div class="value-card">
           <div class="value-icon"><i data-lucide="users"></i></div>
-          <h4>Community First</h4>
+          <h3>Community First</h3>
           <p>Built by people who understand local schools — our solutions are shaped by feedback from real educators.</p>
         </div>
         <div class="value-card">
           <div class="value-icon"><i data-lucide="shield-check"></i></div>
-          <h4>Trust & Transparency</h4>
+          <h3>Trust & Transparency</h3>
           <p>We keep data safe, pricing clear, and communication honest. No hidden fees, no surprises.</p>
         </div>
         <div class="value-card">
           <div class="value-icon"><i data-lucide="trending-up"></i></div>
-          <h4>Relentless Improvement</h4>
+          <h3>Relentless Improvement</h3>
           <p>We ship updates every month based on what our schools actually need — not what looks good on paper.</p>
         </div>
         <div class="value-card">
           <div class="value-icon"><i data-lucide="globe"></i></div>
-          <h4>Made for Pakistan</h4>
+          <h3>Made for Pakistan</h3>
           <p>Urdu support, PKR billing, local bank integrations, and features tuned for how Pakistani schools operate.</p>
         </div>
         <div class="value-card">
           <div class="value-icon"><i data-lucide="award"></i></div>
-          <h4>Proven Track Record</h4>
-          <p>With <?= ep_h(ep_site_metric('total_clients')) ?> schools and 98% satisfaction, our results speak for themselves — and we're just getting started.</p>
+          <h3>Proven Track Record</h3>
+          <p>With <?= ep_h(ep_site_metric('total_clients')) ?> schools running on EduPortal every day, our results speak for themselves — and we're just getting started.</p>
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@ require __DIR__ . '/includes/header.php';
       <h2>Ready to Join <?= ep_h(ep_site_metric('total_clients')) ?> Schools?</h2>
       <p>Let us show you how EduPortal can transform your institute — book a free personalized demo today.</p>
       <button type="button" class="btn btn-primary btn-lg js-open-modal">
-        Book a Free Demo <i data-lucide="arrow-right"></i>
+        Book a Demo <i data-lucide="arrow-right"></i>
       </button>
     </div>
   </section>

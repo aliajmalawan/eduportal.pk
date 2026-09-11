@@ -212,6 +212,21 @@
   </IfModule>
 </IfModule>
 
+# Fallback for servers without mod_filter. AddOutputFilterByType lives in
+# mod_filter, so the block above is skipped entirely wherever that module is
+# off -- XAMPP ships it commented out, and on this machine nothing at all was
+# being compressed. AddOutputFilter (mod_mime) and SetOutputFilter (core)
+# need no mod_filter. Guarded on !mod_filter so the two paths never overlap.
+<IfModule mod_deflate.c>
+  <IfModule !mod_filter.c>
+    AddOutputFilter DEFLATE css js mjs svg xml txt json webmanifest
+    # PHP output (HTML and JSON) has no static extension to match on.
+    <FilesMatch "\.php$">
+      SetOutputFilter DEFLATE
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+
 # Browser caching. Static assets carry a datestamp in their filename, so they
 # can be cached hard; generated HTML must not be, or CMS edits would not
 # appear until a visitor's cache expired.

@@ -58,7 +58,7 @@
   margin-bottom: 1rem;
 }
 .contact-card-icon i { width: 24px; height: 24px; }
-.contact-card h3 {
+.contact-card h3, .contact-card h2 {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;

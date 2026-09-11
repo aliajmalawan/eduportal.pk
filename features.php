@@ -5,7 +5,10 @@ $pageTitle        = 'All School ERP Features — Student, Fees, Exams &amp; Pare
 $pageDescription  = 'Explore 22+ EduPortal features: student records, digital attendance, fee management, exams, parent mobile app, finance, hostel and multi-campus ERP.';
 $canonicalUrl     = ep_canonical_url();
 $navActive        = 'features';
-$useDemoModal     = false;
+// On: this page lists every module, so it is where a visitor is most likely
+// to be ready to ask for a demo. With it off, the nav's "Book a Demo" fell
+// back to a plain link to the homepage and this page could not convert.
+$useDemoModal     = true;
 $extraStylesheets = ['css/shared.css'];
 $epTrackPage      = 'features';
 $inlineStyles     = '
@@ -329,6 +332,15 @@ require __DIR__ . '/includes/header.php';
     <!-- 1. EduPortal Key Features -->
     <section class="feat-category" id="key-features">
       <div class="container">
+        <?php // Every other category on this page opens with a header; this
+              // one had none, so its cards went straight from the page <h1>
+              // to <h3> -- a skipped level for screen-reader navigation, and
+              // the only unlabelled group in the list. ?>
+        <div class="feat-category-header">
+          <span class="section-label">Core Modules</span>
+          <h2>Academics &amp; Daily Operations</h2>
+          <p>The modules a school runs on every day — student records, attendance, fees, exams, timetables, lesson plans, library, transport, hostel and canteen.</p>
+        </div>
 
         <article class="feat-block feat-block--left">
           <div class="feat-visual">
@@ -727,4 +739,5 @@ require __DIR__ . '/includes/header.php';
     </section>
   </main>
 
+<?php require __DIR__ . '/includes/partials/demo-modal.php'; ?>
 <?php require __DIR__ . '/includes/footer.php'; ?>
