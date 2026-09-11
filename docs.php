@@ -77,6 +77,13 @@ if ($slug === '') {
       </section>
     </main>
     <?php
+    $ctaLabel     = 'Need a hand';
+    $ctaHeading   = 'Talk to someone who sets these up daily';
+    $ctaText      = 'If the guides do not cover your case, our team will walk through it with you directly.';
+    $ctaPrimary   = 'demo';
+    $ctaSecondary = ['href' => ep_url('contact.php'), 'label' => 'Contact support'];
+    $ctaNote      = '';
+    require __DIR__ . '/includes/partials/cta-band.php';
     require __DIR__ . '/includes/partials/demo-modal.php';
     require __DIR__ . '/includes/footer.php';
     exit;
